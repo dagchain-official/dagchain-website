@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@font-face {
+  font-family: 'Nasalization';
+  src: url('/assets/Nasalization Rg.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 220 9% 46%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 220 9% 46%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 220 9% 46%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 220 9% 46%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-inter;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600 bg-clip-text text-transparent;
+  }
+  
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  }
+  
+  .glow-gray {
+    box-shadow: 0 0 20px rgba(107, 114, 128, 0.3);
+  }
+  
+  .glow-gray-strong {
+    box-shadow: 0 0 40px rgba(107, 114, 128, 0.6);
+  }
+  
+  .gradient-border {
+    position: relative;
+    background: linear-gradient(45deg, #6B7280, #9CA3AF, #6B7280);
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+  }
+  
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background: white;
+    border-radius: inherit;
+  }
+  
+  .neumorphic {
+    background: #ffffff;
+    box-shadow: 8px 8px 16px rgba(163, 177, 198, 0.15), -8px -8px 16px rgba(255, 255, 255, 0.7);
+  }
+  
+  .neumorphic-inset {
+    background: #ffffff;
+    box-shadow: inset 4px 4px 8px rgba(163, 177, 198, 0.15), inset -4px -4px 8px rgba(255, 255, 255, 0.7);
+  }
+  
+  .neumorphic-hover:hover {
+    box-shadow: inset 2px 2px 4px rgba(163, 177, 198, 0.2), inset -2px -2px 4px rgba(255, 255, 255, 0.8);
+  }
+  
+  .neuro-base {
+    background: #ffffff;
+    box-shadow: 12px 12px 24px rgba(163, 177, 198, 0.3), -12px -12px 24px rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(163, 177, 198, 0.1);
+  }
+  
+  .neuro-button {
+    background: #ffffff;
+    box-shadow: 6px 6px 12px rgba(163, 177, 198, 0.2), -6px -6px 12px rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(163, 177, 198, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .neuro-button:hover {
+    box-shadow: 8px 8px 16px rgba(163, 177, 198, 0.25), -8px -8px 16px rgba(255, 255, 255, 0.9);
+  }
+  
+  .neuro-inset {
+    background: #ffffff;
+    box-shadow: inset 6px 6px 12px rgba(163, 177, 198, 0.15), inset -6px -6px 12px rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(163, 177, 198, 0.1);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #6B7280, #9CA3AF);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #4B5563, #6B7280);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove default button styles */
+button {
+  @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+}
+
+/* Circular favicon */
+link[rel="icon"],
+link[rel="shortcut icon"],
+link[rel="apple-touch-icon"] {
+  border-radius: 50%;
+}
