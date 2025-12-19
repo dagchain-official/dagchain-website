@@ -124,11 +124,11 @@ export function Navbar() {
             <Button
               variant="neumorphic"
               size="default"
-              className="font-semibold"
-              onClick={() => window.open('https://dashboard.DAGChain.network', '_blank')}
+              className="font-semibold cursor-not-allowed opacity-60"
+              disabled
             >
               <Wallet className="w-4 h-4 mr-2" />
-              ONBOARD
+              COMING SOON
             </Button>
           </div>
 
@@ -201,11 +201,11 @@ export function Navbar() {
                   <Button
                     variant="neumorphic"
                     size="default"
-                    className="w-full font-semibold"
-                    onClick={() => window.open('https://dashboard.DAGChain.network', '_blank')}
+                    className="w-full font-semibold cursor-not-allowed opacity-60"
+                    disabled
                   >
                     <Wallet className="w-4 h-4 mr-2" />
-                    ONBOARD
+                    COMING SOON
                   </Button>
                 </div>
               </div>
