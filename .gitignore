@@ -117,3 +117,7 @@ temp/
 # EXCLUDE DASHBOARDS - Only website goes to GitHub
 admin-panel/
 presale-app/
+
+# EXCLUDE DOCUMENTATION FILES (may contain sensitive info)
+*.md
+!README.md
