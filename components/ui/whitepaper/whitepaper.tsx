@@ -664,7 +664,7 @@ export default function WhitepaperPage() {
                     {/* Expandable Technical Deep Dive */}
                     <div className="my-8">
                       <button
-                        onClick={() => toggleAccordion('layer2-technical')}
+                        onClick={() => toggleAccordion('layer1-technical')}
                         className="w-full neuro-button p-4 rounded-xl flex items-center justify-between text-left group"
                       >
                         <span className="font-semibold text-gray-800 group-hover:text-gray-900 transition-colors duration-300 font-nasalization">
@@ -672,14 +672,14 @@ export default function WhitepaperPage() {
                         </span>
                         <ChevronDown 
                           className={`transition-transform duration-300 ${
-                            expandedAccordions.includes('layer2-technical') ? 'rotate-180' : ''
+                            expandedAccordions.includes('layer1-technical') ? 'rotate-180' : ''
                           }`} 
                           size={20} 
                         />
                       </button>
                       
                       <AnimatePresence>
-                        {expandedAccordions.includes('layer2-technical') && (
+                        {expandedAccordions.includes('layer1-technical') && (
                           <motion.div
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: 'auto', opacity: 1 }}
@@ -2423,7 +2423,7 @@ export default function WhitepaperPage() {
                           <div className="text-sm font-bold text-gray-800">Years 0-3</div>
                           <div className="text-xs text-gray-600 mt-1">High Rewards</div>
                           <div className="mt-2 p-2 bg-gray-50 rounded-lg border border-gray-200 shadow-[inset_4px_4px_8px_rgba(163,177,198,0.15),inset_-4px_-4px_8px_rgba(255,255,255,0.8)]">
-                            <div className="text-xs font-semibold text-gray-800">1.2B DGC</div>
+                            <div className="text-xs font-semibold text-gray-800">400M DGC</div>
                             <div className="text-xs text-gray-600">50% of mintable</div>
                           </div>
                         </div>
@@ -2434,7 +2434,7 @@ export default function WhitepaperPage() {
                           <div className="text-sm font-bold text-gray-800">Years 3-6</div>
                           <div className="text-xs text-gray-600 mt-1">Declining Curve</div>
                           <div className="mt-2 p-2 bg-gray-50 rounded-lg border border-gray-200 shadow-[inset_4px_4px_8px_rgba(163,177,198,0.15),inset_-4px_-4px_8px_rgba(255,255,255,0.8)]">
-                            <div className="text-xs font-semibold text-gray-800">600M DGC</div>
+                            <div className="text-xs font-semibold text-gray-800">200M DGC</div>
                             <div className="text-xs text-gray-600">25% of mintable</div>
                           </div>
                         </div>
@@ -2445,7 +2445,7 @@ export default function WhitepaperPage() {
                           <div className="text-sm font-bold text-gray-800">Years 6-9</div>
                           <div className="text-xs text-gray-600 mt-1">Lower Emissions</div>
                           <div className="mt-2 p-2 bg-gray-50 rounded-lg border border-gray-200 shadow-[inset_4px_4px_8px_rgba(163,177,198,0.15),inset_-4px_-4px_8px_rgba(255,255,255,0.8)]">
-                            <div className="text-xs font-semibold text-gray-800">400M DGC</div>
+                            <div className="text-xs font-semibold text-gray-800">133M DGC</div>
                             <div className="text-xs text-gray-600">16.7% of mintable</div>
                           </div>
                         </div>
@@ -2455,8 +2455,8 @@ export default function WhitepaperPage() {
                           <div className="w-4 h-4 bg-gray-500 rounded-full border-4 border-white shadow-lg mb-2"></div>
                           <div className="text-sm font-bold text-gray-800">Years 9-12</div>
                           <div className="text-xs text-gray-600 mt-1">Final Phase</div>
-                          <div className="mt-2 p-2 bg-gray-50 rounded-lg border border-gray-200">
-                            <div className="text-xs font-semibold text-gray-700">200M DGC</div>
+                          <div className="mt-2 p-2 bg-gray-50 rounded-lg border border-gray-200 shadow-[inset_4px_4px_8px_rgba(163,177,198,0.15),inset_-4px_-4px_8px_rgba(255,255,255,0.8)]">
+                            <div className="text-xs font-semibold text-gray-800">67M DGC</div>
                             <div className="text-xs text-gray-600">Remaining supply</div>
                           </div>
                         </div>
@@ -2465,37 +2465,13 @@ export default function WhitepaperPage() {
                   </div>
 
                   {/* Emission Details */}
-                  <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                    <div className="p-4 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-gray-200 shadow-[inset_4px_4px_8px_rgba(163,177,198,0.15),inset_-4px_-4px_8px_rgba(255,255,255,0.8)]">
-                      <div className="flex items-center space-x-2 mb-2">
-                        <span className="text-sm font-semibold text-gray-800">Node Rewards</span>
+                  <div className="grid grid-cols-1 gap-4">
+                    <div className="p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-gray-200 shadow-[inset_4px_4px_8px_rgba(163,177,198,0.15),inset_-4px_-4px_8px_rgba(255,255,255,0.8)]">
+                      <div className="flex items-center space-x-2 mb-3">
+                        <span className="text-lg font-semibold text-gray-800">Validator Node Rewards</span>
                       </div>
-                      <div className="text-xs text-gray-600 mb-2">Incentivizes network security & decentralization</div>
-                      <div className="text-sm font-bold text-gray-800">Community-owned blockchain</div>
-                    </div>
-                    
-                    <div className="p-4 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-gray-200 shadow-[inset_4px_4px_8px_rgba(163,177,198,0.15),inset_-4px_-4px_8px_rgba(255,255,255,0.8)]">
-                      <div className="flex items-center space-x-2 mb-2">
-                        <span className="text-sm font-semibold text-gray-800">Staking Rewards</span>
-                      </div>
-                      <div className="text-xs text-gray-600 mb-2">Encourages liquidity locking</div>
-                      <div className="text-sm font-bold text-gray-800">Beyond direct validators</div>
-                    </div>
-                    
-                    <div className="p-4 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-gray-200 shadow-[inset_4px_4px_8px_rgba(163,177,198,0.15),inset_-4px_-4px_8px_rgba(255,255,255,0.8)]">
-                      <div className="flex items-center space-x-2 mb-2">
-                        <span className="text-sm font-semibold text-gray-800">Ecosystem Fund</span>
-                      </div>
-                      <div className="text-xs text-gray-600 mb-2">AI-native projects, hackathons, integrations</div>
-                      <div className="text-sm font-bold text-gray-800">Fuels ecosystem growth</div>
-                    </div>
-                    
-                    <div className="p-4 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-gray-200 shadow-[inset_4px_4px_8px_rgba(163,177,198,0.15),inset_-4px_-4px_8px_rgba(255,255,255,0.8)]">
-                      <div className="flex items-center space-x-2 mb-2">
-                        <span className="text-sm font-semibold text-gray-800">Community Airdrops</span>
-                      </div>
-                      <div className="text-xs text-gray-600 mb-2">Early Testnet users, contributors, AI creators</div>
-                      <div className="text-sm font-bold text-gray-800">Rewards contributors</div>
+                      <div className="text-sm text-gray-600 mb-2">All 800M mintable tokens (20% of total supply) are allocated to validator node rewards, incentivizing network security and decentralization over 10-12 years.</div>
+                      <div className="text-base font-bold text-gray-800">Community-owned, validator-powered blockchain</div>
                     </div>
                   </div>
                 </div>
@@ -2606,7 +2582,7 @@ export default function WhitepaperPage() {
                     <div className="p-2 bg-gradient-to-r from-gray-600 to-gray-800 shadow-[inset_4px_4px_8px_rgba(163,177,198,0.2),inset_-4px_-4px_8px_rgba(255,255,255,0.8)] rounded-lg">
                     </div>
                     
-                    <span className="text-sm text-gray-800 font-medium">Community First-Mined L2</span>
+                    <span className="text-sm text-gray-800 font-medium">Community First-Mined L1</span>
                   </div>
 
                   <div className="space-y-6">
@@ -2617,11 +2593,11 @@ export default function WhitepaperPage() {
                         </div>
                         <div>
                           <h4 className="text-lg font-bold text-gray-800 mb-3">
-                            Unlike Most L2s That Are Fully Pre-Mined & VC-Heavy
+                            Unlike Most L1s That Are Fully Pre-Mined & VC-Heavy
                           </h4>
                           <p className="text-gray-700 leading-relaxed mb-4">
-                            DAGChain becomes the <span className="font-bold text-gray-800">first Layer-2 blockchain</span> where the 
-                            <span className="font-bold text-gray-800"> majority of supply (50%) is mined by the validator Nodes</span>, 
+                            DAGChain becomes the <span className="font-bold text-gray-800">first Layer-1 blockchain</span> where the 
+                            <span className="font-bold text-gray-800"> significant supply  is mined by the validator Nodes</span>, 
                             aligning closer with Bitcoin's ethos but optimized for Ai Projects + developer-centric utility.
                           </p>
                           <div className="flex items-center space-x-2 text-sm text-gray-600">
@@ -2633,12 +2609,12 @@ export default function WhitepaperPage() {
 
                     {/* Comparison Grid */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                      {/* Traditional L2s */}
+                      {/* Traditional L1s */}
                       <div className="p-5 bg-gray-50 rounded-xl border border-gray-200 shadow-[inset_4px_4px_8px_rgba(163,177,198,0.15),inset_-4px_-4px_8px_rgba(255,255,255,0.8)]">
                         <div className="flex items-center space-x-3 mb-4">
                           <div className="p-2 bg-gray-100 rounded-lg">
                           </div>
-                          <h4 className="text-base font-bold text-gray-800">Traditional L2s</h4>
+                          <h4 className="text-base font-bold text-gray-800">Traditional L1s</h4>
                         </div>
                         <ul className="space-y-2 text-sm text-gray-700">
                           <li className="flex items-center space-x-2">
@@ -2730,7 +2706,7 @@ export default function WhitepaperPage() {
                           status: "planning",
                           highlights: [
                             "Brand identity finalized → DAGChain.network hub",
-                            "Research on existing L2 limitations completed",
+                            "Research on existing L1 limitations completed",
                             "Whitepaper drafted with AI-native primitives",
                             "Strategic advisor discussions initiated"
                           ]
