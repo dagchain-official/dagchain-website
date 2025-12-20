@@ -80,6 +80,7 @@ export function WelcomeScreen({ onComplete }: WelcomeScreenProps) {
             style={{ 
               width: '100%', 
               height: '100%',
+              filter: 'grayscale(100%)',
               transform: 'translateZ(0)',
               WebkitTransform: 'translateZ(0)',
               backfaceVisibility: 'hidden',
