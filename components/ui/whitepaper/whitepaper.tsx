@@ -15,7 +15,7 @@ export default function WhitepaperPage() {
 
   // Chart data for interactive donut chart - All allocations
   const preminedData = [
-    // Preminted (67%)
+    // Preminted (80%)
     { name: 'Team', value: 5, tokens: '200M DGC', color: '#6b7280' },
     { name: 'Advisor', value: 2, tokens: '80M DGC', color: '#9ca3af' },
     { name: 'Marketing & Community Airdrop', value: 6, tokens: '240M DGC', color: '#d1d5db' },
@@ -1988,9 +1988,9 @@ export default function WhitepaperPage() {
                     <div className="text-lg font-semibold text-gray-700">DGC Tokens</div>
                     <div className="mt-4 grid grid-cols-2 gap-4 text-center">
                       <div className="p-3 bg-white rounded-xl border border-gray-100">
-                        <div className="text-2xl font-bold text-gray-800">67%</div>
+                        <div className="text-2xl font-bold text-gray-800">80%</div>
                         <div className="text-xs text-gray-600">Preminted</div>
-                        <div className="text-sm font-semibold text-gray-700">2.68B DGC</div>
+                        <div className="text-sm font-semibold text-gray-700">3.2B DGC</div>
                         <div className="text-xs text-gray-500 mt-1">Initial distribution & operations</div>
                       </div>
                       <div className="p-3 bg-white rounded-xl border border-gray-100">
@@ -2014,7 +2014,7 @@ export default function WhitepaperPage() {
                     
                     <div className="mb-4 p-3 bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg border border-gray-200 shadow-[inset_4px_4px_8px_rgba(163,177,198,0.15),inset_-4px_-4px_8px_rgba(255,255,255,0.8)]">
                       <p className="text-xs text-gray-600 leading-relaxed">
-                        <span className="font-semibold text-gray-800">Preminted (67%)</span> - Tokens created at launch for initial distribution and operations. 
+                        <span className="font-semibold text-gray-800">Preminted (80%)</span> - Tokens created at launch for initial distribution and operations. 
                         <span className="font-semibold text-gray-800 ml-2">Mintable (20%)</span> - Network rewards and incentives minted over time.
                       </p>
                     </div>
@@ -2022,7 +2022,7 @@ export default function WhitepaperPage() {
                     <div className="space-y-3">
                       {/* Preminted Allocations */}
                       <div className="bg-gray-50 rounded-lg p-3 border border-gray-200 shadow-[inset_4px_4px_8px_rgba(163,177,198,0.15),inset_-4px_-4px_8px_rgba(255,255,255,0.8)]">
-                        <div className="text-xs font-semibold text-gray-800 mb-2 uppercase tracking-wide">Preminted (67%)</div>
+                        <div className="text-xs font-semibold text-gray-800 mb-2 uppercase tracking-wide">Preminted (80%)</div>
                         <div className="space-y-2">
                           <div className="flex justify-between items-center p-2 bg-white rounded-lg border border-gray-100">
                             <div className="flex items-center space-x-2">
@@ -2239,7 +2239,7 @@ export default function WhitepaperPage() {
                   {/* Pre-Mined Allocations Table */}
                   <div className="neuro-inset p-6 rounded-2xl">
                     <div className="flex items-center space-x-2 mb-4">
-                      <h3 className="text-lg font-bold text-gray-800">Preminted Allocation (67%)</h3>
+                      <h3 className="text-lg font-bold text-gray-800">Preminted Allocation (80%)</h3>
                     </div>
                     
                     <div className="overflow-x-auto">

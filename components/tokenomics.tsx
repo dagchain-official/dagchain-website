@@ -11,8 +11,8 @@ export function Tokenomics() {
   const tokenomicsData = {
     totalSupply: 4000000000,
     preminted: {
-      total: 2680000000,
-      percentage: 67,
+      total: 3200000000,
+      percentage: 80,
       allocations: [
         {
           name: "Team",
@@ -389,7 +389,7 @@ export function Tokenomics() {
               <div className="grid md:grid-cols-2 gap-8">
                 {/* Preminted Overview */}
                 <div className="bg-gray-50 p-6 shadow-[inset_12px_12px_24px_rgba(163,177,198,0.2),inset_-12px_-12px_24px_rgba(255,255,255,0.8)] border border-gray-200 rounded-2xl">
-                  <h4 className="text-xl font-bold text-gray-900 mb-4 font-nasalization">Preminted (67%)</h4>
+                  <h4 className="text-xl font-bold text-gray-900 mb-4 font-nasalization">Preminted (80%)</h4>
                   <div className="space-y-3">
                     {tokenomicsData.preminted.allocations.filter(a => a.percentage > 0).map((allocation, index) => (
                       <div 

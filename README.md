@@ -1,6 +1,6 @@
 # DAGChain Landing Page
 
-A visually stunning, pixel-perfect landing page for DAGChain - an Ethereum Layer 1 blockchain project focused on Agentic AI and no-code/vibe coding user onboarding.
+A visually stunning, pixel-perfect landing page for DAGChain - A Layer 1 blockchain project focused on Agentic AI and no-code/vibe coding user onboarding.
 
 ## Features
 
