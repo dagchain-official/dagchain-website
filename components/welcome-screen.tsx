@@ -81,15 +81,16 @@ export function WelcomeScreen({ onComplete }: WelcomeScreenProps) {
               width: '100%', 
               height: '100%',
               filter: 'grayscale(100%)',
-              transform: 'translateZ(0)',
-              WebkitTransform: 'translateZ(0)',
+              transform: 'translate3d(0, 0, 0)',
+              WebkitTransform: 'translate3d(0, 0, 0)',
               backfaceVisibility: 'hidden',
               WebkitBackfaceVisibility: 'hidden',
-              perspective: 1000,
-              WebkitPerspective: 1000,
-              willChange: 'transform',
-              imageRendering: 'auto',
-              WebkitFontSmoothing: 'antialiased'
+              transformStyle: 'preserve-3d',
+              WebkitTransformStyle: 'preserve-3d',
+              willChange: 'auto',
+              imageRendering: 'crisp-edges',
+              WebkitFontSmoothing: 'subpixel-antialiased',
+              isolation: 'isolate'
             }}
             onLoad={() => {
               console.log('Lottie animation loaded successfully')
