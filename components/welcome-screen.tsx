@@ -53,9 +53,9 @@ export function WelcomeScreen({ onComplete }: WelcomeScreenProps) {
     <div className="fixed inset-0 z-50 bg-white flex items-center justify-center">
 
       {/* Lottie Animation */}
-      <div className="w-full h-full flex items-center justify-center relative z-10 px-4">
+      <div className="w-full h-full flex items-center justify-center relative z-10">
         <motion.div 
-          className="w-[400px] h-[400px] sm:w-[550px] sm:h-[550px] md:w-[700px] md:h-[700px] flex items-center justify-center"
+          className="w-full h-full max-w-[600px] max-h-[600px] flex items-center justify-center"
           animate={{
             scale: shouldZoom ? 3 : 1
           }}
@@ -71,8 +71,9 @@ export function WelcomeScreen({ onComplete }: WelcomeScreenProps) {
             autoplay
             speed={1}
             style={{ 
-              width: '600px', 
-              height: '600px'
+              width: '100%', 
+              height: '100%',
+              filter: 'grayscale(100%)'
             }}
             onLoad={() => {
               console.log('Lottie animation loaded successfully')
