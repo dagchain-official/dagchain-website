@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="92.96" height="94.375" viewBox="0 0 92.96 94.375">
+  <g id="Group_38749" data-name="Group 38749" transform="translate(-649 -268.904)">
+    <circle id="background" cx="42.5" cy="42.5" r="42.5" transform="translate(656.96 278.279)" fill="#fbf0e4"/>
+    <g id="Group_38748" data-name="Group 38748" transform="translate(649 268.904)">
+      <path id="Path_120857" data-name="Path 120857" d="M75.143,12.9a44.012,44.012,0,1,0,0,62.242A43.988,43.988,0,0,0,75.143,12.9ZM44.022,80.8A36.782,36.782,0,1,1,80.8,44.021,36.823,36.823,0,0,1,44.022,80.8Z" transform="translate(-0.001 0)" fill="#fc9119"/>
+      <path id="Path_120858" data-name="Path 120858" d="M281.005,160.057a3.615,3.615,0,0,0-3.615,3.615v25.707a3.615,3.615,0,1,0,7.23,0V163.672A3.615,3.615,0,0,0,281.005,160.057Z" transform="translate(-229.639 -132.504)" fill="#fc9119"/>
+      <path id="Path_120859" data-name="Path 120859" d="M195.672,160.057a3.615,3.615,0,0,0-3.615,3.615v25.707a3.615,3.615,0,0,0,7.23,0V163.672A3.615,3.615,0,0,0,195.672,160.057Z" transform="translate(-158.996 -132.504)" fill="#fc9119"/>
+    </g>
+  </g>
+</svg>
