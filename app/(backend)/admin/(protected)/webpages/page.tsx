@@ -538,7 +538,7 @@ export default function WebpagesListing() {
                                               {
                                                 page?.status && ['published'].includes(page?.status) ?
                                                   <li>
-                                                    <a className="dropdown-item"
+                                                    <a className="dropdown-item" onClick={() => setCurrentPageId(page?._id)}
                                                       data-bs-toggle="modal"
                                                       data-bs-target="#pause_modal">
                                                       <div className="icon">

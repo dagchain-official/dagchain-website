@@ -942,7 +942,7 @@ export default function WebpageEditor({ params }: Props) {
                       <div className="new_inputlabel">
                         <div className="edit_options">
                           <div className="lftcol">
-                            <button className="common_btn html_btn htmlclear">
+                            <button className="common_btn html_btn htmlclear" onClick={() => window.open("https://html-cleaner.com/", "_blank")}>
                               <img src="/admin/images/create-webpage/icon_html.svg" alt="icon" />
                               Clean HTML
                             </button>
@@ -961,6 +961,7 @@ export default function WebpageEditor({ params }: Props) {
                         </div>
                       </div>
                     </div>
+
                     {/* section 2 */}
                     <div className="col-md-12">
                       <div className="custom_label">
@@ -985,7 +986,7 @@ export default function WebpageEditor({ params }: Props) {
                       <div className="new_inputlabel">
                         <div className="edit_options">
                           <div className="lftcol">
-                            <button className="common_btn html_btn htmlclear">
+                            <button className="common_btn html_btn htmlclear" onClick={() => window.open("https://html-cleaner.com/", "_blank")}>
                               <img src="/admin/images/create-webpage/icon_html.svg" alt="icon" />
                               Clean HTML
                             </button>
@@ -1004,6 +1005,7 @@ export default function WebpageEditor({ params }: Props) {
                         </div>
                       </div>
                     </div>
+
                     {/* section 3 */}
                     <div className="col-md-12">
                       <div className="custom_label">
@@ -1047,6 +1049,7 @@ export default function WebpageEditor({ params }: Props) {
                         </div>
                       </div>
                     </div>
+
                     {/* section 4 */}
                     <div className="col-md-12">
                       <div className="custom_label">
@@ -1071,7 +1074,7 @@ export default function WebpageEditor({ params }: Props) {
                       <div className="new_inputlabel">
                         <div className="edit_options">
                           <div className="lftcol">
-                            <button className="common_btn html_btn htmlclear">
+                            <button className="common_btn html_btn htmlclear" onClick={() => window.open("https://html-cleaner.com/", "_blank")}>
                               <img src="/admin/images/create-webpage/icon_html.svg" alt="icon" />
                               Clean HTML
                             </button>
