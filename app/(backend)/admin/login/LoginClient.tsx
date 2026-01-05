@@ -13,7 +13,7 @@ export default function LoginClient() {
   const [showPwd1, setShowPwd1] = useState(false);
 
   const [email, setEmail] = useState("admin@dagchain.com");
-  const [password, setPassword] = useState("admin@123");
+  const [password, setPassword] = useState("123");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
