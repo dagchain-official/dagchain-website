@@ -1,0 +1,332 @@
+.header {
+    background-color: #fff;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    min-height: 63px;
+    box-shadow: 0px 3px 6px #0000001c;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+}
+@media (max-width: 767px) {
+    .header {
+        padding: 5px 15px 5px 10px;
+    }
+}
+.header .roundbtn_wrap {
+    width: calc(100% - 175px);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+@media (max-width: 767px) {
+    .header .roundbtn_wrap {
+        width: calc(100% - 135px);
+    }
+}
+.header .roundbtn_wrap .roundbtn {
+    background: transparent;
+    width: 30px;
+    min-width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 3;
+}
+.header .roundbtn_wrap .roundbtn .center {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+}
+.header .roundbtn_wrap .roundbtn .center span {
+    background: #0024fc;
+    width: 21px;
+    height: 3px;
+    transition: all ease-in-out 0.4s;
+}
+.header .roundbtn_wrap .roundbtn .center span:nth-child(2) {
+    width: 18px;
+}
+.header .roundbtn_wrap .roundbtn .center span:nth-child(3) {
+    width: 15px;
+}
+.header .roundbtn_wrap .roundbtn.click .center {
+    position: relative;
+}
+.header .roundbtn_wrap .roundbtn.click .center span {
+    background: red;
+    transform: rotate(45deg);
+    top: -1px;
+    left: -11px;
+    position: absolute;
+}
+.header .roundbtn_wrap .roundbtn.click .center span:nth-child(2) {
+    width: 21px;
+    transform: rotate(-45deg);
+}
+.header .roundbtn_wrap .roundbtn.click .center span:nth-child(3) {
+    width: 21px;
+    opacity: 0;
+    transition: none;
+}
+.header .roundbtn_wrap .page_title {
+    max-width: 100%;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    font-family: "Outfit", sans-serif !important;
+    color: #000;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+@media (max-width: 767px) {
+    .header .roundbtn_wrap .page_title {
+        max-width: 100%;
+        font-size: 14px;
+        line-height: 16px;
+    }
+}
+.header .right_header {
+    width: 175px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+}
+@media (max-width: 767px) {
+    .header .right_header {
+        width: 135px;
+        gap: 10px;
+    }
+}
+.header .right_header .common_btn {
+    background-color: #f7f8fb;
+    width: 26px;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    border-radius: 3px;
+}
+.header .right_header .common_btn .count {
+    background-color: red;
+    min-width: 10px;
+    height: 10px;
+    font-size: 5px;
+    color: #fff;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: -3px;
+    top: -3px;
+}
+.header .right_header .search {
+    position: relative;
+}
+.header .right_header .search .mycommon_dropdown {
+    width: 300px;
+    left: inherit !important;
+    right: 26px !important;
+    top: -4px !important;
+    transform: none !important;
+}
+@media (max-width: 767px) {
+    .header .right_header .search .mycommon_dropdown {
+        top: 43px !important;
+        right: -100px !important;
+    }
+}
+.header .right_header .search .mycommon_dropdown .input {
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    color: #000;
+    font-size: 12px;
+}
+.header .right_header .notification {
+    position: relative;
+}
+.header .right_header .notification .dropdown-user {
+    width: 300px;
+    padding: 15px 0 0;
+    left: inherit !important;
+    right: 0px !important;
+    top: 43px !important;
+    transform: none !important;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+}
+@media (max-width: 767px) {
+    .header .right_header .notification .dropdown-user {
+        right: -64px !important;
+    }
+}
+.header .right_header .notification .dropdown-user li {
+    padding: 18px 20px;
+}
+.header .right_header .notification .dropdown-user li ~ li {
+    border-top: 1px solid #eaeaea;
+}
+.header .right_header .notification .dropdown-user .dropdown-divider {
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+.header .right_header .notification .tt1 {
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 400;
+    color: #000;
+    position: relative;
+    padding-left: 15px;
+}
+.header .right_header .notification .tt1 span {
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+}
+.header .right_header .notification .tt1:before {
+    position: absolute;
+    background: #0024fc;
+    width: 7px;
+    height: 7px;
+    border-radius: 20px;
+    content: "";
+    left: 0;
+    top: 6px;
+}
+.header .right_header .notification .tt2 {
+    font-size: 14px;
+    color: #000;
+    font-weight: 600;
+    padding-left: 15px;
+    margin-top: 5px;
+}
+.header .right_header .notification .btn-sect {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+}
+.header .right_header .notification .accept {
+    font-size: 14px;
+    color: #0024fc;
+    font-weight: 400;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.header .right_header .notification .decline {
+    font-size: 14px;
+    color: #384554;
+    font-weight: 400;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.header .right_header .notification .view-all {
+    padding: 10px;
+    border-radius: 0px 0 20px 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+.header .right_header .notification .view-all a {
+    font-size: 12px;
+    font-weight: 600;
+    color: #000;
+}
+.header .right_header .notification .bell {
+    position: relative;
+}
+.header .right_header .notification .bell span.cercle {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 25px;
+    background: #384554;
+    right: 4px;
+    top: 1px;
+    border: 1px solid #fff;
+}
+.header .right_header .user {
+    position: relative;
+    margin-left: 10px;
+}
+@media (max-width: 767px) {
+    .header .right_header .user {
+        margin-left: 5px;
+    }
+}
+.header .right_header .user .dropdown-toggle {
+    background: url("../images/header/icon_arrow_blue.svg") no-repeat right center;
+    background-size: 12px 7px;
+    padding-right: 20px;
+}
+.header .right_header .user .dropdown-toggle .userimg {
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    border-radius: 50px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eaeaea;
+    border-radius: 50px;
+}
+.header .right_header .user .dropdown-toggle .userimg img.mw_15 {
+    max-width: 15px;
+}
+.header .right_header .user .mycommon_dropdown {
+    width: 180px;
+    position: absolute;
+    right: 0;
+    top: 47px !important;
+    bottom: initial;
+    transform: none !important;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+}
+.header .right_header .user .mycommon_dropdown .user_settings {
+    width: 100%;
+}
+.header .right_header .user .mycommon_dropdown .user_settings ul {
+    padding: 0;
+}
+.header .right_header .user .mycommon_dropdown .user_settings ul li a {
+    font-size: 13px;
+    line-height: 16px;
+    color: #000;
+    font-family: "Outfit", sans-serif !important;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    transition: all ease-in-out 0.4s;
+}
+.header .right_header .user .mycommon_dropdown .user_settings ul li a:hover {
+    background-color: #f7f8fb;
+}
+.header .right_header .user .mycommon_dropdown .user_settings ul li a img,
+.header .right_header .user .mycommon_dropdown .user_settings ul li a svg {
+    line-height: 16px;
+}
+.header .right_header .user .mycommon_dropdown .user_settings ul li.logout a {
+    color: red;
+}

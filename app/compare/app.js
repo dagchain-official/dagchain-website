@@ -473,11 +473,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Service worker registration for offline capability (optional)
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        // Register service worker if available
-        // navigator.serviceWorker.register('/sw.js')
-        //     .then(registration => console.log('SW registered'))
-        //     .catch(error => console.log('SW registration failed'));
-    });
-}
+// if ('serviceWorker' in navigator) {
+//     window.addEventListener('load', () => {
+//         // Register service worker if available
+//         // navigator.serviceWorker.register('/sw.js')
+//         //     .then(registration => console.log('SW registered'))
+//         //     .catch(error => console.log('SW registration failed'));
+//     });
+// }

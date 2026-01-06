@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['images.unsplash.com', 'via.placeholder.com', 'lottie.host'],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
+    // domains: ['images.unsplash.com', 'via.placeholder.com', 'lottie.host'],
   },
   eslint: {
     ignoreDuringBuilds: true,
