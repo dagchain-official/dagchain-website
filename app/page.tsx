@@ -19,7 +19,6 @@ import { RevolutionCTA } from "@/components/revolution-cta"
 import { BookMeeting } from "@/components/book-meeting"
 import { Footer } from "@/components/footer"
 import { WaitlistModal } from "@/components/waitlist-modal"
-import { FloatingWaitlistButton } from "@/components/floating-waitlist-button"
 import { useVisitorTracking } from "@/lib/useVisitorTracking"
 
 export default function Home() {
@@ -67,9 +66,6 @@ export default function Home() {
         <BookMeeting />
         <Footer />
       </main>
-
-      {/* Floating Waitlist Button */}
-      <FloatingWaitlistButton onClick={() => setShowWaitlist(true)} />
 
       {/* Waitlist Modal */}
       <WaitlistModal isOpen={showWaitlist} onClose={handleCloseWaitlist} />

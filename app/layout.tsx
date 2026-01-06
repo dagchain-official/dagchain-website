@@ -111,17 +111,15 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#6B7280" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <style>{`
+        {/* <style>{`
           link[rel*="icon"] {
             border-radius: 50% !important;
           }
-        `}</style>
+        `}</style> */}
       </head>
       <body className={`${inter.className} antialiased`}>
-        <div className="relative min-h-screen bg-white">
-          {children}
-          <CookieConsent />
-        </div>
+        {children}
+        <CookieConsent />
       </body>
     </html>
   )
