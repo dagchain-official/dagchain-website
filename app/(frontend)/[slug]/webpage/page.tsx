@@ -4,9 +4,16 @@ import dbConnect from "@/lib/db";
 import Webpage from "@/lib/models/Webpage";
 import ClientWebpage from "./ClientPage";
 
-/* -------------------------------------------------
+/* -----------------------------------------
+   🚨 FORCE DYNAMIC FOR PROD (CRITICAL)
+------------------------------------------ */
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+export const revalidate = 0;
+
+/* -----------------------------------------
    Dynamic SEO Metadata
---------------------------------------------------*/
+------------------------------------------ */
 export async function generateMetadata({
   params,
   searchParams,
@@ -16,12 +23,16 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   await dbConnect();
 
+  if (!params?.slug) {
+    return {};
+  }
+
   const page = await Webpage.findOne({ slug: params.slug }).lean();
   if (!page) return {};
 
   const isPreview = searchParams.preview === "true";
-
   const isVisible = page.status === "published";
+
   const isIndexable =
     isVisible &&
     page.indexingStatus === "indexed" &&
@@ -50,10 +61,9 @@ export async function generateMetadata({
   };
 }
 
-
-/* -------------------------------------------------
+/* -----------------------------------------
    Page Component
---------------------------------------------------*/
+------------------------------------------ */
 export default async function WebpagePage({
   params,
   searchParams,
@@ -63,15 +73,18 @@ export default async function WebpagePage({
 }) {
   await dbConnect();
 
+  if (!params?.slug) {
+    notFound();
+  }
+
   const page = await Webpage.findOne({ slug: params.slug }).lean();
   if (!page) notFound();
 
   const isPreview = searchParams.preview === "true";
   const isVisible = page.status === "published";
 
-  // ❌ Not visible publicly
   if (!isVisible && !isPreview) {
-    notFound(); // crawler sees 404
+    notFound();
   }
 
   return (
@@ -86,4 +99,3 @@ export default async function WebpagePage({
     />
   );
 }
-

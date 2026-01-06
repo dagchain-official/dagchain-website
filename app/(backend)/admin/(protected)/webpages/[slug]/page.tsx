@@ -9,6 +9,10 @@ type Props = {
   params: { slug: string };
 };
 
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+export const revalidate = 0;
+
 export default function WebpageEditor({ params }: Props) {
   const isNew = params.slug === "new";
   const router = useRouter();
