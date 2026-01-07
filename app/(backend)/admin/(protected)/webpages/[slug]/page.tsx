@@ -20,7 +20,6 @@ export default function WebpageEditor({ params }: Props) {
   const [pageId, setPageId] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [imageUrl, setImageUrl] = useState("/frontend/images/article/bg_top_banner.png");
-
   const [errors, setErrors] = useState<Record<string, boolean>>({});
 
   const slugify = (value: string) =>
@@ -84,7 +83,6 @@ export default function WebpageEditor({ params }: Props) {
   }
 
   /* ---------------- HELPERS ---------------- */
-
   const updateField = (key: string, value: string) => {
     setForm((p) => ({ ...p, [key]: value }));
     setErrors((e) => ({ ...e, [key]: false }));
@@ -104,6 +102,7 @@ export default function WebpageEditor({ params }: Props) {
     if (isNew) return;
 
     async function loadExistingPage() {
+      setSaving(true);
       const res = await fetch(`/api/webpages/${params.slug}`);
       if (!res.ok) return;
 
@@ -132,7 +131,7 @@ export default function WebpageEditor({ params }: Props) {
         status: data.status || form.status,
         indexingStatus: data.indexingStatus || form.indexingStatus
       });
-
+      setSaving(false);
       if (data.banner?.image) {
         setImageUrl(data.banner.image);
       }
@@ -497,7 +496,7 @@ export default function WebpageEditor({ params }: Props) {
               </div>
               <div className="two_btn">
                 <a href="/admin/webpages" className="c_btn border_btn">Cancel</a>
-                <button className="c_btn animate_arrow nextstep_btn" data-target="step2"
+                <button className="c_btn animate_arrow nextstep_btn" disabled={saving} data-target="step2"
                   onClick={async (e) => {
                     e.preventDefault();
                     e.stopPropagation();
@@ -667,7 +666,7 @@ export default function WebpageEditor({ params }: Props) {
               </div>
               <div className="two_btn">
                 <a href="dashboard.html" className="c_btn border_btn">Cancel</a>
-                <button className="c_btn animate_arrow nextstep_btn" data-target="step3"
+                <button className="c_btn animate_arrow nextstep_btn" disabled={saving} data-target="step3"
                   onClick={async (e) => {
                     e.preventDefault();
                     e.stopPropagation();
@@ -912,7 +911,7 @@ export default function WebpageEditor({ params }: Props) {
               </div>
               <div className="two_btn">
                 <a href="dashboard.html" className="c_btn border_btn">Cancel</a>
-                <button className="c_btn animate_arrow nextstep_btn" data-target="step4"
+                <button className="c_btn animate_arrow nextstep_btn" disabled={saving} data-target="step4"
                   onClick={async (e) => {
                     e.preventDefault();
                     e.stopPropagation();
@@ -1202,7 +1201,7 @@ export default function WebpageEditor({ params }: Props) {
                 <a href="/admin/webpages" className="c_btn border_btn">Cancel</a>
                 {
                   form.status === 'draft' ?
-                    <button
+                    <button disabled={saving}
                       onClick={async (e) => {
                         e.preventDefault();
                         e.stopPropagation();
@@ -1228,7 +1227,7 @@ export default function WebpageEditor({ params }: Props) {
                 }
 
                 {/* FINAL – PUBLISH */}
-                <button
+                <button disabled={saving}
                   onClick={async (e) => {
                     e.preventDefault();
                     e.stopPropagation();

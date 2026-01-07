@@ -571,6 +571,12 @@ button {
     transition: all ease-in-out 0.4s;
     border-radius: 50px;
 }
+.c_btn:disabled {
+    background-color: #cccccc;
+}
+.c_btn:hover:disabled {
+    background-color: #848484;
+}
 .c_btn svg path {
     transition: all ease-in-out 0.4s;
 }
