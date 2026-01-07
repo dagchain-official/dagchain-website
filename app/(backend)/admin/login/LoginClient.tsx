@@ -42,9 +42,8 @@ export default function LoginClient() {
         return;
       }
       else {
-        // ✅ Cookie is set by API (httpOnly)
         router.replace("/admin/webpages");
-        setTimeout(() => { location.reload() }, 1500);
+        setTimeout(() => { location.reload() }, 250);
       }
     } catch (err) {
       setError("Something went wrong. Please try again.");
