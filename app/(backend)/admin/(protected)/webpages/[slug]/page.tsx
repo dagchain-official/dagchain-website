@@ -16,7 +16,7 @@ export const revalidate = 0;
 export default function WebpageEditor({ params }: Props) {
   const isNew = params.slug === "new";
   const router = useRouter();
-
+  const [slugTouched, setSlugTouched] = useState(false);
   const [pageId, setPageId] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [imageUrl, setImageUrl] = useState("/frontend/images/article/bg_top_banner.png");
@@ -47,8 +47,8 @@ export default function WebpageEditor({ params }: Props) {
   const [form, setForm] = useState({
     title: "",
     slug: "",
-    cta_label: "",
-    cta_url: "",
+    cta_label: "Explore Provenance for Creators",
+    cta_url: "https://www.dagchain.network/",
     topic: "",
     description: "",
     metaTitle: "",
@@ -97,6 +97,12 @@ export default function WebpageEditor({ params }: Props) {
       el.classList.remove("show");
     }, 4000);
   };
+
+  useEffect(() => {
+    if (!isNew && form.slug) {
+      setSlugTouched(true); // existing slug must never auto-change
+    }
+  }, [isNew]);
 
   useEffect(() => {
     if (isNew) return;
@@ -287,10 +293,21 @@ export default function WebpageEditor({ params }: Props) {
                         </div>
                       </div>
                       <div className="new_inputlabel">
-                        <input type="text" className="input"
+                        <input
+                          type="text"
+                          className="input"
                           value={form.title}
-                          onChange={(e) => updateField("title", e.target.value)}
-                          placeholder="Enter the Page Name, eg. Bangalore's Trusted Blockchain for Proof of Originality" />
+                          onChange={(e) => {
+                            const value = e.target.value;
+                            updateField("title", value);
+
+                            // ✅ Auto-update slug ONLY if user never touched it
+                            if (!slugTouched) {
+                              updateField("slug", slugify(value));
+                            }
+                          }}
+                          placeholder="Enter the Page Name"
+                        />
                       </div>
                       <div className={`error_msg ${errors.title ? "" : "d-none"}`}>
                         <img src="/admin/images/common-images/icon_error.svg" alt="icon error" className="licon" />
@@ -303,7 +320,7 @@ export default function WebpageEditor({ params }: Props) {
                       </div>
                     </div>
 
-                    <div className="col-md-12">
+                    <div className="col-md-12 d-none">
                       <div className="custom_label">
                         <div className="icon">
                           <img src="/admin/images/create-webpage/icon_enter.svg" alt="icon" />
@@ -335,45 +352,8 @@ export default function WebpageEditor({ params }: Props) {
                         <div className="textbox">
                           <strong className="ttext">Error</strong>
                           <p>
-                            Page name is required | Page name is too short | Invalid characters used
+                            Page description is required | Page description is too short | Invalid characters used
                           </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Page URL */}
-                    <div className="col-md-12">
-                      <div className="custom_label">
-                        <div className="icon">
-                          <img src="/admin/images/create-webpage/icon_url.svg" alt="icon" />
-                        </div>
-                        Page URL
-                        <div className="mytooltip">
-                          <img src="/admin/images/common-images/icon_toolitip.svg" alt="icon"
-                            className="icon_tooltip" />
-                          <div className="tooltip_content top">
-                            <div className="arrow"></div>
-                            <div className="customscroll">
-                              <div className="text">
-                                <p>Review the auto-generated URL for accuracy. This URL
-                                  determines how the page appears in search results and will
-                                  be locked after publishing.</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="new_inputlabel">
-                        <input type="text" className="input"
-                          value={form.slug}
-                          onChange={(e) => updateField("slug", e.target.value)}
-                          placeholder="e.g. blockchain-proof-of-originality-bangalore" />
-                      </div>
-                      <div className={`error_msg ${errors.slug ? "" : "d-none"}`}>
-                        <img src="/admin/images/common-images/icon_error.svg" alt="icon error" className="licon" />
-                        <div className="textbox">
-                          <strong className="ttext">Error</strong>
-                          <p>Page URL is required | Invalid URL format | This URL already exists</p>
                         </div>
                       </div>
                     </div>
@@ -410,6 +390,49 @@ export default function WebpageEditor({ params }: Props) {
                         <div className="textbox">
                           <strong className="ttext">Error</strong>
                           <p>Page topic is required | Topic must be more specific</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Page URL */}
+                    <div className="col-md-12">
+                      <div className="custom_label">
+                        <div className="icon">
+                          <img src="/admin/images/create-webpage/icon_url.svg" alt="icon" />
+                        </div>
+                        Page URL
+                        <div className="mytooltip">
+                          <img src="/admin/images/common-images/icon_toolitip.svg" alt="icon"
+                            className="icon_tooltip" />
+                          <div className="tooltip_content top">
+                            <div className="arrow"></div>
+                            <div className="customscroll">
+                              <div className="text">
+                                <p>Review the auto-generated URL for accuracy. This URL
+                                  determines how the page appears in search results and will
+                                  be locked after publishing.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="new_inputlabel">
+                        <input
+                          type="text"
+                          className="input"
+                          value={form.slug}
+                          onChange={(e) => {
+                            // setSlugTouched(true);
+                            updateField("slug", slugify(e.target.value));
+                          }}
+                          placeholder="e.g. blockchain-proof-of-originality-bangalore"
+                        />
+                      </div>
+                      <div className={`error_msg ${errors.slug ? "" : "d-none"}`}>
+                        <img src="/admin/images/common-images/icon_error.svg" alt="icon error" className="licon" />
+                        <div className="textbox">
+                          <strong className="ttext">Error</strong>
+                          <p>Page URL is required | Invalid URL format | This URL already exists</p>
                         </div>
                       </div>
                     </div>
