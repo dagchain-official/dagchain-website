@@ -58,24 +58,24 @@ export default function ClientWebpage({ page }: { page: any }) {
                     <div className="custom_container">
                         <div className="textbox" data-aos="fade-up" data-aos-duration="1500">
                             {
-                                page.title ?
-                                    <h1 className="whitetext" dangerouslySetInnerHTML={{ __html: page.title }} /> : ''
+                                bannerHeading ?
+                                    <h1 className="whitetext" dangerouslySetInnerHTML={{ __html: bannerHeading }} /> : ''
                             }
                             {
-                                page.topic ?
-                                    <div className="c_subheading pinktext" dangerouslySetInnerHTML={{ __html: page.topic }} /> : ''
+                                bannerSubHeading ?
+                                    <div className="c_subheading pinktext" dangerouslySetInnerHTML={{ __html: bannerSubHeading }} /> : ''
                             }
                             {
-                                page.description ?
-                                    <p dangerouslySetInnerHTML={{ __html: page.description }} /> : ''
+                                bannerDescription ?
+                                    <p dangerouslySetInnerHTML={{ __html: bannerDescription }} /> : ''
                             }
                             <div className="full_btnrow center">
                                 {
                                     page.cta_label && page.cta_url ?
-                                        <a href={page.cta_url} target="_blank"
-                                            className="cta_btn bgblue brand_btn animation_white_line">
-                                            {page.cta_label}
-                                        </a> : ''
+                                    <a href={page.cta_url} target="_blank"
+                                        className="cta_btn bgblue brand_btn animation_white_line">
+                                        { page.cta_label }
+                                    </a> : ''
                                 }
                             </div>
                         </div>
