@@ -18,7 +18,7 @@ export default function WebpageEditor({ params }: Props) {
   const router = useRouter();
   const [slugTouched, setSlugTouched] = useState(false);
   const [pageId, setPageId] = useState<string | null>(null);
-  const [saving, setSaving] = useState(true);
+  const [saving, setSaving] = useState(!isNew);
   const [imageUrl, setImageUrl] = useState("/frontend/images/article/bg_top_banner.png");
   const [errors, setErrors] = useState<Record<string, boolean>>({});
 
