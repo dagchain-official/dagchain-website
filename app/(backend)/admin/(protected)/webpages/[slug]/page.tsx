@@ -72,7 +72,7 @@ export default function WebpageEditor({ params }: Props) {
       const data = await res.json();
       // VERY IMPORTANT
       setPageId(data._id);
-      
+
       setForm({
         title: data.title || form.title,
         slug: data.slug || form.slug,
@@ -1182,52 +1182,48 @@ export default function WebpageEditor({ params }: Props) {
                 }
 
                 {/* FINAL – PUBLISH */}
-                {
-                  ['draft', 'paused'].includes(form.status) ?
-                    <button
-                      onClick={async (e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
+                <button
+                  onClick={async (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
 
-                        if (saving) return;
-                        if (!validateStep4()) return;
+                    if (saving) return;
+                    if (!validateStep4()) return;
 
-                        // Save draft first (same pageId)
-                        await saveDraft({
-                          content_1: form.content_1,
-                          content_2: form.content_2,
-                          content_3: form.content_3,
-                          content_4: form.content_4,
-                          content_5: form.content_5
-                        });
+                    // Save draft first (same pageId)
+                    await saveDraft({
+                      content_1: form.content_1,
+                      content_2: form.content_2,
+                      content_3: form.content_3,
+                      content_4: form.content_4,
+                      content_5: form.content_5
+                    });
 
-                        // Publish same record
-                        await publishPage();
+                    // Publish same record
+                    await publishPage();
 
-                        // Show success
-                        showSuccess("successmsg_publishpage");
-                      }}
-                      className="c_btn animate_arrow"
-                      data-target="successmsg_publishpage"
-                    >
-                      Publish Page
-                      <div className="rgt_arrow">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="13"
-                          viewBox="0 0 27.387 13.266">
-                          <g transform="translate(0 -132)">
-                            <path
-                              d="M27.074,139.39l-5.59,5.563a1.07,1.07,0,1,1-1.509-1.517l3.753-3.735H1.07a1.07,1.07,0,0,1,0-2.14H23.726l-3.753-3.735a1.07,1.07,0,1,1,1.509-1.517l5.59,5.563a1.071,1.071,0,0,1,0,1.511Z"
-                              fill="#f1b3f3"
-                            />
-                          </g>
-                        </svg>
-                      </div>
-                    </button> : ''
-                }
+                    // Show success
+                    showSuccess("successmsg_publishpage");
+                  }}
+                  className="c_btn animate_arrow"
+                  data-target="successmsg_publishpage"
+                >
+                  Publish Page
+                  <div className="rgt_arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="13"
+                      viewBox="0 0 27.387 13.266">
+                      <g transform="translate(0 -132)">
+                        <path
+                          d="M27.074,139.39l-5.59,5.563a1.07,1.07,0,1,1-1.509-1.517l3.753-3.735H1.07a1.07,1.07,0,0,1,0-2.14H23.726l-3.753-3.735a1.07,1.07,0,1,1,1.509-1.517l5.59,5.563a1.071,1.071,0,0,1,0,1.511Z"
+                          fill="#f1b3f3"
+                        />
+                      </g>
+                    </svg>
+                  </div>
+                </button>
               </div>
             </div>
           </div>
-
         </div>
 
         <div className="top_successful_msg fixed_top" id="successmsg_savedraft">

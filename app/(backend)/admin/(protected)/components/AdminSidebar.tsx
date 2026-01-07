@@ -52,24 +52,6 @@ export default function AdminSidebar() {
           <ul>
             <li>
               <div className="main_heading">
-                <Link
-                  href="/admin"
-                  className={isActive("/dashboard") ? "active" : ""}
-                >
-                  <div className="menu_icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
-                      viewBox="0 0 14.459 14.45">
-                      <path id="dashboard"
-                        d="M13.929,5.472,9.36.9A3.017,3.017,0,0,0,5.1.9L.53,5.472A1.794,1.794,0,0,0,0,6.75v5.914a1.807,1.807,0,0,0,1.807,1.807H12.651a1.807,1.807,0,0,0,1.807-1.807V6.75A1.794,1.794,0,0,0,13.929,5.472ZM9.037,13.266H5.422V10.9a1.807,1.807,0,1,1,3.615,0Zm4.217-.6a.6.6,0,0,1-.6.6h-2.41V10.9a3.012,3.012,0,1,0-6.024,0v2.37H1.807a.6.6,0,0,1-.6-.6V6.75a.607.607,0,0,1,.177-.426l4.57-4.568a1.812,1.812,0,0,1,2.557,0l4.57,4.57a.607.607,0,0,1,.177.424Z"
-                        transform="translate(0 -0.021)" fill="#3f414e" />
-                    </svg>
-                  </div>
-                  <div className="menu_text">Dashboard</div>
-                </Link>
-              </div>
-            </li>
-            <li>
-              <div className="main_heading">
                 <a href="#" className={`menu-toggle ${isSectionActive([
                   "/admin/webpages",
                   "/admin/webpages/new",
@@ -118,52 +100,6 @@ export default function AdminSidebar() {
                       className={isActive("/admin/webpages") ? "active" : ""}
                     >
                       All Webpages
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div className="main_heading">
-                <a href="#" className={`menu-toggle ${isSectionActive([
-                  "/admin/product-knowledge",
-                  "/admin/product-knowledge/new",
-                ])}`}>
-                  <div className="menu_icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16"
-                      viewBox="0 0 19.33 16.309">
-                      <g id="Group_61284" data-name="Group 61284" transform="translate(0 -40.006)">
-                        <path id="Path_153751" data-name="Path 153751"
-                          d="M17.631,44.574H11.364V41.7a1.7,1.7,0,0,0-1.7-1.7H1.7A1.7,1.7,0,0,0,0,41.7v6.833a1.7,1.7,0,0,0,1.7,1.7h.849l.963,1.284a.567.567,0,0,0,.906,0l.963-1.284H7.966v2.869a1.7,1.7,0,0,0,1.7,1.7H13.95l.963,1.284a.567.567,0,0,0,.906,0l.963-1.284h.85a1.7,1.7,0,0,0,1.7-1.7V46.273A1.7,1.7,0,0,0,17.631,44.574ZM5.1,49.1a.566.566,0,0,0-.453.227l-.68.906-.68-.906a.566.566,0,0,0-.453-.227H1.7a.567.567,0,0,1-.566-.566V41.7a.567.567,0,0,1,.566-.566H9.665a.567.567,0,0,1,.566.566v6.833a.567.567,0,0,1-.566.566Zm13.1,4a.567.567,0,0,1-.566.566H16.5a.566.566,0,0,0-.453.227l-.68.906-.68-.906a.566.566,0,0,0-.453-.227H9.665a.567.567,0,0,1-.566-.566V50.237h.566a1.7,1.7,0,0,0,1.7-1.7V45.706h6.267a.567.567,0,0,1,.566.566Z"
-                          fill="#acacac" />
-                        <path id="Path_153752" data-name="Path 153752"
-                          d="M308.708,230.129a.654.654,0,0,0-1.216-.014l-1.459,3.831a.566.566,0,1,0,1.058.4l.223-.586h1.555l.221.585a.566.566,0,1,0,1.06-.4Zm-.963,2.5.35-.918.347.918Z"
-                          transform="translate(-294.442 -182.54)" fill="#acacac" />
-                        <path id="Path_153753" data-name="Path 153753"
-                          d="M88.644,113.016a2.509,2.509,0,1,0-.794.808l.21.21a.566.566,0,0,0,.8-.8Zm-3.506-1.3a1.37,1.37,0,1,1,2.661.459l-.178-.178a.566.566,0,0,0-.8.8l.192.192A1.371,1.371,0,0,1,85.139,111.712Z"
-                          transform="translate(-80.835 -66.59)" fill="#acacac" />
-                      </g>
-                    </svg>
-                  </div>
-                  <div className="menu_text">Product Knowledge</div>
-                </a>
-              </div>
-              <div className="dd_menu">
-                <ul>
-                  <li>
-                    <Link
-                      href="/admin/product-knowledge/new"
-                      className={isActive("/admin/product-knowledge/new") ? "active" : ""}
-                    >
-                      Create Product Knowledge
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/admin/product-knowledge"
-                      className={isActive("/admin/product-knowledge") ? "active" : ""}
-                    >
-                      All Product Knowledges
                     </Link>
                   </li>
                 </ul>
