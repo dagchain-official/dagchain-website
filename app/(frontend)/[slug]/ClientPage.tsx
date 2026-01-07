@@ -26,18 +26,20 @@ export default function ClientWebpage({ page }: { page: any }) {
         return () => clearTimeout(t);
     }, [page]);
 
+    const isKnowledgePage = page.type === "knowledge";
+
     const banner = page.banner || {};
     const hasBannerImage = Boolean(banner.image);
 
     const bannerBgImage = hasBannerImage
         ? banner.image
-        : "/frontend/images/article/bg_top_banner.png";
+        : `/frontend/images/article/${isKnowledgePage ? 'bg_top_banner_product_knowledge' : 'bg_top_banner'}.png'`;
 
     const bannerHeading = banner.heading || page.title;
     const bannerSubHeading = banner.subheading || page.topic;
     const bannerDescription = banner.description || page.description;
 
-    const isKnowledgePage = page.type === "knowledge";
+
 
     return (
         <div className="page_wrap">
@@ -113,7 +115,7 @@ export default function ClientWebpage({ page }: { page: any }) {
                 <ArticleContent page={page} />
             )}
 
-            <RelatedArticles currentSlug={page.slug} />
+            <RelatedArticles currentSlug={page.slug} type={page.type} />
         </div>
     );
 }
@@ -122,7 +124,7 @@ function KnowledgeContent({ page }: { page: any }) {
     return (
         <div className="section1">
             <div className="custom_container">
-                <div className="faq_content">
+                <div className="faq_content article_content">
                     {Array.isArray(page.questions) && page.questions.length > 0 ? (
                         page.questions.map((q: any, index: number) => (
                             <div
@@ -131,11 +133,16 @@ function KnowledgeContent({ page }: { page: any }) {
                                 data-aos="fade-up"
                                 data-aos-duration="1500"
                             >
-                                <div className="l_circle"></div>
-                                <h2>{q.title}</h2>
+                                <div className="l_circle" />
+
+                                {q.title && (
+                                    <h2 suppressHydrationWarning
+                                        dangerouslySetInnerHTML={{ __html: q.title }}
+                                    />
+                                )}
 
                                 {q.answer && (
-                                    <div
+                                    <div suppressHydrationWarning
                                         dangerouslySetInnerHTML={{ __html: q.answer }}
                                     />
                                 )}
@@ -158,7 +165,7 @@ function ArticleContent({ page }: { page: any }) {
                 .map((content, index) => (
                     <div key={index}>
                         <div className="article_content" data-aos="fade-up">
-                            <div
+                            <div suppressHydrationWarning
                                 className="custom_container"
                                 dangerouslySetInnerHTML={{ __html: content }}
                             />

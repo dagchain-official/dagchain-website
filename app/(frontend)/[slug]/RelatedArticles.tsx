@@ -12,8 +12,9 @@ type RelatedPage = {
 };
 
 export default function RelatedArticles({
-  currentSlug,
+  currentSlug, type
 }: {
+  type: string;
   currentSlug: string;
 }) {
   const [pages, setPages] = useState<RelatedPage[]>([]);
@@ -21,7 +22,7 @@ export default function RelatedArticles({
 
   /* ---------------- Fetch related pages ---------------- */
   useEffect(() => {
-    fetch(`/api/webpages/related?slug=${currentSlug}`)
+    fetch(`/api/webpages/related?type=${type}&slug=${currentSlug}`)
       .then((res) => res.json())
       .then((data) => {
         if (data?.success && Array.isArray(data.pages)) {
