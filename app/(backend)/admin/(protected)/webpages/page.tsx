@@ -19,6 +19,7 @@ type Webpage = {
 
 export default function WebpagesListing() {
 
+  const [publishErrors, setPublishErrors] = useState<string[]>([]);
   const [pages, setPages] = useState<Webpage[]>([]);
   const [currentPageId, setCurrentPageId] = useState<string>("");
   const [loading, setLoading] = useState(true);
@@ -426,11 +427,13 @@ export default function WebpagesListing() {
                                                   validatePageBeforePublish(page);
 
                                                 if (!valid) {
-                                                  alert(
-                                                    `Cannot publish webpage.\n\nMissing fields:\n• ${missing.join(
-                                                      "\n• "
-                                                    )}`
+                                                  setPublishErrors(missing);
+
+                                                  const modal = new (window as any).bootstrap.Modal(
+                                                    document.getElementById("publish_error_modal")
                                                   );
+                                                  modal.show();
+
                                                   return;
                                                 }
                                               }
@@ -515,11 +518,13 @@ export default function WebpagesListing() {
                                                           validatePageBeforePublish(page);
 
                                                         if (!valid) {
-                                                          alert(
-                                                            `Cannot publish webpage.\n\nMissing fields:\n• ${missing.join(
-                                                              "\n• "
-                                                            )}`
+                                                          setPublishErrors(missing);
+
+                                                          const modal = new (window as any).bootstrap.Modal(
+                                                            document.getElementById("publish_error_modal")
                                                           );
+                                                          modal.show();
+
                                                           return;
                                                         }
 
@@ -771,6 +776,55 @@ export default function WebpagesListing() {
           </svg>
           <p>Deleted successfully!</p>
         </div>
+
+        <div
+          className="modal fade common_modal"
+          id="publish_error_modal"
+          tabIndex={-1}
+          aria-hidden="true"
+        >
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <button
+                type="button"
+                className="close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              >
+                ✕
+              </button>
+
+              <div className="modal_body">
+                <div className="centerbox delete">
+                  <strong className="sure_text redtext">
+                    Cannot Publish Webpage
+                  </strong>
+
+                  <p className="confirm_text">
+                    Please fix the following issues before publishing:
+                  </p>
+
+                  <ul style={{ textAlign: "left", marginTop: 12 }}>
+                    {publishErrors.map((err, i) => (
+                      <li key={i}>• {err}</li>
+                    ))}
+                  </ul>
+
+                  <div className="btnrow center">
+                    <button
+                      className="c_btn border_btn"
+                      data-bs-dismiss="modal"
+                      type="button"
+                    >
+                      OK, I’ll fix them
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
 
         {/* <div className="modal-backdrop fade show"></div> */}
       </div>

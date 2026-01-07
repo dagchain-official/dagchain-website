@@ -1199,7 +1199,7 @@ export default function WebpageEditor({ params }: Props) {
                       className="c_btn border_btn"
                       data-target="successmsg_savedraft"
                     >
-                      {saving ? 'Saving changes...' : 'Save & Next'}
+                      {saving ? 'Saving changes...' : 'Save as Draft'}
                     </button> : ''
                 }
 
