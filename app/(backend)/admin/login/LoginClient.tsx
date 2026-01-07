@@ -12,8 +12,8 @@ export default function LoginClient() {
   const [step, setStep] = useState<Step>("login");
   const [showPwd1, setShowPwd1] = useState(false);
 
-  const [email, setEmail] = useState("admin@dagchain.com");
-  const [password, setPassword] = useState("123");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
