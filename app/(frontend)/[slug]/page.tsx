@@ -21,11 +21,14 @@ export async function generateMetadata({
   params: { slug: string };
   searchParams: { preview?: string };
 }): Promise<Metadata> {
-  await dbConnect();
 
-  if (!params?.slug) {
+  if (process.env.NODE_ENV !== "production") {
     return {};
   }
+
+  await dbConnect();
+
+  if (!params?.slug) return {};
 
   const page = await Webpage.findOne({ slug: params.slug }).lean();
   if (!page) return {};
@@ -39,9 +42,8 @@ export async function generateMetadata({
     !isPreview;
 
   return {
-    title: page.meta?.metaTitle || page.title || "Default Page Title",
-    description:
-      page.meta?.metaDescription || "Default page description",
+    title: page.meta?.metaTitle || page.title,
+    description: page.meta?.metaDescription,
 
     keywords: page.meta?.metaKeywords?.length
       ? page.meta.metaKeywords.join(", ")

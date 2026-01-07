@@ -10,6 +10,24 @@ export async function POST(req: Request) {
     return NextResponse.json({ slug });
   }
 
+  /* ------------------------------
+     1️⃣ Check exact slug match
+  ------------------------------ */
+  const exactQuery: any = { slug };
+  if (excludeId) {
+    exactQuery._id = { $ne: excludeId };
+  }
+
+  const exactExists = await Webpage.exists(exactQuery);
+
+  // ✅ If exact slug does NOT exist → return as-is
+  if (!exactExists) {
+    return NextResponse.json({ slug });
+  }
+
+  /* ------------------------------
+     2️⃣ Exact exists → find next suffix
+  ------------------------------ */
   const regex = new RegExp(`^${slug}(?:-\\d+)?$`);
 
   const query: any = { slug: regex };
@@ -17,20 +35,12 @@ export async function POST(req: Request) {
     query._id = { $ne: excludeId };
   }
 
-  const existing = await Webpage
-    .find(query)
-    .select("slug")
-    .lean();
+  const existing = await Webpage.find(query).select("slug").lean();
 
-  if (!existing.length) {
-    return NextResponse.json({ slug });
-  }
-
-  const numbers = existing
-    .map(p => {
-      const m = p.slug.match(/-(\d+)$/);
-      return m ? Number(m[1]) : 0;
-    });
+  const numbers = existing.map(p => {
+    const m = p.slug.match(/-(\d+)$/);
+    return m ? Number(m[1]) : 0;
+  });
 
   const next = Math.max(...numbers) + 1;
 
