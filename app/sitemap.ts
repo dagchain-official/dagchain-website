@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import dbConnect from "@/lib/db";
 import Webpage from "@/lib/models/Webpage";
 
-export const revalidate = 3600;
+export const revalidate = 30;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   await dbConnect();
