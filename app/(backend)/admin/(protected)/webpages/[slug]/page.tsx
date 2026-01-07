@@ -19,9 +19,31 @@ export default function WebpageEditor({ params }: Props) {
 
   const [pageId, setPageId] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
-  const [imageUrl, setImageUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState("/frontend/images/article/bg_top_banner.png");
 
   const [errors, setErrors] = useState<Record<string, boolean>>({});
+
+  const slugify = (value: string) =>
+    value
+      .toLowerCase()
+      .trim()
+      .replace(/https?:\/\/(www\.)?/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)+/g, "");
+
+  async function getAvailableSlug(baseSlug: string) {
+    const res = await fetch("/api/webpages/check-slug", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        slug: baseSlug,
+        excludeId: pageId, // important when editing
+      }),
+    });
+    if (!res.ok) return baseSlug;
+    const data = await res.json();
+    return data.slug || baseSlug;
+  }
 
   const [form, setForm] = useState({
     title: "",
@@ -330,7 +352,7 @@ export default function WebpageEditor({ params }: Props) {
                         <input type="text" className="input"
                           value={form.slug}
                           onChange={(e) => updateField("slug", e.target.value)}
-                          placeholder="e.g. www.dagchain.network/blockchain-proof-of-originality-bangalore" />
+                          placeholder="e.g. blockchain-proof-of-originality-bangalore" />
                       </div>
                       <div className={`error_msg ${errors.slug ? "" : "d-none"}`}>
                         <img src="/admin/images/common-images/icon_error.svg" alt="icon error" className="licon" />
@@ -463,14 +485,13 @@ export default function WebpageEditor({ params }: Props) {
                   onClick={async (e) => {
                     e.preventDefault();
                     e.stopPropagation();
-
-                    if (saving) return; // ✅ block double clicks
-
-                    if (!validateStep1()) return;
-
+                    if (!validateStep1()) return; // ✅ THIS WAS MISSING
+                    const normalizedSlug = slugify(form.slug);
+                    const finalSlug = await getAvailableSlug(normalizedSlug);
+                    updateField("slug", finalSlug);
                     await saveDraft({
                       title: form.title,
-                      slug: form.slug,
+                      slug: finalSlug,
                       topic: form.topic,
                       description: form.description,
                       cta_label: form.cta_label,
@@ -479,7 +500,7 @@ export default function WebpageEditor({ params }: Props) {
 
                     allowNextStep("step2");
                   }}>
-                  Save & Next
+                  {saving ? 'Saving changes...' : 'Save & Next'}
                   <div className="rgt_arrow">
                     <svg xmlns="http://www.w3.org/2000/svg" width="27" height="13"
                       viewBox="0 0 27.387 13.266">
@@ -649,7 +670,7 @@ export default function WebpageEditor({ params }: Props) {
 
                     allowNextStep("step3");
                   }}>
-                  Save & Next
+                  {saving ? 'Saving changes...' : 'Save & Next'}
                   <div className="rgt_arrow">
                     <svg xmlns="http://www.w3.org/2000/svg" width="27" height="13"
                       viewBox="0 0 27.387 13.266">
@@ -709,7 +730,7 @@ export default function WebpageEditor({ params }: Props) {
                         <div className="ProfileUploadSection fullwidth">
                           <div className="UploadSquare">
                             <div className="containers">
-                              <button className="remove d-none">
+                              <button className={`remove ${!imageUrl ? 'd-none' : ''}`}>
                                 <img src="/admin/images/create-webpage/icon_delete.svg" alt="icon" />
                               </button>
                               <div className="imageWrapper">
@@ -885,7 +906,7 @@ export default function WebpageEditor({ params }: Props) {
 
                     allowNextStep("step4");
                   }}>
-                  Save & Next
+                  {saving ? 'Saving changes...' : 'Save & Next'}
                   <div className="rgt_arrow">
                     <svg xmlns="http://www.w3.org/2000/svg" width="27" height="13"
                       viewBox="0 0 27.387 13.266">
@@ -1097,6 +1118,7 @@ export default function WebpageEditor({ params }: Props) {
                         </div>
                       </div>
                     </div>
+
                     {/* section 5 */}
                     <div className="col-md-12">
                       <div className="custom_label">
@@ -1177,7 +1199,7 @@ export default function WebpageEditor({ params }: Props) {
                       className="c_btn border_btn"
                       data-target="successmsg_savedraft"
                     >
-                      Save Draft
+                      {saving ? 'Saving changes...' : 'Save & Next'}
                     </button> : ''
                 }
 
@@ -1208,7 +1230,7 @@ export default function WebpageEditor({ params }: Props) {
                   className="c_btn animate_arrow"
                   data-target="successmsg_publishpage"
                 >
-                  Publish Page
+                  {saving ? 'Publishing Changes...' : form.status === 'published' ? 'Re' : ''} Publish Page
                   <div className="rgt_arrow">
                     <svg xmlns="http://www.w3.org/2000/svg" width="27" height="13"
                       viewBox="0 0 27.387 13.266">

@@ -149,7 +149,7 @@ export default function WebpagesListing() {
 
   const copyUrl = (slug?: string) => {
     if (!slug) return;
-    const url = `${window.location.origin}/${slug}/webpage`;
+    const url = `${window.location.origin}/${slug}/2026`;
     navigator.clipboard.writeText(url).then(() => {
       alert("URL copied to clipboard");
     });
@@ -161,7 +161,7 @@ export default function WebpagesListing() {
 
   const viewPage = (slug?: string) => {
     if (!slug) return;
-    window.open(`/${slug}/webpage?preview=true`, "_blank");
+    window.open(`/${slug}/2026?preview=true`, "_blank");
   };
 
   /* ---------------- PUBLISH ---------------- */
@@ -305,7 +305,7 @@ export default function WebpagesListing() {
                                           {page.topic}
                                         </div>
                                         <div className="btext bluetext">
-                                          {page.slug}/webpage
+                                          {page.slug}/2026
                                         </div>
                                       </div>
                                       <div className="status_box">

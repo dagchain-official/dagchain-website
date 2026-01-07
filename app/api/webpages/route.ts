@@ -36,9 +36,9 @@ export async function POST(req: Request) {
 export async function GET() {
   try {
     await dbConnect();
-
     const pages = await Webpage.find({
-      status: { $ne: "deleted" }, // exclude deleted
+      slug: { $exists: true, $ne: "" }, // ✅ slug must exist
+      status: { $ne: "deleted" },
     }).sort({ createdAt: -1 });
 
     return NextResponse.json({
