@@ -43,7 +43,7 @@ export default function LoginClient() {
       }
       else {
         // ✅ Cookie is set by API (httpOnly)
-        router.replace("/admin");
+        router.replace("/admin/webpages");
         setTimeout(() => { location.reload() }, 1000);
       }
     } catch (err) {
