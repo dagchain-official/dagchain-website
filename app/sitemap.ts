@@ -26,7 +26,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   const dynamicRoutes: MetadataRoute.Sitemap = pages.map((page) => ({
-    url: `${baseUrl}/${page.slug}/2026`,
+    url: `${baseUrl}/${page.slug}`,
     lastModified: page.updatedAt ?? new Date(),
     changeFrequency: "daily",
     priority: 0.8,
