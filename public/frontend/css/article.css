@@ -605,6 +605,7 @@ body {
     font-family: "Nasalization";
     font-weight: 400;
     text-align: left;
+    gap: 5px;
     margin-bottom: 10px;
 }
 @media (max-width: 1199px) {

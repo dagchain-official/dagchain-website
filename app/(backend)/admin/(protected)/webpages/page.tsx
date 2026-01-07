@@ -138,7 +138,7 @@ export default function WebpagesListing() {
 
 
   useEffect(() => {
-    fetch("/api/webpages")
+    fetch("/api/webpages?type=webpage")
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -306,7 +306,7 @@ export default function WebpagesListing() {
                                           {page.topic}
                                         </div>
                                         <div className="btext bluetext">
-                                          {page.slug}
+                                          /{page.slug}
                                         </div>
                                       </div>
                                       <div className="status_box">
@@ -374,7 +374,7 @@ export default function WebpagesListing() {
                                                           <img src="images/create-webpage/icon_indexing.png"
                                                             alt="icon" />
                                                         </div>
-                                                        Start Page Indexing
+                                                        Start Indexing
                                                       </a>
                                                     </li> : ''
                                                 }
@@ -395,7 +395,7 @@ export default function WebpagesListing() {
                                                           <img src="images/create-webpage/icon_indexing.png"
                                                             alt="icon" />
                                                         </div>
-                                                        Stop Page Indexing
+                                                        Stop Indexing
                                                       </a>
                                                     </li> : ''
                                                 }
@@ -488,7 +488,7 @@ export default function WebpagesListing() {
                                                     <img src="images/create-webpage/icon_eye_black.svg"
                                                       alt="icon" />
                                                   </div>
-                                                  View Webpage
+                                                  View Page
                                                 </a>
                                               </li>
                                               <li>
@@ -502,7 +502,7 @@ export default function WebpagesListing() {
                                                     <img src="images/create-webpage/icon_edit.svg"
                                                       alt="icon" />
                                                   </div>
-                                                  Edit Webpage
+                                                  Edit Page
                                                 </a>
                                               </li>
                                               {
@@ -534,7 +534,7 @@ export default function WebpagesListing() {
                                                       <div className="icon">
                                                         <img src="images/create-webpage/icon_check.svg" alt="icon" />
                                                       </div>
-                                                      Live Webpage
+                                                      Live Page
                                                     </a>
 
                                                   </li> : ''
@@ -550,7 +550,7 @@ export default function WebpagesListing() {
                                                         <img src="images/create-webpage/icon_pause.svg"
                                                           alt="icon" />
                                                       </div>
-                                                      Pause Webpage
+                                                      Pause Page
                                                     </a>
                                                   </li> : ''
                                               }
@@ -562,7 +562,7 @@ export default function WebpagesListing() {
                                                     <img src="images/create-webpage/icon_delete2.svg"
                                                       alt="icon" />
                                                   </div>
-                                                  Delete Webpage
+                                                  Delete Page
                                                 </a>
                                               </li>
                                             </ul>

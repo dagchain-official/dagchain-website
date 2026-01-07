@@ -1,12 +1,27 @@
 import mongoose, { Schema, models, model } from "mongoose";
 
+const QuestionSchema = new Schema(
+  {
+    title: {
+      type: String,
+      trim: true,
+    },
+    answer: {
+      type: String,
+      trim: true,
+    },
+  },
+  { _id: false }
+);
+
+
 const WebpageSchema = new Schema(
   {
     title: String,
     slug: { type: String, unique: true },
     topic: String,
     description: String,
-        
+    type: String,
     cta_label: String,
     cta_url: String,
 
@@ -38,7 +53,12 @@ const WebpageSchema = new Schema(
     indexingAt: {
       type: Date,
     },
-
+     
+    questions: {
+      type: [QuestionSchema],
+      default: [],
+    },
+    
     status: {
       type: String,
       enum: ["draft", "published", "paused", "deleted"],

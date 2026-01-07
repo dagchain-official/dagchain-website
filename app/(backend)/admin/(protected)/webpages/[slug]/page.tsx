@@ -18,7 +18,7 @@ export default function WebpageEditor({ params }: Props) {
   const router = useRouter();
   const [slugTouched, setSlugTouched] = useState(false);
   const [pageId, setPageId] = useState<string | null>(null);
-  const [saving, setSaving] = useState(false);
+  const [saving, setSaving] = useState(true);
   const [imageUrl, setImageUrl] = useState("/frontend/images/article/bg_top_banner.png");
   const [errors, setErrors] = useState<Record<string, boolean>>({});
 
@@ -47,8 +47,9 @@ export default function WebpageEditor({ params }: Props) {
   const [form, setForm] = useState({
     title: "",
     slug: "",
+    type: "webpage",
     cta_label: "Explore Provenance for Creators",
-    cta_url: "https://www.dagchain.network/",
+    cta_url: "https://www.dagchain.network",
     topic: "",
     description: "",
     metaTitle: "",
@@ -119,6 +120,7 @@ export default function WebpageEditor({ params }: Props) {
       setForm({
         title: data.title || form.title,
         slug: data.slug || form.slug,
+        type: data.type || form.type,
         topic: data.topic || form.topic,
         description: data.description || form.description,
         cta_label: data.cta_label || form.cta_label,
@@ -157,6 +159,7 @@ export default function WebpageEditor({ params }: Props) {
       body: JSON.stringify({
         id: pageId,
         status: form.status,
+        type: form.type,
         indexingStatus: form.indexingStatus,
         ...payload,
       }),

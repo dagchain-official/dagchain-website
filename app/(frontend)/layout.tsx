@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Script from "next/script";
 
 import "@/public/frontend/css/article.css";
+import "@/public/frontend/css/question-answer.css";
 import FrontendScripts from "./_components/FrontendScripts";
 
 

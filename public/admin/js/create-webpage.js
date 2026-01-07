@@ -140,3 +140,11 @@ $(document).ready(function () {
     });
     // modal_autoclose js End
 });
+
+$(function () {
+    $(".common_wrap").each(function () {
+        var $formarea = $(this);
+        $formarea.sortable();
+        $formarea.disableSelection();
+    });
+});

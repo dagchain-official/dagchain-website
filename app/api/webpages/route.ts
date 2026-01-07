@@ -7,7 +7,7 @@ export async function POST(req: Request) {
 
   const body = await req.json();
   const { id, ...data } = body;
-
+  
   try {
     const page = id
       ? await Webpage.findByIdAndUpdate(
@@ -33,19 +33,33 @@ export async function POST(req: Request) {
   }
 }
 
-export async function GET() {
+export async function GET(req: Request) {
   try {
     await dbConnect();
-    const pages = await Webpage.find({
-      slug: { $exists: true, $ne: "" }, // ✅ slug must exist
+
+    // ✅ Read query params
+    const { searchParams } = new URL(req.url);
+    const type = searchParams.get("type");
+
+    // ✅ Base query
+    const query: any = {
+      slug: { $exists: true, $ne: "" },
       status: { $ne: "deleted" },
-    }).sort({ createdAt: -1 });
+    };
+
+    // ✅ Conditionally add type filter
+    if (type) {
+      query.type = type;
+    }
+
+    const pages = await Webpage.find(query).sort({ createdAt: -1 });
 
     return NextResponse.json({
       success: true,
       pages,
     });
   } catch (error) {
+    console.error(error);
     return NextResponse.json(
       { success: false, message: "Failed to fetch pages" },
       { status: 500 }
