@@ -67,6 +67,22 @@ export default function WebpageEditor({ params }: Props) {
     indexingStatus: "pending"
   });
 
+  async function deleteBannerImage() {
+    // 1️⃣ Clear UI immediately
+    setImageUrl("");
+    setForm((p) => ({
+      ...p,
+      bannerHeading: "",
+      bannerSubheading: "",
+      bannerDescription: "",
+    }));
+
+    // 2️⃣ Persist to DB
+    await saveDraft({
+      banner: null, // IMPORTANT
+    });
+  }
+
   /* ---------------- HELPERS ---------------- */
 
   const updateField = (key: string, value: string) => {
@@ -730,7 +746,15 @@ export default function WebpageEditor({ params }: Props) {
                         <div className="ProfileUploadSection fullwidth">
                           <div className="UploadSquare">
                             <div className="containers">
-                              <button className={`remove ${!imageUrl ? 'd-none' : ''}`}>
+                              <button
+                                type="button"
+                                className={`remove ${!imageUrl ? 'd-none' : ''}`}
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  e.stopPropagation();
+                                  deleteBannerImage();
+                                }}
+                              >
                                 <img src="/admin/images/create-webpage/icon_delete.svg" alt="icon" />
                               </button>
                               <div className="imageWrapper">
@@ -1230,7 +1254,7 @@ export default function WebpageEditor({ params }: Props) {
                   className="c_btn animate_arrow"
                   data-target="successmsg_publishpage"
                 >
-                  {saving ? 'Publishing Changes...' : ((form.status === 'published' ? 'Re' : '') + ' Publish Page')} 
+                  {saving ? 'Publishing Changes...' : ((form.status === 'published' ? 'Re' : '') + ' Publish Page')}
                   <div className="rgt_arrow">
                     <svg xmlns="http://www.w3.org/2000/svg" width="27" height="13"
                       viewBox="0 0 27.387 13.266">
