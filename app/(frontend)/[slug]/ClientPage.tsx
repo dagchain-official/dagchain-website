@@ -55,42 +55,34 @@ export default function ClientWebpage({ page }: { page: any }) {
 
                 <div className="custom_container">
                     <div className="textbox" data-aos="fade-up" data-aos-duration="1500">
-                        {isKnowledgePage ? (
-                            <>
-                                <h1 className="c_heading center whitetext flex justify-center flex-col">
-                                    Question and Answer
-                                    <div className="dlogo flex justify-center">
-                                        <img
-                                            src="/frontend/images/question-answer/img_dagchain.png"
-                                            alt="image"
-                                        />
-                                    </div>
-                                </h1>
-
-                                {bannerDescription && (
-                                    <p dangerouslySetInnerHTML={{ __html: bannerDescription }} />
-                                )}
-                            </>
-                        ) : (
-                            <>
-                                {bannerHeading && (
-                                    <h1
-                                        className="whitetext"
-                                        dangerouslySetInnerHTML={{ __html: bannerHeading }}
+                        {isKnowledgePage && (
+                            <h1 className="c_heading center whitetext flex justify-center flex-col">
+                                Question and Answer
+                                <div className="dlogo flex justify-center">
+                                    <img
+                                        src="/frontend/images/question-answer/img_dagchain.png"
+                                        alt="image"
                                     />
-                                )}
+                                </div>
+                            </h1>
+                        )}
 
-                                {bannerSubHeading && (
-                                    <div
-                                        className="c_subheading pinktext"
-                                        dangerouslySetInnerHTML={{ __html: bannerSubHeading }}
-                                    />
-                                )}
+                        {bannerHeading && (
+                            <h1
+                                className="whitetext"
+                                dangerouslySetInnerHTML={{ __html: bannerHeading }}
+                            />
+                        )}
 
-                                {bannerDescription && (
-                                    <p dangerouslySetInnerHTML={{ __html: bannerDescription }} />
-                                )}
-                            </>
+                        {bannerSubHeading && (
+                            <div
+                                className="c_subheading pinktext"
+                                dangerouslySetInnerHTML={{ __html: bannerSubHeading }}
+                            />
+                        )}
+
+                        {bannerDescription && (
+                            <p dangerouslySetInnerHTML={{ __html: bannerDescription }} />
                         )}
 
                         {page.cta_label && page.cta_url && (
@@ -98,6 +90,7 @@ export default function ClientWebpage({ page }: { page: any }) {
                                 <a
                                     href={page.cta_url}
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                     className="cta_btn bgblue brand_btn animation_white_line"
                                 >
                                     {page.cta_label}
@@ -105,6 +98,7 @@ export default function ClientWebpage({ page }: { page: any }) {
                             </div>
                         )}
                     </div>
+
                 </div>
             </div>
 

@@ -16,7 +16,10 @@ const sora = Sora({
 })
 
 export const metadata: Metadata = {
-  title: 'DAGChain - Powering Agentic AI with Layer 1 Blockchain',
+  title: {
+    default: 'DAGChain - Powering Agentic AI with Layer 1 Blockchain',
+    template: '%s | DAGChain',
+  },
   description: 'The first blockchain designed for no-code builders and vibe coders. Deploy AI agents, build dApps, and scale your ideas without the complexity.',
   keywords: 'blockchain, ethereum, Layer 1, AI agents, no-code, DAGChain, web3, dApps',
   authors: [{ name: 'DAGChain Team' }],
