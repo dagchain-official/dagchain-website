@@ -55,7 +55,7 @@ export default function ClientWebpage({ page }: { page: any }) {
 
                 <div className="custom_container">
                     <div className="textbox" data-aos="fade-up" data-aos-duration="1500">
-                        {isKnowledgePage && (
+                        {/* {isKnowledgePage && (
                             <h1 className="c_heading center whitetext flex justify-center flex-col">
                                 Question and Answer
                                 <div className="dlogo flex justify-center">
@@ -65,7 +65,7 @@ export default function ClientWebpage({ page }: { page: any }) {
                                     />
                                 </div>
                             </h1>
-                        )}
+                        )} */}
 
                         {bannerHeading && (
                             <h1

@@ -185,7 +185,7 @@ export default function WebpageEditor({ params }: Props) {
   async function saveDraft(payload: any) {
     if (saving) return;
     setSaving(true);
-    
+
     const res = await fetch("/api/webpages", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -321,6 +321,42 @@ export default function WebpageEditor({ params }: Props) {
                 <div className="filedwrap mw_615">
                   <div className="row">
 
+                    {/* Page Topic */}
+                    <div className="col-md-12">
+                      <div className="custom_label">
+                        <div className="icon">
+                          <img src="/admin/images/create-webpage/icon_topic.svg" alt="icon" />
+                        </div>
+                        Page Topic
+                        <div className="mytooltip">
+                          <img src="/admin/images/common-images/icon_toolitip.svg" alt="icon"
+                            className="icon_tooltip" />
+                          <div className="tooltip_content top">
+                            <div className="arrow"></div>
+                            <div className="customscroll">
+                              <div className="text">
+                                <p>Specify the main topic for this webpage. This helps organize
+                                  pages and improves SEO categorization.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="new_inputlabel">
+                        <input type="text" className="input"
+                          value={form.topic}
+                          onChange={(e) => updateField("topic", e.target.value)}
+                          placeholder="e.g. DagChain – Proof of Originality for Creators in Bangalore" />
+                      </div>
+                      <div className={`error_msg ${errors.topic ? "" : "d-none"}`}>
+                        <img src="/admin/images/common-images/icon_error.svg" alt="icon error" className="licon" />
+                        <div className="textbox">
+                          <strong className="ttext">Error</strong>
+                          <p>Page topic is required | Topic must be more specific</p>
+                        </div>
+                      </div>
+                    </div>
+
                     {/* Page Name */}
                     <div className="col-md-12">
                       <div className="custom_label">
@@ -368,80 +404,6 @@ export default function WebpageEditor({ params }: Props) {
                           <p>
                             Page name is required | Page name is too short | Invalid characters used
                           </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col-md-12 d-none">
-                      <div className="custom_label">
-                        <div className="icon">
-                          <img src="/admin/images/create-webpage/icon_enter.svg" alt="icon" />
-                        </div>
-                        Enter the Page Description (Optional)
-                        <div className="mytooltip">
-                          <img src="/admin/images/common-images/icon_toolitip.svg" alt="icon"
-                            className="icon_tooltip" />
-                          <div className="tooltip_content top">
-                            <div className="arrow"></div>
-                            <div className="customscroll">
-                              <div className="text">
-                                <p>
-                                  Enter page description
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="new_inputlabel">
-                        <textarea className="textarea text_autoheight"
-                          value={form.description}
-                          onChange={(e) => updateField("description", e.target.value)}
-                          placeholder="Page description"></textarea>
-                      </div>
-                      <div className={`error_msg ${errors.title ? "" : "d-none"}`}>
-                        <img src="/admin/images/common-images/icon_error.svg" alt="icon error" className="licon" />
-                        <div className="textbox">
-                          <strong className="ttext">Error</strong>
-                          <p>
-                            Page description is required | Page description is too short | Invalid characters used
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Page Topic */}
-                    <div className="col-md-12">
-                      <div className="custom_label">
-                        <div className="icon">
-                          <img src="/admin/images/create-webpage/icon_topic.svg" alt="icon" />
-                        </div>
-                        Page Topic
-                        <div className="mytooltip">
-                          <img src="/admin/images/common-images/icon_toolitip.svg" alt="icon"
-                            className="icon_tooltip" />
-                          <div className="tooltip_content top">
-                            <div className="arrow"></div>
-                            <div className="customscroll">
-                              <div className="text">
-                                <p>Specify the main topic for this webpage. This helps organize
-                                  pages and improves SEO categorization.</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="new_inputlabel">
-                        <input type="text" className="input"
-                          value={form.topic}
-                          onChange={(e) => updateField("topic", e.target.value)}
-                          placeholder="e.g. DagChain – Proof of Originality for Creators in Bangalore" />
-                      </div>
-                      <div className={`error_msg ${errors.topic ? "" : "d-none"}`}>
-                        <img src="/admin/images/common-images/icon_error.svg" alt="icon error" className="licon" />
-                        <div className="textbox">
-                          <strong className="ttext">Error</strong>
-                          <p>Page topic is required | Topic must be more specific</p>
                         </div>
                       </div>
                     </div>
@@ -1157,20 +1119,20 @@ export default function WebpageEditor({ params }: Props) {
 
                     {/* ADD MORE */}
                     <div className="btnrow">
-                      <button type="button" className="c_btn addmore" 
-                      
-                      onClick={async (e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
+                      <button type="button" className="c_btn addmore"
 
-                        if (saving) return;
-                        if (!validateStep4()) return;
+                        onClick={async (e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
 
-                        await saveDraft({
-                          questions: form.questions
-                        });
-                        addQuestion()
-                      }}>
+                          if (saving) return;
+                          if (!validateStep4()) return;
+
+                          await saveDraft({
+                            questions: form.questions
+                          });
+                          addQuestion()
+                        }}>
                         + Add More Questions
                       </button>
                     </div>
