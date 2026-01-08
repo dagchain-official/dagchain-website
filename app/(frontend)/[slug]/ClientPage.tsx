@@ -33,7 +33,7 @@ export default function ClientWebpage({ page }: { page: any }) {
 
     const bannerBgImage = hasBannerImage
         ? banner.image
-        : `/frontend/images/article/${isKnowledgePage ? 'bg_top_banner_product_knowledge' : 'bg_top_banner'}.png'`;
+        : `/frontend/images/article/${isKnowledgePage ? 'bg_top_banner_product_knowledge' : 'bg_top_banner'}.png`;
 
     const bannerHeading = banner.heading || page.title;
     const bannerSubHeading = banner.subheading || page.topic;
@@ -50,7 +50,7 @@ export default function ClientWebpage({ page }: { page: any }) {
                     data-heading={bannerHeading || ""}
                     data-subheading={bannerSubHeading || ""}
                     data-description={bannerDescription || ""}
-                    style={{ backgroundImage: `url('${bannerBgImage}')` }}
+                    style={{ backgroundImage: `url(${bannerBgImage})` }}
                 />
 
                 <div className="custom_container">
