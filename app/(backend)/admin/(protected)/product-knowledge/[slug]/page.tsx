@@ -64,18 +64,15 @@ export default function WebpageEditor({ params }: Props) {
   });
 
   async function deleteBannerImage() {
-    // 1️⃣ Clear UI immediately
     setImageUrl("");
-    setForm((p) => ({
-      ...p,
-      bannerHeading: "",
-      bannerSubheading: "",
-      bannerDescription: "",
-    }));
-
-    // 2️⃣ Persist to DB
+    // setForm((p) => ({
+    //   ...p,
+    //   bannerHeading: "",
+    //   bannerSubheading: "",
+    //   bannerDescription: "",
+    // }));
     await saveDraft({
-      banner: null, // IMPORTANT
+      banner: null,
     });
   }
 
