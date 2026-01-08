@@ -43,7 +43,7 @@ export default function LoginClient() {
       }
       else {
         router.replace("/admin/webpages");
-        setTimeout(() => { location.reload() }, 500);
+        setTimeout(() => { location.reload() }, 750);
       }
     } catch (err) {
       setError("Something went wrong. Please try again.");

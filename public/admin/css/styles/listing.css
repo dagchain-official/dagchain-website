@@ -1769,13 +1769,13 @@ body {
     min-width: 25px;
 }
 .page_wrap .listing_area .article_table .name_box {
-    width: 350px;
-    min-width: 350px;
+    width: 280px;
+    min-width: 260px;
     padding: 0 20px 0 5px;
 }
 .page_wrap .listing_area .article_table .topic_box {
-    width: 270px;
-    min-width: 270px;
+    width: 240px;
+    min-width: 220px;
     padding: 0 20px 0 5px;
 }
 .page_wrap .listing_area .article_table .view_box {
