@@ -1160,7 +1160,20 @@ export default function WebpageEditor({ params }: Props) {
 
                     {/* ADD MORE */}
                     <div className="btnrow">
-                      <button type="button" className="c_btn addmore" onClick={addQuestion}>
+                      <button type="button" className="c_btn addmore" 
+                      
+                      onClick={async (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        if (saving) return;
+                        if (!validateStep4()) return;
+
+                        await saveDraft({
+                          questions: form.questions
+                        });
+                        addQuestion()
+                      }}>
                         + Add More Questions
                       </button>
                     </div>
