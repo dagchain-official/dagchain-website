@@ -15,6 +15,8 @@ type Webpage = {
   indexingStatus?: "indexed" | "pending";
   createdAt: string;
   updatedAt: string;
+  createdBy: { __id: '', email: ''},
+  updatedBy: { _id: '', email: '' }
 };
 
 export default function WebpagesListing() {
@@ -249,6 +251,8 @@ export default function WebpagesListing() {
                                 <div className="name_box">Page Name</div>
                                 <div className="topic_box">Page Topic</div>
                                 <div className="status_box">Status</div>
+                                { role === 'admin' ? <div className="indexing_box">Created By</div> : ''}
+                                { role === 'admin' ? <div className="indexing_box">Updated By</div> : ''} 
                                 <div className="indexing_box">Indexing</div>
                                 <div className="action_box">Actions</div>
                                 <div className="action_box2">&nbsp;</div>
@@ -324,6 +328,21 @@ export default function WebpagesListing() {
                                           {page.status === 'published' ? 'live' : page.status}
                                         </div>
                                       </div>
+                                      {
+                                        role === 'admin' ?
+                                        <>
+                                          <div className="indexing_box">
+                                            <div className="btext fw_400">
+                                              { page.createdBy?.email || "---" }
+                                            </div>
+                                          </div>
+                                          <div className="indexing_box">
+                                            <div className="btext fw_400">
+                                              { page.updatedBy?.email || "---" }
+                                            </div>
+                                          </div>
+                                        </> : ''
+                                      }
                                       <div className="indexing_box">
                                         <div className="toprow">
                                           <div className={`btntype capitalize ${page.indexingStatus === 'pending' ? 'red' : 'green'}`}>

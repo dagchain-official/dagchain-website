@@ -64,8 +64,15 @@ const WebpageSchema = new Schema(
       enum: ["draft", "published", "paused", "deleted"],
       default: "draft",
     },
-    createdBy: String,
-    updatedBy: String
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    updatedBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   { timestamps: true }
 );
