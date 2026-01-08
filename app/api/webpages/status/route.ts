@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
 import dbConnect from "@/lib/db";
 import Webpage from "@/lib/models/Webpage";
-
-// const ALLOWED_STATUS = Webpage.schema.path("status")?.enumValues ?? [];
+import { getAuthUser } from "@/lib/auth";
 
 export async function POST(req: Request) {
   await dbConnect();
+
+  const user = getAuthUser();
 
   const { id, status } = await req.json();
 
@@ -28,7 +29,7 @@ export async function POST(req: Request) {
   // ✅ 3. Update dynamically
   const page = await Webpage.findByIdAndUpdate(
     id,
-    { $set: { status } },
+    { $set: { status, updatedBy: user.id } },
     {
       new: true,
       runValidators: true, // ensures enum validation

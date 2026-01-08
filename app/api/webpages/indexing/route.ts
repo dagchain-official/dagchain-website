@@ -1,12 +1,15 @@
 import { NextResponse } from "next/server";
 import dbConnect from "@/lib/db";
 import Webpage from "@/lib/models/Webpage";
+import { getAuthUser } from "@/lib/auth";
 
 const ALLOWED_STATUS = ["indexed", "pending"] as const;
 
 export async function POST(req: Request) {
   await dbConnect();
 
+  const user = getAuthUser();
+  
   const { id, indexingStatus } = await req.json();
 
   // ✅ 1. Validate inputs
@@ -28,7 +31,7 @@ export async function POST(req: Request) {
   // ✅ 3. Update dynamically
   const page = await Webpage.findByIdAndUpdate(
     id,
-    { $set: { indexingStatus } },
+    { $set: { indexingStatus, updatedBy: user.id } },
     {
       new: true,
       runValidators: true, // ensures enum validation

@@ -64,6 +64,8 @@ const WebpageSchema = new Schema(
       enum: ["draft", "published", "paused", "deleted"],
       default: "draft",
     },
+    createdBy: String,
+    updatedBy: String
   },
   { timestamps: true }
 );
