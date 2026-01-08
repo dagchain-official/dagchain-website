@@ -16,7 +16,10 @@ const sora = Sora({
 })
 
 export const metadata: Metadata = {
-  title: 'DAGChain - Powering Agentic AI with Layer 1 Blockchain',
+  title: {
+    default: 'DAGChain - Powering Agentic AI with Layer 1 Blockchain',
+    template: '%s | DAGChain',
+  },
   description: 'The first blockchain designed for no-code builders and vibe coders. Deploy AI agents, build dApps, and scale your ideas without the complexity.',
   keywords: 'blockchain, ethereum, Layer 1, AI agents, no-code, DAGChain, web3, dApps',
   authors: [{ name: 'DAGChain Team' }],
@@ -111,17 +114,15 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#6B7280" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <style>{`
+        {/* <style>{`
           link[rel*="icon"] {
             border-radius: 50% !important;
           }
-        `}</style>
+        `}</style> */}
       </head>
       <body className={`${inter.className} antialiased`}>
-        <div className="relative min-h-screen bg-white">
-          {children}
-          <CookieConsent />
-        </div>
+        {children}
+        <CookieConsent />
       </body>
     </html>
   )
