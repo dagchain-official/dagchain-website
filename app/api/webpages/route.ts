@@ -1,21 +1,31 @@
 import { NextResponse } from "next/server";
 import dbConnect from "@/lib/db";
 import Webpage from "@/lib/models/Webpage";
+import { getAuthUser } from "@/lib/auth";
 
 export async function POST(req: Request) {
   await dbConnect();
 
   const body = await req.json();
   const { id, ...data } = body;
-  
+
   try {
+    const user = getAuthUser();
+
     const page = id
       ? await Webpage.findByIdAndUpdate(
         id,
-        { $set: data },
+        { $set: { 
+          ...data, 
+          updatedBy: user.id 
+        } },
         { new: true }
       )
-      : await Webpage.create(data);
+      : await Webpage.create({ 
+        ...data, 
+        createdBy: user.id, 
+        updatedBy: user.id 
+      });
 
     return NextResponse.json(page);
   } catch (err: any) {
@@ -37,17 +47,20 @@ export async function GET(req: Request) {
   try {
     await dbConnect();
 
-    // ✅ Read query params
+    const user = getAuthUser();
+
     const { searchParams } = new URL(req.url);
     const type = searchParams.get("type");
 
-    // ✅ Base query
     const query: any = {
       slug: { $exists: true, $ne: "" },
       status: { $ne: "deleted" },
     };
 
-    // ✅ Conditionally add type filter
+    if (user.role !== "admin") {
+      query.createdBy = user.id;
+    }
+
     if (type) {
       query.type = type;
     }
@@ -59,6 +72,7 @@ export async function GET(req: Request) {
       pages,
     });
   } catch (error) {
+
     console.error(error);
     return NextResponse.json(
       { success: false, message: "Failed to fetch pages" },

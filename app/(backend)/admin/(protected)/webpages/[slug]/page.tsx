@@ -93,7 +93,7 @@ export default function WebpageEditor({ params }: Props) {
     el.classList.add("show");
     setTimeout(() => {
       el.classList.remove("show");
-    }, 4000);
+    }, 1200);
   };
 
   useEffect(() => {
@@ -108,9 +108,11 @@ export default function WebpageEditor({ params }: Props) {
     async function loadExistingPage() {
       setSaving(true);
       const res = await fetch(`/api/webpages/${params.slug}`);
-      if (!res.ok) return;
+
+      if (!res.ok) location.replace('/admin/not-found');
 
       const data = await res.json();
+
       // VERY IMPORTANT
       setPageId(data._id);
 
