@@ -102,7 +102,7 @@ export default function RelatedArticles({
                 <h3>{page.title}</h3>
 
                 <a
-                  href={`/${page.slug}/webpage`}
+                  href={`/${page.slug}`}
                   className="cta_btn no_bg animate_arrow"
                 >
                   READ NOW
