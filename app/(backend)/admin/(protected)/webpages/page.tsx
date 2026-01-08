@@ -41,6 +41,16 @@ export default function WebpagesListing() {
     );
   });
 
+  const [role, setRole] = useState<"admin" | "writer" | null>(null);
+
+  useEffect(() => {
+    fetch("/api/auth/me")
+      .then(res => res.ok ? res.json() : null)
+      .then(data => {
+        if (data?.user?.role) setRole(data.user.role);
+      });
+  }, []);
+
   const totalPages = Math.ceil(filteredPages.length / PAGE_SIZE);
 
   const paginatedPages = filteredPages.slice(
@@ -554,17 +564,23 @@ export default function WebpagesListing() {
                                                     </a>
                                                   </li> : ''
                                               }
-                                              <li>
-                                                <a onClick={() => setCurrentPageId(page?._id)} className="dropdown-item"
-                                                  data-bs-toggle="modal"
-                                                  data-bs-target="#delete_modal">
-                                                  <div className="icon">
-                                                    <img src="images/create-webpage/icon_delete2.svg"
-                                                      alt="icon" />
-                                                  </div>
-                                                  Delete Webpage
-                                                </a>
-                                              </li>
+                                              {
+                                                role === "admin" && (
+                                                  <li>
+                                                    <a
+                                                      onClick={() => setCurrentPageId(page._id)}
+                                                      className="dropdown-item text-red-600"
+                                                      data-bs-toggle="modal"
+                                                      data-bs-target="#delete_modal"
+                                                    >
+                                                      <div className="icon">
+                                                        <img src="images/create-webpage/icon_delete2.svg" alt="icon" />
+                                                      </div>
+                                                      Delete Webpage
+                                                    </a>
+                                                  </li>
+                                                )
+                                              }
                                             </ul>
                                           </div>
                                         </div>
