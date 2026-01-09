@@ -58,7 +58,7 @@ export async function GET(req: Request) {
             $cond: [
               { $ifNull: ["$createdBy", false] },
               { $ifNull: ["$user.teamName", "Unknown User"] },
-              "System / Legacy Content",
+              "System / Legacy Content (Super Admin)",
             ],
           },
 

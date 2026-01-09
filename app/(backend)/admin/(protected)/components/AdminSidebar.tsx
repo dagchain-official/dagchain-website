@@ -91,7 +91,7 @@ export default function AdminSidebar() {
                       href="/admin/dashboard"
                       className={isActive("/admin/dashboard") ? "active" : ""}
                     >
-                      Team Stats
+                      Page Stats
                     </Link>
                   </li>
                 </ul>
