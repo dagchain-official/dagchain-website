@@ -3,6 +3,7 @@ import dbConnect from "@/lib/db";
 import Webpage from "@/lib/models/Webpage";
 import { getAuthUser } from "@/lib/auth";
 import "@/lib/models/User";
+import mongoose from "mongoose";
 
 export async function POST(req: Request) {
   await dbConnect();
