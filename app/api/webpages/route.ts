@@ -61,7 +61,7 @@ export async function GET(req: Request) {
     };
 
     if (user.role !== "admin") {
-      query.createdBy = user.id;
+      query.createdBy = new mongoose.Types.ObjectId(user.id);
     }
 
     if (type) {

@@ -23,7 +23,8 @@ export async function GET(
     const filter: any = { _id: params.id };
 
     if (user.role !== "admin") {
-      filter.createdBy = user.id;
+      filter.createdBy = new mongoose.Types.ObjectId(user.id);
+
     }
 
     const page = await Webpage.findOne(filter);
