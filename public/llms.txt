@@ -1,0 +1,100 @@
+# DAGChain - AI-Native Layer 1 Blockchain
+
+> The first Layer 1 blockchain with PoS consensus designed for no-code builders and vibe coders. Deploy AI agents, build dApps, and scale your ideas without the complexity.
+
+## About DAGChain
+
+DAGChain is an AI-Native Layer 1 blockchain that powers Agentic AI with cutting-edge blockchain technology. Built with Proof-of-Stake (PoS) consensus and full EVM compatibility, we provide infrastructure for AI agents, creators, developers, and no-code builders to deploy applications without the complexity of traditional blockchain development.
+
+## Technical Specifications
+
+- **Layer**: Layer 1 Blockchain (Native)
+- **Consensus**: Proof of Stake (PoS)
+- **Block Time**: 5 seconds
+- **EVM Compatible**: Yes (Full Solidity Support)
+- **Validators**: Up to 50,000 nodes
+- **Smart Contracts**: Solidity Support
+
+## Core Features
+
+- **AI Agent Registry**: Register and manage AI agents on the blockchain
+- **Micro-Payment Rails**: Seamless payment infrastructure for AI agent transactions
+- **Provenance System**: Track and verify the origin of AI-generated content
+- **No-Code Integration**: Build without writing code
+- **EVM Compatibility**: Full Ethereum Virtual Machine support
+- **PoS Consensus**: Proof of Stake consensus mechanism with 5-second block times
+
+## Key Pages
+
+- Home: https://www.dagchain.network/
+- Whitepaper: https://www.dagchain.network/whitepaper
+- DAG Node: https://www.dagchain.network/dag-node
+- Media Kit: https://www.dagchain.network/media-kit
+
+## Token Information
+
+- Token Name: DGC (DAGChain Token)
+- Total Supply: 4.0B DGC
+- Preminted: 3.2B (80%)
+- Mintable: 800M (20%)
+
+### Token Distribution (Preminted - 80%)
+- Team: 5%
+- Advisor: 2%
+- Validator Node: 30%
+- Storage Node: 10%
+- Marketing & Community Airdrop: 6%
+- Ecosystem Growth/Grants: 5%
+- Contingency Reserves: 8%
+- Scalable Growth: 2%
+- Private Sale: 40%
+- DEX Liquidity: 2%
+
+### Token Distribution (Mintable - 20%)
+- Validator Node (Mintable): 20%
+
+## Target Users
+
+- **Developers**: Build dApps with our SDK and API
+- **Creators**: Monetize AI-generated content
+- **AI Agents**: Autonomous agents operating on-chain
+- **Validators**: Secure the network and earn rewards
+- **Enterprises**: Enterprise-grade blockchain solutions
+- **No-Code Creators**: Build without technical expertise
+
+## Community
+
+- Discord: https://discord.gg/fKpUQxDdyG
+- X (Twitter): https://x.com/DAGChain_ai
+- Telegram: https://t.me/DAGChain_network
+- Medium: https://medium.com/@DAGChain
+- LinkedIn: https://www.linkedin.com/company/dag-chain
+- YouTube: https://www.youtube.com/@dagchain.network
+- Instagram: https://www.instagram.com/dagchain.network/
+- Facebook: https://www.facebook.com/people/DagChain/61584495032870/
+- TikTok: https://www.tiktok.com/@dagchain
+
+## DAG ARMY Program
+
+Join the DAG ARMY community program with three tiers:
+- DAG Soldier
+- DAG Lieutenant
+- DAG Commander
+
+Complete weekly missions, earn rewards, and build your reputation in the ecosystem.
+
+## Contact
+
+- Email: support@dagchain.network
+- Website: https://www.dagchain.network
+
+## Development Timeline
+
+- Foundation Phase: Concept Validation → Architecture Design
+- Consensus Finalization
+- Node Key Sale & Validator Onboarding
+- Mainnet Launch
+
+---
+
+© 2025 DAGChain. All rights reserved.

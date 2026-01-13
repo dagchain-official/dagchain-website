@@ -41,12 +41,12 @@ export function Technology() {
       metrics: { devs: "10K+", apis: "500+", uptime: "100.0%" }
     },
     {
-      id: "ethereum-l2",
-      title: "Ethereum L2",
+      id: "evm-layer1",
+      title: "EVM Compatible",
       icon: Network,
-      description: "EVM-compatible Layer 1 with optimistic rollups and fraud proof mechanisms.",
-      techSpecs: ["Optimistic Rollups", "Fraud Proofs", "EVM Compatibility", "Cross-chain Bridge"],
-      metrics: { Node: "50k", gas: "0.01 Gwei", finality: "7 days" }
+      description: "Native Layer 1 blockchain with full EVM compatibility and Proof-of-Stake consensus mechanism.",
+      techSpecs: ["Full EVM Support", "PoS Consensus", "5-Second Block Time", "Cross-chain Bridge"],
+      metrics: { Node: "50k", gas: "0.01 Gwei", finality: "Fast" }
     },
     {
       id: "consensus",

@@ -48,7 +48,7 @@ export function Developers() {
       specs: [
         { label: "Solidity Version", value: "^0.8.19", type: "version" },
         { label: "Gas Limit", value: "30M per block", type: "metric" },
-        { label: "Block Time", value: "2 seconds", type: "metric" },
+        { label: "Block Time", value: "5 seconds", type: "metric" },
         { label: "Finality", value: "12 confirmations", type: "metric" }
       ],
       codeSnippet: `// SPDX-License-Identifier: MIT
@@ -373,9 +373,9 @@ if __name__ == "__main__":
             DEVELOPER DOCUMENTATION
           </motion.span>
           
-          <h1 className="text-5xl lg:text-7xl font-bold mb-6 font-mono bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 bg-clip-text text-transparent">
+          <h2 className="text-5xl lg:text-7xl font-bold mb-6 font-mono bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 bg-clip-text text-transparent">
             API Reference
-          </h1>
+          </h2>
           
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-mono">
             Developer-first Layer 1 • EVM Compatible • AI-Native Primitives<br/>

@@ -1,33 +1,33 @@
-"use client"
+"use client";
 
-import React, { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, Wallet, ChevronDown } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Wallet, ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const navItems = [
   { name: "Technology", href: "#technology" },
   { name: "Roadmap", href: "#roadmap" },
   { name: "Tokenomics", href: "#tokenomics" },
   { name: "Ecosystem", href: "#ecosystem" },
-  { name: "Developers", href: "#developers" },
+  // { name: "Developers", href: "#developers" },
   { name: "DAG ARMY", href: "#community" },
   { name: "DAG Node", href: "/dag-node" },
-]
+];
 
 export function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
+      setIsScrolled(window.scrollY > 20);
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navbarVariants = {
     top: {
@@ -38,7 +38,7 @@ export function Navbar() {
       backgroundColor: "rgba(255, 255, 255, 0.95)",
       backdropFilter: "blur(20px)",
     },
-  }
+  };
 
   const mobileMenuVariants = {
     closed: {
@@ -57,7 +57,7 @@ export function Navbar() {
         ease: "easeInOut",
       },
     },
-  }
+  };
 
   const linkVariants = {
     hover: {
@@ -68,7 +68,7 @@ export function Navbar() {
         damping: 17,
       },
     },
-  }
+  };
 
   return (
     <nav
@@ -83,9 +83,9 @@ export function Navbar() {
             whileHover={{ scale: 1.05 }}
             className="flex items-center"
           >
-            <img 
-              src="/assets/logonew.png" 
-              alt="DAGChain Logo" 
+            <img
+              src="/assets/logonew.png"
+              alt="DAGChain Logo"
               className="h-12 lg:h-16 w-auto"
             />
           </motion.div>
@@ -144,35 +144,34 @@ export function Navbar() {
                 className="p-3 rounded-2xl text-gray-700 transition-all duration-300"
                 aria-label="Toggle mobile menu"
               >
-            <AnimatePresence mode="wait">
-              {isMobileMenuOpen ? (
-                <motion.div
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <X className="w-6 h-6 text-gray-700" />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Menu className="w-6 h-6 text-gray-700" />
-                </motion.div>
-              )}
-            </AnimatePresence>
+                <AnimatePresence mode="wait">
+                  {isMobileMenuOpen ? (
+                    <motion.div
+                      key="close"
+                      initial={{ rotate: -90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: 90, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <X className="w-6 h-6 text-gray-700" />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="menu"
+                      initial={{ rotate: 90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: -90, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Menu className="w-6 h-6 text-gray-700" />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.button>
             </motion.div>
           </div>
-
         </div>
-        
+
         {/* Mobile Menu */}
         <AnimatePresence>
           {isMobileMenuOpen && (
@@ -214,5 +213,5 @@ export function Navbar() {
         </AnimatePresence>
       </div>
     </nav>
-  )
+  );
 }

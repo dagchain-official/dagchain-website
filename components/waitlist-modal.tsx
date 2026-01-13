@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { X } from "lucide-react"
-import { supabase } from "@/lib/supabase"
+// import { supabase } from "@/lib/supabase" // SUPABASE - Uncomment to re-enable
 import { countryCodes, getCountryByCode } from "@/lib/countryCodes"
 
 interface WaitlistModalProps {
@@ -60,21 +60,34 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
     setIsSubmitting(true)
 
     try {
-      const { error } = await supabase.from("waitlist").insert([
-        {
-          first_name: formData.firstName,
-          last_name: formData.lastName,
-          email: formData.email,
-          country_code: formData.countryCode,
-          phone: formData.phone,
-          designation: formData.designation,
-          city: formData.city,
-          note: formData.note,
-          terms_accepted: formData.termsAccepted,
-        },
-      ])
+      // SUPABASE BACKUP - Uncomment to re-enable Supabase integration
+      // const { error } = await supabase.from("waitlist").insert([
+      //   {
+      //     first_name: formData.firstName,
+      //     last_name: formData.lastName,
+      //     email: formData.email,
+      //     country_code: formData.countryCode,
+      //     phone: formData.phone,
+      //     designation: formData.designation,
+      //     city: formData.city,
+      //     note: formData.note,
+      //     terms_accepted: formData.termsAccepted,
+      //   },
+      // ])
+      // if (error) throw error
 
-      if (error) throw error
+      // TODO: Replace with your own backend API call
+      console.log("Waitlist submission:", {
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        email: formData.email,
+        country_code: formData.countryCode,
+        phone: formData.phone,
+        designation: formData.designation,
+        city: formData.city,
+        note: formData.note,
+        terms_accepted: formData.termsAccepted,
+      })
 
       setSubmitSuccess(true)
       setTimeout(() => {

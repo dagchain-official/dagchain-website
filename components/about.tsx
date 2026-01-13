@@ -140,7 +140,7 @@ export function About() {
                 DAGChain is the first AI-Native Layer 1 blockchain, purpose-built to support the next generation of builders - from autonomous AI agents to no-code creators.
               </p>
               <p className="text-gray-700 leading-relaxed font-inter">
-                While existing L2s chase DeFi and gaming, DAGChain delivers micro-payment rails, provenance verification, and agent registries tailored to AI-first use cases.
+                While existing blockchains chase DeFi and gaming, DAGChain delivers micro-payment rails, provenance verification, and agent registries tailored to AI-first use cases.
               </p>
             </motion.div>
 

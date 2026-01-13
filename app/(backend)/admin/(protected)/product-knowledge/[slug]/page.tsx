@@ -1,6 +1,7 @@
 "use client";
 
-import { supabase } from "@/lib/supabase";
+// SUPABASE BACKUP - Uncomment to re-enable Supabase integration
+// import { supabase } from "@/lib/supabase";
 import Script from "next/script";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -276,19 +277,27 @@ export default function WebpageEditor({ params }: Props) {
     const ext = file.name.split(".").pop()?.toLowerCase();
     if (!ext || !allowed.includes(ext)) return;
 
-    const path = `banners/${crypto.randomUUID()}.${ext}`;
+    // SUPABASE BACKUP - Uncomment to re-enable Supabase integration
+    // const path = `banners/${crypto.randomUUID()}.${ext}`;
+    // const { error } = await supabase.storage
+    //   .from("dagchain-presale-storage")
+    //   .upload(path, file, { contentType: file.type });
+    // if (error) return;
+    // const { data } = supabase.storage
+    //   .from("dagchain-presale-storage")
+    //   .getPublicUrl(path);
+    // setImageUrl(data.publicUrl);
 
-    const { error } = await supabase.storage
-      .from("dagchain-presale-storage")
-      .upload(path, file, { contentType: file.type });
-
-    if (error) return;
-
-    const { data } = supabase.storage
-      .from("dagchain-presale-storage")
-      .getPublicUrl(path);
-
-    setImageUrl(data.publicUrl);
+    // TODO: Implement your own file upload logic
+    console.log("File upload needed:", file.name);
+    alert("File upload functionality needs to be implemented");
+    
+    // Placeholder: You can use a local preview or implement your own storage solution
+    // const reader = new FileReader();
+    // reader.onloadend = () => {
+    //   setImageUrl(reader.result as string);
+    // };
+    // reader.readAsDataURL(file);
   };
 
   /* ---------------- PUBLISH ---------------- */

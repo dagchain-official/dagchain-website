@@ -42,53 +42,6 @@ export function Hero() {
 
   return (
     <>
-      <style jsx>{`
-        .whitepaper-button:active {
-          color: #666;
-        }
-
-        .whitepaper-button:before {
-          content: "";
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%) scaleY(1) scaleX(1.25);
-          top: 100%;
-          width: 140%;
-          height: 180%;
-          background-color: rgba(0, 0, 0, 0.05);
-          border-radius: 50%;
-          display: block;
-          transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
-          z-index: -1;
-        }
-
-        .whitepaper-button:after {
-          content: "";
-          position: absolute;
-          left: 55%;
-          transform: translateX(-50%) scaleY(1) scaleX(1.45);
-          top: 180%;
-          width: 160%;
-          height: 190%;
-          background-color: #9333ea;
-          border-radius: 50%;
-          display: block;
-          transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
-          z-index: -1;
-        }
-
-        .whitepaper-button:hover:before {
-          top: -35%;
-          background-color: #9333ea;
-          transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
-        }
-
-        .whitepaper-button:hover:after {
-          top: -45%;
-          background-color: #9333ea;
-          transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
-        }
-      `}</style>
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full">
@@ -120,15 +73,7 @@ export function Hero() {
           <span className="text-white drop-shadow-2xl">
             DAG
           </span>
-          <span 
-            className="drop-shadow-2xl"
-            style={{
-              background: 'linear-gradient(135deg, #123CFE 0%, #FFE5F5 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}
-          >
+          <span className="drop-shadow-2xl dagchain-gradient-text">
             CHAIN
           </span>
         </motion.h1>

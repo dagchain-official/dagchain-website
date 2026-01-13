@@ -1,51 +1,51 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { AppWrapper } from "@/components/app-wrapper"
-import { Navbar } from "@/components/navbar"
-import { NewsTicker } from "@/components/news-ticker"
-import { Hero } from "@/components/hero"
-import { About } from "@/components/about"
-import { LogoLoopSection } from "@/components/logo-loop"
-import { Technology } from "@/components/technology"
-import { DagArmy } from "@/components/dag-army"
-import { Roadmap } from "@/components/roadmap"
-import { Tokenomics } from "@/components/tokenomics"
-import { Ecosystem } from "@/components/ecosystem"
-import { Developers } from "@/components/developers"
+import { useState, useEffect } from "react";
+import { AppWrapper } from "@/components/app-wrapper";
+import { Navbar } from "@/components/navbar";
+import { NewsTicker } from "@/components/news-ticker";
+import { Hero } from "@/components/hero";
+import { About } from "@/components/about";
+import { LogoLoopSection } from "@/components/logo-loop";
+import { Technology } from "@/components/technology";
+import { DagArmy } from "@/components/dag-army";
+import { Roadmap } from "@/components/roadmap";
+import { Tokenomics } from "@/components/tokenomics";
+import { Ecosystem } from "@/components/ecosystem";
+import { Developers } from "@/components/developers";
 // import { Team } from "@/components/team"
-import { Community } from "@/components/community"
-import { RevolutionCTA } from "@/components/revolution-cta"
-import { BookMeeting } from "@/components/book-meeting"
-import { Footer } from "@/components/footer"
-import { WaitlistModal } from "@/components/waitlist-modal"
-import { useVisitorTracking } from "@/lib/useVisitorTracking"
+import { Community } from "@/components/community";
+import { RevolutionCTA } from "@/components/revolution-cta";
+import { BookMeeting } from "@/components/book-meeting";
+import { Footer } from "@/components/footer";
+import { WaitlistModal } from "@/components/waitlist-modal";
+import { useVisitorTracking } from "@/lib/useVisitorTracking";
 
 export default function Home() {
-  const [showWaitlist, setShowWaitlist] = useState(false)
+  const [showWaitlist, setShowWaitlist] = useState(false);
 
   // Track visitor silently
-  useVisitorTracking()
+  useVisitorTracking();
 
   useEffect(() => {
     // Check if user has already seen the waitlist modal
-    const hasSeenWaitlist = localStorage.getItem("hasSeenWaitlist")
-    
+    const hasSeenWaitlist = localStorage.getItem("hasSeenWaitlist");
+
     if (!hasSeenWaitlist) {
       // Show modal after 2 seconds on first visit
       const timer = setTimeout(() => {
-        setShowWaitlist(true)
-      }, 2000)
+        setShowWaitlist(true);
+      }, 2000);
 
-      return () => clearTimeout(timer)
+      return () => clearTimeout(timer);
     }
-  }, [])
+  }, []);
 
   const handleCloseWaitlist = () => {
-    setShowWaitlist(false)
+    setShowWaitlist(false);
     // Mark as seen so it doesn't show again
-    localStorage.setItem("hasSeenWaitlist", "true")
-  }
+    localStorage.setItem("hasSeenWaitlist", "true");
+  };
 
   return (
     <AppWrapper>
@@ -58,7 +58,7 @@ export default function Home() {
         <Roadmap />
         <Tokenomics />
         <Ecosystem />
-        <Developers />
+        {/* <Developers /> */}
         {/* <Team /> */}
         <Community />
         <DagArmy />
@@ -70,5 +70,5 @@ export default function Home() {
       {/* Waitlist Modal */}
       <WaitlistModal isOpen={showWaitlist} onClose={handleCloseWaitlist} />
     </AppWrapper>
-  )
+  );
 }

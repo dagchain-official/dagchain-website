@@ -18,7 +18,7 @@ export function Roadmap() {
           status: "planning",
           highlights: [
             "Brand identity finalized → DAGChain.network hub",
-            "Research on existing L2 limitations completed",
+            "Research on existing blockchain limitations completed",
             "Whitepaper drafted with AI-native primitives",
             "Strategic advisor discussions initiated"
           ]
@@ -28,8 +28,8 @@ export function Roadmap() {
           title: "Architecture Design",
           status: "planning",
           highlights: [
-            "Ethereum fork baseline setup",
-            "Rollup design aligned with Ethereum settlement",
+            "Layer 1 blockchain architecture finalized",
+            "PoS consensus design with EVM compatibility",
             "Smart contract security review",
             "Developer workflow pipeline established"
           ]

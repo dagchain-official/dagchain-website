@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createClient } from '@supabase/supabase-js'
+// SUPABASE BACKUP - Uncomment to re-enable Supabase integration
+// import { createClient } from '@supabase/supabase-js'
 
-// Create Supabase client with service role key for server-side operations
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
-const supabase = createClient(supabaseUrl, supabaseServiceKey)
+// const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
+// const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
+// const supabase = createClient(supabaseUrl, supabaseServiceKey)
 
 export async function POST(request: NextRequest) {
   try {
@@ -87,59 +87,75 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Check if visitor already exists
-    const { data: existingVisitor } = await supabase
-      .from('visitor_tracking')
-      .select('*')
-      .eq('ip_address', ipAddress)
-      .single()
+    // SUPABASE BACKUP - Uncomment to re-enable Supabase integration
+    // const { data: existingVisitor } = await supabase
+    //   .from('visitor_tracking')
+    //   .select('*')
+    //   .eq('ip_address', ipAddress)
+    //   .single()
 
-    if (existingVisitor) {
-      // Update existing visitor
-      console.log('Updating existing visitor:', ipAddress)
-      const { error: updateError } = await supabase
-        .from('visitor_tracking')
-        .update({
-          visit_count: existingVisitor.visit_count + 1,
-          last_visit_at: new Date().toISOString(),
-          user_agent: userAgent || existingVisitor.user_agent,
-          referrer: referrer || existingVisitor.referrer,
-        })
-        .eq('ip_address', ipAddress)
+    // if (existingVisitor) {
+    //   console.log('Updating existing visitor:', ipAddress)
+    //   const { error: updateError } = await supabase
+    //     .from('visitor_tracking')
+    //     .update({
+    //       visit_count: existingVisitor.visit_count + 1,
+    //       last_visit_at: new Date().toISOString(),
+    //       user_agent: userAgent || existingVisitor.user_agent,
+    //       referrer: referrer || existingVisitor.referrer,
+    //     })
+    //     .eq('ip_address', ipAddress)
 
-      if (updateError) {
-        console.error('Supabase update error:', updateError)
-        return NextResponse.json({ success: false, error: updateError.message }, { status: 500 })
-      }
-    } else {
-      // Insert new visitor
-      console.log('Inserting new visitor:', ipAddress)
-      const { error: insertError } = await supabase
-        .from('visitor_tracking')
-        .insert({
-          ip_address: ipAddress,
-          city: geoData.city || null,
-          state: geoData.region || null,
-          country: geoData.country_name || null,
-          continent: geoData.continent_code || null,
-          country_code: geoData.country_code || null,
-          latitude: geoData.latitude || null,
-          longitude: geoData.longitude || null,
-          timezone: geoData.timezone || null,
-          isp: geoData.org || null,
-          user_agent: userAgent,
-          referrer: referrer,
-          landing_page: landingPage,
-          visit_count: 1,
-          first_visit_at: new Date().toISOString(),
-          last_visit_at: new Date().toISOString(),
-        })
+    //   if (updateError) {
+    //     console.error('Supabase update error:', updateError)
+    //     return NextResponse.json({ success: false, error: updateError.message }, { status: 500 })
+    //   }
+    // } else {
+    //   console.log('Inserting new visitor:', ipAddress)
+    //   const { error: insertError } = await supabase
+    //     .from('visitor_tracking')
+    //     .insert({
+    //       ip_address: ipAddress,
+    //       city: geoData.city || null,
+    //       state: geoData.region || null,
+    //       country: geoData.country_name || null,
+    //       continent: geoData.continent_code || null,
+    //       country_code: geoData.country_code || null,
+    //       latitude: geoData.latitude || null,
+    //       longitude: geoData.longitude || null,
+    //       timezone: geoData.timezone || null,
+    //       isp: geoData.org || null,
+    //       user_agent: userAgent,
+    //       referrer: referrer,
+    //       landing_page: landingPage,
+    //       visit_count: 1,
+    //       first_visit_at: new Date().toISOString(),
+    //       last_visit_at: new Date().toISOString(),
+    //     })
 
-      if (insertError) {
-        console.error('Supabase insert error:', insertError)
-        return NextResponse.json({ success: false, error: insertError.message }, { status: 500 })
-      }
-    }
+    //   if (insertError) {
+    //     console.error('Supabase insert error:', insertError)
+    //     return NextResponse.json({ success: false, error: insertError.message }, { status: 500 })
+    //   }
+    // }
+
+    // TODO: Replace with your own database implementation
+    console.log('Visitor tracking data:', {
+      ip_address: ipAddress,
+      city: geoData.city || null,
+      state: geoData.region || null,
+      country: geoData.country_name || null,
+      continent: geoData.continent_code || null,
+      country_code: geoData.country_code || null,
+      latitude: geoData.latitude || null,
+      longitude: geoData.longitude || null,
+      timezone: geoData.timezone || null,
+      isp: geoData.org || null,
+      user_agent: userAgent,
+      referrer: referrer,
+      landing_page: landingPage,
+      timestamp: new Date().toISOString(),
+    })
 
     console.log('Visitor tracked successfully:', ipAddress)
 

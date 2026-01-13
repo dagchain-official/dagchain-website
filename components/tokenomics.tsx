@@ -37,6 +37,27 @@ export function Tokenomics() {
           }
         },
         {
+          name: "Validator Node",
+          amount: 1200000000,
+          percentage: 30,
+          icon: Coins,
+          details: {
+            timeline: "Distributed over network lifetime",
+            role: "Incentivizes node uptime & validation",
+            narrative: "Community-owned, validator-powered Layer 1 blockchain"
+          }
+        },
+        {
+          name: "Storage Node",
+          amount: 400000000,
+          percentage: 10,
+          icon: Coins,
+          details: {
+            role: "Incentivizes storage node operators",
+            narrative: "Decentralized storage infrastructure"
+          }
+        },
+        {
           name: "Marketing & Community Airdrop",
           amount: 240000000,
           percentage: 6,
@@ -89,7 +110,8 @@ export function Tokenomics() {
             price: "Price: $0.40 per DGC token",
             timeline: "Sale ends August 31, 2026",
             vesting: "TBD",
-            participants: "Strategic VCs, early backers, ecosystem partners"
+            participants: "Strategic VCs, early backers, ecosystem partners",
+            note: "Includes Private Sale, Pre Sale, and Public Sale allocations"
           }
         },
         {
@@ -126,16 +148,6 @@ export function Tokenomics() {
             role: "Healthy token trading and user access",
             narrative: "Controlled price discovery"
           }
-        },
-        {
-          name: "Storage Node",
-          amount: 400000000,
-          percentage: 10,
-          icon: Coins,
-          details: {
-            role: "Incentivizes storage node operators",
-            narrative: "Decentralized storage infrastructure"
-          }
         }
       ]
     },
@@ -144,7 +156,7 @@ export function Tokenomics() {
       percentage: 20,
       allocations: [
         {
-          name: "Validator Node",
+          name: "Validator Node (Mintable)",
           amount: 800000000,
           percentage: 20,
           icon: Coins,
@@ -152,7 +164,7 @@ export function Tokenomics() {
             timeline: "Minted over 10–12 years by ~50,000 nodes",
             curve: "Higher early emissions, declining curve",
             role: "Incentivizes node uptime & validation",
-            narrative: "Community-owned, validator-powered blockchain"
+            narrative: "Community-owned, validator-powered Layer 1 blockchain with PoS consensus"
           }
         }
       ]
