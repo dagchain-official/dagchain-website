@@ -10,7 +10,7 @@ import { useVisitorTracking } from "@/lib/useVisitorTracking";
 // Below-the-fold components are loaded dynamically
 const About = dynamic(() => import('@/components/about').then(mod => ({ ssr: true, default: mod.About })));
 const Technology = dynamic(() => import('@/components/technology').then(mod => ({ ssr: true, default: mod.Technology })));
-const LogoLoopSection = dynamic(() => import("@/components/logo-loop").then(mod => ({ ssr: true, default: mod.LogoLoopSection })));
+const LogoLoopSection = dynamic(() => import("@/components/logo-loop").then(mod => ({ ssr: false, default: mod.LogoLoopSection })));
 const Roadmap = dynamic(() => import('@/components/roadmap').then(mod => ({ ssr: false, default: mod.Roadmap })));
 const Tokenomics = dynamic(() => import('@/components/tokenomics').then(mod => ({ ssr: false, default: mod.Tokenomics })));
 const Community = dynamic(() => import('@/components/community').then(mod => ({ ssr: true, default: mod.Community })));

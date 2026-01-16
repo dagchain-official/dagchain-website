@@ -128,3 +128,7 @@
     transition: none !important;
   }
 }
+
+.logoloop__track {
+  will-change: transform;
+}
