@@ -2,8 +2,8 @@
 
 @font-face {
   font-family: 'Nasalization';
-  src: url('/assets/Nasalization Rg.otf') format('opentype');
-  font-weight: normal;
+  src: url('/assets/Nasalization-Rg.woff2') format('woff2');
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
