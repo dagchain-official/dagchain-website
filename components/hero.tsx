@@ -38,7 +38,7 @@ export function Hero() {
         video.load()          // force load
         video.play().catch(() => { }) // play safely
       }
-    }, 600)
+    }, 800)
 
     return () => clearTimeout(timer)
   }, [])
@@ -67,11 +67,12 @@ export function Hero() {
             loop
             muted
             playsInline
+            title="dagchain in action"
             preload="none"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ objectFit: "cover" }}
           >
-            <source src="/assets/dagchain-new-hero.mp4" type="video/mp4" />
+            <source src="/assets/dagchain-hero.mp4" type="video/mp4" />
           </video>
 
           {/* Overlay */}
