@@ -217,6 +217,7 @@ export function Footer() {
                 <img
                   src="/assets/logo-footer-light.webp"
                   alt="DAGChain Logo"
+                  width={14} height={'auto'}
                   className="h-14 w-auto"
                 />
               </div>
