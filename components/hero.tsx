@@ -2,7 +2,7 @@
 
 import React from "react"
 import { motion } from "framer-motion"
-import { ArrowRight, Zap, Shield, Globe } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 
 export function Hero() {
   const containerVariants = {

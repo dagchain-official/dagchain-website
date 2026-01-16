@@ -1,5 +1,32 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async headers() {
+    const cspHeader = `
+      default-src 'self';
+      script-src 'self' 'unsafe-eval' 'unsafe-inline' https://assets.calendly.com https://www.googletagmanager.com https://connect.facebook.net;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      img-src 'self' blob: data: https://www.facebook.com;
+      font-src 'self' https://fonts.gstatic.com;
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+      frame-src 'self' https://calendly.com;
+      frame-ancestors 'none';
+      upgrade-insecure-requests;
+    `.replace(/\s{2,}/g, ' ').trim();
+
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Content-Security-Policy', // Change to 'Content-Security-Policy-Report-Only' to keep testing
+            value: cspHeader,
+          },
+        ],
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {
