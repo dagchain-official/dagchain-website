@@ -7,7 +7,7 @@
   --mono-text: #111111; /* high contrast text */
   --mono-text-secondary: #666666; /* muted text */
   --mono-border: rgba(0, 0, 0, 0.08);
-}
+
   /* Primitive Color Tokens */
   --color-white: rgba(255, 255, 255, 1);
   --color-black: rgba(0, 0, 0, 1);
@@ -1679,4 +1679,14 @@ select.form-control {
   .slide-content {
     height: auto;
   }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease forwards;
 }
