@@ -53,7 +53,7 @@ export function Hero() {
 
           {/* LCP Banner Image (priority) */}
           <img
-            src="/assets/hero-dagchain.png"
+            src="/assets/hero-dagchain.webp"
             alt="DAGChain Hero Banner"
             fetchPriority="high"
             loading="eager"

@@ -69,11 +69,31 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta charSet="utf-8" />
         {/* Viewport */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        
+
         {/* Google Fonts (legacy CDN-based) */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
+        <link
+          rel="preload"
+          href="/assets/Nasalization_Rg.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/assets/fonts/sora/sora-latin-ext.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/assets/fonts/sora/sora-latin.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -95,7 +115,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${inter.className} antialiased`}>
         {children}
         <CookieConsent />
-        
+
         {/* Facebook Pixel - Optional: Move to a dedicated component later */}
         <Script id="fb-pixel" strategy="lazyOnload">
           {`

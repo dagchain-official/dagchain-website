@@ -6,8 +6,8 @@
   font-display: swap;
   src: url('/assets/fonts/sora/sora-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-                 U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
-                 U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 /* latin-ext */
@@ -18,14 +18,14 @@
   font-display: swap;
   src: url('/assets/fonts/sora/sora-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
-                 U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF,
-                 U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
-                 U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF,
+    U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @font-face {
   font-family: 'Nasalization';
-  src: url('/assets/Nasalization-Rg.woff2') format('woff2');
+  src: url('/assets/Nasalization_Rg.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -86,6 +86,7 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground font-inter;
     font-feature-settings: "rlig" 1, "calt" 1;
@@ -96,26 +97,26 @@
   .text-gradient {
     @apply bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600 bg-clip-text text-transparent;
   }
-  
+
   .glass-effect {
     @apply backdrop-blur-md bg-white/10 border border-white/20;
   }
-  
+
   .glow-gray {
     box-shadow: 0 0 20px rgba(107, 114, 128, 0.3);
   }
-  
+
   .glow-gray-strong {
     box-shadow: 0 0 40px rgba(107, 114, 128, 0.6);
   }
-  
+
   .gradient-border {
     position: relative;
     background: linear-gradient(45deg, #6B7280, #9CA3AF, #6B7280);
     background-size: 200% 200%;
     animation: gradient-shift 3s ease infinite;
   }
-  
+
   .gradient-border::before {
     content: '';
     position: absolute;
@@ -123,38 +124,38 @@
     background: white;
     border-radius: inherit;
   }
-  
+
   .neumorphic {
     background: #ffffff;
     box-shadow: 8px 8px 16px rgba(163, 177, 198, 0.15), -8px -8px 16px rgba(255, 255, 255, 0.7);
   }
-  
+
   .neumorphic-inset {
     background: #ffffff;
     box-shadow: inset 4px 4px 8px rgba(163, 177, 198, 0.15), inset -4px -4px 8px rgba(255, 255, 255, 0.7);
   }
-  
+
   .neumorphic-hover:hover {
     box-shadow: inset 2px 2px 4px rgba(163, 177, 198, 0.2), inset -2px -2px 4px rgba(255, 255, 255, 0.8);
   }
-  
+
   .neuro-base {
     background: #ffffff;
     box-shadow: 12px 12px 24px rgba(163, 177, 198, 0.3), -12px -12px 24px rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(163, 177, 198, 0.1);
   }
-  
+
   .neuro-button {
     background: #ffffff;
     box-shadow: 6px 6px 12px rgba(163, 177, 198, 0.2), -6px -6px 12px rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(163, 177, 198, 0.1);
     transition: all 0.3s ease;
   }
-  
+
   .neuro-button:hover {
     box-shadow: 8px 8px 16px rgba(163, 177, 198, 0.25), -8px -8px 16px rgba(255, 255, 255, 0.9);
   }
-  
+
   .neuro-inset {
     background: #ffffff;
     box-shadow: inset 6px 6px 12px rgba(163, 177, 198, 0.15), inset -6px -6px 12px rgba(255, 255, 255, 0.8);
