@@ -117,7 +117,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CookieConsent />
 
         {/* Facebook Pixel - Optional: Move to a dedicated component later */}
-        <Script id="fb-pixel" strategy="lazyOnload">
+        {/* <Script id="fb-pixel" strategy="lazyOnload">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -130,7 +130,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             fbq('init', 'YOUR_FACEBOOK_PIXEL_ID');
             fbq('track', 'PageView');
           `}
-        </Script>
+        </Script> */}
       </body>
     </html>
   );
