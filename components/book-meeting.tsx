@@ -1,23 +1,40 @@
 "use client"
 
-import React, { useEffect } from "react"
+import React, { useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 import { Calendar, Clock, Users, Video } from "lucide-react"
 
 export function BookMeeting() {
-  useEffect(() => {
-    // Load Calendly script
-    const script = document.createElement('script')
-    script.src = 'https://assets.calendly.com/assets/external/widget.js'
-    script.async = true
-    document.body.appendChild(script)
+  const sectionRef = useRef<HTMLElement | null>(null)
 
-    return () => {
-      // Cleanup script on unmount
-      if (document.body.contains(script)) {
-        document.body.removeChild(script)
-      }
+  useEffect(() => {
+    let scriptLoaded = false
+
+    const loadCalendly = () => {
+      if (scriptLoaded) return
+      scriptLoaded = true
+
+      const script = document.createElement("script")
+      script.src = "https://assets.calendly.com/assets/external/widget.js"
+      script.async = true
+      document.body.appendChild(script)
     }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          loadCalendly()
+          observer.disconnect()
+        }
+      },
+      { rootMargin: "200px" }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => observer.disconnect()
   }, [])
 
   const features = [
@@ -28,7 +45,11 @@ export function BookMeeting() {
   ]
 
   return (
-    <section id="meeting-section" className="relative py-24 bg-gray-50 overflow-hidden">
+    <section
+      ref={sectionRef}
+      id="meeting-section"
+      className="relative py-24 bg-gray-50 overflow-hidden"
+    >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03]">
         <div className="absolute inset-0" style={{
@@ -132,12 +153,12 @@ export function BookMeeting() {
         >
           {/* 3D Neumorphic Container */}
           <div className="relative bg-gray-50 rounded-3xl p-8 shadow-[20px_20px_60px_rgba(163,177,198,0.5),-20px_-20px_60px_rgba(255,255,255,0.9)] border border-gray-200">
-            
+
             {/* Calendly Embed Container */}
             <div className="relative min-h-[700px] rounded-2xl overflow-hidden bg-white shadow-[inset_12px_12px_24px_rgba(163,177,198,0.2),inset_-12px_-12px_24px_rgba(255,255,255,0.9)] border border-gray-200">
               {/* Embedded Calendly Widget */}
-              <div 
-                className="calendly-inline-widget" 
+              <div
+                className="calendly-inline-widget"
                 data-url="https://calendly.com/meetings-DAGChain/30min?primary_color=008aeb"
                 style={{ minWidth: '320px', height: '700px' }}
               ></div>
