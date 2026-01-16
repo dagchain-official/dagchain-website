@@ -28,7 +28,7 @@ const chains = [
 
 const appMetadata = {
   name: 'DAGChain Presale',
-  icon: '/assets/logonew.png',
+  icon: '/assets/logonew.webp',
   description: 'DAGChain Token Sale Platform',
   recommendedInjectedWallets: [
     { name: 'MetaMask', url: 'https://metamask.io' },

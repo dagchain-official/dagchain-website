@@ -84,7 +84,7 @@ export function Navbar() {
             className="flex items-center"
           >
             <img
-              src="/assets/logonew.png"
+              src="/assets/logonew.webp"
               alt="DAGChain Logo"
               className="h-12 lg:h-16 w-auto"
             />

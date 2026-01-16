@@ -215,7 +215,7 @@ export function Footer() {
               {/* Logo */}
               <div className="flex items-center mb-4">
                 <img
-                  src="/assets/logo-footer-light.png"
+                  src="/assets/logo-footer-light.webp"
                   alt="DAGChain Logo"
                   className="h-14 w-auto"
                 />
