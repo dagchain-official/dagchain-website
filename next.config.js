@@ -43,12 +43,30 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   webpack: (config) => {
+
+    config.optimization.splitChunks = {
+      chunks: "all",
+      cacheGroups: {
+        react: {
+          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+          name: "react",
+          priority: 20,
+        },
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          priority: 10,
+        },
+      },
+    };
+
     // Exclude the Sale component folder from webpack processing
     config.module.rules.push({
       test: /\.(js|jsx|ts|tsx)$/,
       exclude: /components\/Sale component/,
-    })
-    return config
+    });
+
+    return config;
   },
 }
 
