@@ -1,13 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  compiler: {
-    removeConsole: process.env.NODE_ENV === "production",
-  },
-  images: {
-    formats: ['image/avif', 'image/webp'],
-    minimumCacheTTL: 60,
-    remotePatterns: [{ protocol: "https", hostname: "**" }],
-  },
   async headers() {
     const cspHeader = `
       default-src 'self';
@@ -35,7 +27,13 @@ const nextConfig = {
       },
     ];
   },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
+  },
   images: {
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 60,
+    remotePatterns: [{ protocol: "https", hostname: "**" }],
     remotePatterns: [
       {
         protocol: "https",
@@ -49,6 +47,11 @@ const nextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true,
+  },
+  reactStrictMode: true,
+  swcMinify: true, // Uses Rust-based minifier (faster/better),
+  experimental: {
+    optimizePackageImports: ['lucide-react', '@web3-onboard', 'framer-motion', '@radix-ui/react-icons'],
   },
   webpack: (config) => {
     // Exclude the Sale component folder from webpack processing
