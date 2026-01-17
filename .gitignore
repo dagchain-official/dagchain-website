@@ -121,3 +121,5 @@ presale-app/
 # EXCLUDE DOCUMENTATION FILES (may contain sensitive info)
 *.md
 !README.md
+
+analyze/
