@@ -8,7 +8,7 @@ import { Partytown } from '@qwik.dev/partytown/react';
 
 import { CookieConsent } from '@/components/cookie-consent';
 import { siteConfig } from './siteconfig';
-// import { GoogleAnalytics } from '@next/third-parties/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -161,7 +161,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script> */}
 
-        {/* <GoogleAnalytics gaId="G-73EW4LY9JQ" /> */}
+        <GoogleAnalytics gaId="G-73EW4LY9JQ" />
       </body>
     </html>
   );
