@@ -39,6 +39,14 @@ export const metadata: Metadata = {
     icon: '/assets/android-chrome-192x192.png',
     apple: '/assets/android-chrome-192x192.png',
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -72,9 +80,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         {/* LCP Hero Image */}
-        <link rel="preload" as="image" href="/assets/hero-dagchain.webp"></link> 
-        <link rel="preload" as="video" href="/assets/dagchain-hero.mp4"></link>
-        <link rel="preload" href="/styles/globals.css" as="style"/>
+        <link rel="preload" as="image" href="/assets/hero-dagchain.webp" /> 
+        <link rel="preload" as="video" href="/assets/dagchain-hero.mp4" />
 
         {/* Google Fonts (legacy CDN-based) */} 
         <link rel="preconnect" href="https://fonts.googleapis.com" /> 

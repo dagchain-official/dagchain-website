@@ -5,12 +5,13 @@ const nextConfig = {
       default-src 'self';
       script-src 'self' 'unsafe-eval' 'unsafe-inline' https://assets.calendly.com https://www.googletagmanager.com https://connect.facebook.net;
       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-      img-src 'self' blob: data: https://www.facebook.com;
+      img-src 'self' blob: data: https://www.facebook.com https://www.google-analytics.com https://www.googletagmanager.com;
       font-src 'self' https://fonts.gstatic.com;
+      connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net;
+      frame-src 'self' https://calendly.com;
       object-src 'none';
       base-uri 'self';
       form-action 'self';
-      frame-src 'self' https://calendly.com;
       frame-ancestors 'none';
       upgrade-insecure-requests;
     `.replace(/\s{2,}/g, ' ').trim();
@@ -20,7 +21,7 @@ const nextConfig = {
         source: '/(.*)',
         headers: [
           {
-            key: 'Content-Security-Policy', // Change to 'Content-Security-Policy-Report-Only' to keep testing
+            key: 'Content-Security-Policy',
             value: cspHeader,
           },
         ],
@@ -33,34 +34,39 @@ const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60,
-    remotePatterns: [{ protocol: "https", hostname: "**" }],
+    // Critical for Mobile Performance: Generate smaller versions for phones
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     remotePatterns: [
       {
         protocol: "https",
         hostname: "**",
       },
     ],
-    // domains: ['images.unsplash.com', 'via.placeholder.com', 'lottie.host'],
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  // Suppressing build errors to speed up deployment
+  eslint: { ignoreDuringBuilds: true },
+  typescript: { ignoreBuildErrors: true },
+  
   reactStrictMode: true,
-  swcMinify: true, // Uses Rust-based minifier (faster/better),
+  swcMinify: true, 
+  
   experimental: {
-    optimizePackageImports: ['lucide-react', '@web3-onboard', 'framer-motion', '@radix-ui/react-icons'],
+    // Aggressive package tree-shaking for mobile JS reduction
+    optimizePackageImports: [
+      'lucide-react', 
+      '@web3-onboard', 
+      'framer-motion', 
+      '@radix-ui/react-icons',
+      'shadcn-ui'
+    ],
   },
   webpack: (config) => {
-    // Exclude the Sale component folder from webpack processing
     config.module.rules.push({
       test: /\.(js|jsx|ts|tsx)$/,
       exclude: /components\/Sale component/,
-    })
-    return config
+    });
+    return config;
   },
 }
 
-module.exports = nextConfig
+module.exports = nextConfig;
