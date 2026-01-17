@@ -2,6 +2,7 @@
 
 import React from "react"
 import { m } from "framer-motion"
+import styles from '@/styles/animations.module.css';
 
 const TEAM = [
   {
@@ -95,7 +96,7 @@ export function Team() {
                 className="group relative bg-white rounded-2xl p-4 border border-gray-200 shadow-[12px_12px_24px_rgba(163,177,198,0.3),-12px_-12px_24px_rgba(255,255,255,0.9)] hover:shadow-[20px_20px_40px_rgba(163,177,198,0.4),-20px_-20px_40px_rgba(255,255,255,1)] transition-all duration-300 cursor-pointer w-full max-w-[280px]"
               >
                 {/* Embossed frame */}
-                <div className="rounded-xl overflow-hidden bg-white neumorphic-inset">
+                <div className={`rounded-xl overflow-hidden bg-white ${styles['neumorphic-inset']}`}>
                   <div className="aspect-[4/5] w-full overflow-hidden">
                     <img
                       src={member.img}
@@ -136,7 +137,7 @@ export function Team() {
                   className="group relative bg-white rounded-2xl p-4 border border-gray-200 shadow-[12px_12px_24px_rgba(163,177,198,0.3),-12px_-12px_24px_rgba(255,255,255,0.9)] hover:shadow-[20px_20px_40px_rgba(163,177,198,0.4),-20px_-20px_40px_rgba(255,255,255,1)] transition-all duration-300 cursor-pointer w-full max-w-[280px]"
                 >
                   {/* Embossed frame */}
-                  <div className="rounded-xl overflow-hidden bg-white neumorphic-inset">
+                  <div className={`rounded-xl overflow-hidden bg-white ${styles['neumorphic-inset']}`}>
                     <div className="aspect-[4/5] w-full overflow-hidden">
                       <img
                         src={member.img}

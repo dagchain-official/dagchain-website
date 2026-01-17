@@ -23,6 +23,7 @@ import {
 } from "recharts";
 import { generateWhitepaperPDF, generateSimplePDF } from "@/utils/pdfGenerator";
 import { Footer } from "@/components/footer";
+import styles from '@/styles/animations.module.css';
 
 export default function WhitepaperPage() {
   const [activeSection, setActiveSection] = useState("introduction");

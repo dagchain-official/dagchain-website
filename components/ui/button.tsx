@@ -2,7 +2,7 @@ import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 import { m } from "framer-motion"
-
+import styles from '@/styles/animations.module.css';
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
@@ -19,7 +19,7 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        glass: "glass-effect text-white hover:bg-white/20 border-white/30 hover:border-white/50",
+        glass: ` ${styles['glass-effect']} text-white hover:bg-white/20 border-white/30 hover:border-white/50`,
         neumorphic: "bg-white text-primary-600 shadow-[6px_6px_12px_rgba(163,177,198,0.25),-6px_-6px_12px_rgba(255,255,255,0.9)] hover:shadow-[inset_4px_4px_8px_rgba(163,177,198,0.25),inset_-4px_-4px_8px_rgba(255,255,255,0.9)] border-0",
       },
       size: {
