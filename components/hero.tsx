@@ -39,7 +39,7 @@ export function Hero() {
         video.load()          // force load
         video.play().catch(() => { }) // play safely
       }
-    }, 250)
+    }, 500)
 
     return () => clearTimeout(timer)
   }, [])
