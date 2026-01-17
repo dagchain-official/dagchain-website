@@ -9,8 +9,8 @@ import { WaitlistManager } from "@/components/WaitlistManager";
 const SectionSkeleton = () => <div className="h-[400px] w-full bg-slate-900/20 animate-pulse" />;
 
 // Below-the-fold components are loaded dynamically
-const Navbar = dynamic(() => import('@/components/navbar').then(mod => ({ ssr: false, default: mod.Navbar })));
-const Hero = dynamic(() => import('@/components/hero').then(mod => ({ ssr: false, default: mod.Hero })));
+const Navbar = dynamic(() => import('@/components/navbar').then(mod => ({ ssr: false, loading: () => <SectionSkeleton />, default: mod.Navbar })));
+const Hero = dynamic(() => import('@/components/hero').then(mod => ({ ssr: false, loading: () => <SectionSkeleton />, default: mod.Hero })));
 const About = dynamic(() => import('@/components/about').then(mod => ({ ssr: true, loading: () => <SectionSkeleton />, default: mod.About })));
 const Technology = dynamic(() => import('@/components/technology').then(mod => ({ ssr: true, loading: () => <SectionSkeleton />, default: mod.Technology })));
 const LogoLoopSection = dynamic(() => import("@/components/logo-loop").then(mod => ({ ssr: true, loading: () => <SectionSkeleton />, default: mod.LogoLoopSection })));

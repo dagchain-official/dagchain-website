@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
-
+import { Sora } from 'next/font/google';
 import '@/styles/fonts.css';
 import '@/styles/globals.css';
 import '@/styles/effects.css';
@@ -48,6 +48,12 @@ export const metadata: Metadata = {
     },
   }
 };
+
+const sora = Sora({
+  subsets: ['latin'],
+  display: 'swap', // Shows text immediately with fallback font
+  variable: '--font-sora',
+});
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   // Structured Data (JSON-LD)
@@ -117,6 +123,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="font/woff2"
           crossOrigin="anonymous"
         />
+
+        {/* Resource hint for the main CSS file */}
+        <link rel="preload" href="/_next/static/css/250d7435bd29f9b1.css" as="style" />
         
         {/* Google Analytics - Load After Interactive to boost LCP */}
         {/* <Script
@@ -132,7 +141,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script> */}
       </head>
-      <body className={`antialiased`}>
+      <body className={`${sora.variable} antialiased`}>
         {children}
         <CookieConsent />
 
