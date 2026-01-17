@@ -49,7 +49,7 @@ const nextConfig = {
   typescript: { ignoreBuildErrors: true },
   reactStrictMode: true,
   swcMinify: true,
-  transpilePackages: ['@web3-onboard/core', 'framer-motion'],
+  transpilePackages: ['@web3-onboard/core', 'framer-motion', 'recharts'],
   experimental: {
     // Aggressive package tree-shaking for mobile JS reduction
     optimizePackageImports: [
