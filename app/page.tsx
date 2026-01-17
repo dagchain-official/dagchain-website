@@ -3,13 +3,13 @@
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { AppWrapper } from "@/components/app-wrapper";
-import { Navbar } from "@/components/navbar";
-import { Hero } from "@/components/hero";
 import { useVisitorTracking } from "@/lib/useVisitorTracking";
 
 const SectionSkeleton = () => <div className="h-[400px] w-full bg-slate-900/20 animate-pulse" />;
 
 // Below-the-fold components are loaded dynamically
+const Navbar = dynamic(() => import('@/components/navbar').then(mod => ({ ssr: false, default: mod.Navbar })));
+const Hero = dynamic(() => import('@/components/hero').then(mod => ({ ssr: true, default: mod.Hero })));
 const About = dynamic(() => import('@/components/about').then(mod => ({ ssr: true, loading: () => <SectionSkeleton />, default: mod.About })));
 const Technology = dynamic(() => import('@/components/technology').then(mod => ({ ssr: true, loading: () => <SectionSkeleton />, default: mod.Technology })));
 const LogoLoopSection = dynamic(() => import("@/components/logo-loop").then(mod => ({ ssr: true, loading: () => <SectionSkeleton />, default: mod.LogoLoopSection })));

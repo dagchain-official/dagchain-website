@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
-import { Inter, Sora } from 'next/font/google';
 import Script from 'next/script';
+
+import '@/styles/fonts.css';
 import '@/styles/globals.css';
+import '@/styles/effects.css';
+
 import { CookieConsent } from '@/components/cookie-consent';
 import { siteConfig } from './siteconfig';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
-const sora = Sora({ subsets: ['latin'], variable: '--font-sora', display: 'swap' });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -64,7 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <html lang="en" className={`${inter.variable} ${sora.variable}`}>
+    <html lang="en">
       <head>
         <meta charSet="utf-8" />
         {/* Viewport */}
@@ -73,7 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* LCP Hero Image */}
         <link rel="preload" as="image" href="/assets/hero-dagchain.webp"></link> 
         <link rel="preload" as="video" href="/assets/dagchain-hero.mp4"></link>
-        <link rel="preload" href="/styles/globals.css" as="style" onLoad={(e) => { const link = e.currentTarget; link.rel = "stylesheet"; }} />
+        <link rel="preload" href="/styles/globals.css" as="style"/>
 
         {/* Google Fonts (legacy CDN-based) */} 
         <link rel="preconnect" href="https://fonts.googleapis.com" /> 
@@ -82,6 +83,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preload" href="/assets/fonts/sora/sora-latin-ext.woff2" as="font" type="font/woff2" crossOrigin="anonymous" /> 
         <link rel="preload" href="/assets/fonts/sora/sora-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
 
+        <link
+          rel="preload"
+          href="/assets/Nasalization_Rg.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/assets/fonts/sora/sora-latin-ext.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/assets/fonts/sora/sora-latin.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -100,7 +122,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
       </head>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`antialiased`}>
         {children}
         <CookieConsent />
 
