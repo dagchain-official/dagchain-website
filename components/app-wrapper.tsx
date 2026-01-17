@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { LazyMotion, domMax, m } from "framer-motion";
+import { LazyMotion, domMax } from "framer-motion";
 // import { WelcomeScreen } from "./welcome-screen"
 
 interface AppWrapperProps {

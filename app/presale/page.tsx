@@ -53,7 +53,9 @@ const Tooltip = dynamic(() => import('recharts').then(mod => mod.Tooltip), { ssr
 
 import { useWallet } from "./hooks/useWallet"
 import { ClientOnlyWeb3Provider } from "./components/ClientOnlyWeb3Provider"
-import { Leaderboard } from "./components/Leaderboard"
+
+const SectionSkeleton = () => <div className="h-[400px] w-full bg-slate-900/20 animate-pulse" />;
+const Leaderboard = dynamic(() => import('./components/Leaderboard').then(mod => ({ ssr: false, loading: () => <SectionSkeleton />, default: mod.Leaderboard })));
 
 const COSMIC_LEVELS = [
   { id: 1, name: 'Spark', description: 'The ignition of energy', requiredXP: 0, color: 'from-yellow-400 to-orange-500', icon: '⚡' },
