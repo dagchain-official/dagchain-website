@@ -4,12 +4,13 @@ import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { AppWrapper } from "@/components/app-wrapper";
 import { useVisitorTracking } from "@/lib/useVisitorTracking";
+import { WaitlistManager } from "@/components/WaitlistManager";
 
 const SectionSkeleton = () => <div className="h-[400px] w-full bg-slate-900/20 animate-pulse" />;
 
 // Below-the-fold components are loaded dynamically
 const Navbar = dynamic(() => import('@/components/navbar').then(mod => ({ ssr: false, default: mod.Navbar })));
-const Hero = dynamic(() => import('@/components/hero').then(mod => ({ ssr: true, default: mod.Hero })));
+const Hero = dynamic(() => import('@/components/hero').then(mod => ({ ssr: false, default: mod.Hero })));
 const About = dynamic(() => import('@/components/about').then(mod => ({ ssr: true, loading: () => <SectionSkeleton />, default: mod.About })));
 const Technology = dynamic(() => import('@/components/technology').then(mod => ({ ssr: true, loading: () => <SectionSkeleton />, default: mod.Technology })));
 const LogoLoopSection = dynamic(() => import("@/components/logo-loop").then(mod => ({ ssr: true, loading: () => <SectionSkeleton />, default: mod.LogoLoopSection })));
@@ -22,30 +23,10 @@ const DagArmy = dynamic(() => import("@/components/dag-army").then(mod => ({ ssr
 const RevolutionCTA = dynamic(() => import("@/components/revolution-cta").then(mod => ({ ssr: true, loading: () => <SectionSkeleton />, default: mod.RevolutionCTA })));
 const BookMeeting = dynamic(() => import("@/components/book-meeting").then(mod => ({ ssr: true, loading: () => <SectionSkeleton />, default: mod.BookMeeting })));
 
-// Modals should always be dynamic (0kb on initial load)
-const WaitlistModal = dynamic(() => import('@/components/waitlist-modal').then(mod => ({ ssr: true, loading: () => <SectionSkeleton />, default: mod.WaitlistModal })));
-
 export default function Home() {
-  const [showWaitlist, setShowWaitlist] = useState(false);
 
   // Silent tracking
   useVisitorTracking();
-
-  useEffect(() => {
-    const hasSeenWaitlist = localStorage.getItem("hasSeenWaitlist");
-    if (!hasSeenWaitlist) {
-      // Delaying the modal helps keep the initial thread clear
-      const timer = setTimeout(() => {
-        setShowWaitlist(true);
-      }, 3000); 
-      return () => clearTimeout(timer);
-    }
-  }, []);
-
-  const handleCloseWaitlist = () => {
-    setShowWaitlist(false);
-    localStorage.setItem("hasSeenWaitlist", "true");
-  };
 
   return (
     <AppWrapper>
@@ -65,7 +46,8 @@ export default function Home() {
         <Footer />
       </main>
 
-      <WaitlistModal isOpen={showWaitlist} onClose={handleCloseWaitlist} />
+      {/* Logic for localStorage and timers is isolated here */}
+      <WaitlistManager />
     </AppWrapper>
   );
 }

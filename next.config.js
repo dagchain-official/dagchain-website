@@ -46,10 +46,8 @@ const nextConfig = {
   // Suppressing build errors to speed up deployment
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
-  
   reactStrictMode: true,
   swcMinify: true, 
-  
   experimental: {
     // Aggressive package tree-shaking for mobile JS reduction
     optimizePackageImports: [
