@@ -4,10 +4,11 @@ import { Sora } from 'next/font/google';
 import '@/styles/fonts.css';
 import '@/styles/globals.css';
 import '@/styles/effects.css';
+import { Partytown } from '@qwik.dev/partytown/react';
 
 import { CookieConsent } from '@/components/cookie-consent';
 import { siteConfig } from './siteconfig';
-import { GoogleAnalytics } from '@next/third-parties/google';
+// import { GoogleAnalytics } from '@next/third-parties/google';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -100,7 +101,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <link rel="preload" href="/assets/Nasalization_Rg.woff2" as="font" type="font/woff2" crossOrigin="anonymous" /> 
         {/* <link rel="preload" href="/assets/fonts/sora/sora-latin-ext.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />  */}
-        <link rel="preload" href="/assets/fonts/sora/sora-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        {/* <link rel="preload" href="/assets/fonts/sora/sora-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" /> */}
 
         <link
           rel="preload"
@@ -125,18 +126,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         
         {/* Google Analytics - Load After Interactive to boost LCP */}
-        {/* <Script
+        {/* Only loads during browser idle time */}
+        <Partytown debug={false} forward={['dataLayer.push']} />
+        <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-73EW4LY9JQ"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="ga-lazy" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-73EW4LY9JQ');
           `}
-        </Script> */}
+        </Script>
       </head>
       <body className={`${sora.variable} antialiased`}>
         {children}
@@ -158,7 +161,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script> */}
 
-        <GoogleAnalytics gaId="G-73EW4LY9JQ" />
+        {/* <GoogleAnalytics gaId="G-73EW4LY9JQ" /> */}
       </body>
     </html>
   );
