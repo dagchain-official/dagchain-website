@@ -224,26 +224,23 @@ export function Footer() {
 
               {/* Description */}
               <p className="text-white/90 mb-4 leading-relaxed font-inter text-sm">
-                The first AI-Native Layer 1 designed for AI agents, creators,
-                and no-code builders.
+                The first AI-native layer 1 designed for AI agents, creators, and no-code builders.
               </p>
 
-              {/* Contact Info */}
-              <div className="space-y-2 mb-4">
-                <a
-                  href="mailto:support@dagchain.network"
-                  className="flex items-center gap-2 text-white/80 hover:text-white transition-colors text-xs font-inter"
-                >
-                  <Mail className="w-3 h-3" />
-                  support@dagchain.network
-                </a>
-                <div className="flex items-center gap-2 text-white/80 text-xs font-inter">
-                  <Phone className="w-3 h-3" />
-                  +1 (888) DAG-CHAIN
+              {/* Contact Information */}
+              <div className="space-y-3 mt-6">
+                <div className="flex items-start gap-2">
+                  <MapPin className="w-4 h-4 text-white/80 mt-0.5 flex-shrink-0" />
+                  <p className="text-white/80 text-xs font-inter leading-relaxed">
+                    10 Elvira Mendez Street, Interseco Building, Panama, Republic of Panama.
+                  </p>
                 </div>
-                <div className="flex items-center gap-2 text-white/80 text-xs font-inter">
-                  <MapPin className="w-3 h-3" />
-                  Global Headquarters
+                <div className="flex items-start gap-2">
+                  <Phone className="w-4 h-4 text-white/80 mt-0.5 flex-shrink-0" />
+                  <div className="text-white/80 text-xs font-inter">
+                    <div>U.S: +1 (555) 789-0123</div>
+                    <div className="mt-1">U.K: +44 (20) 7946-0958</div>
+                  </div>
                 </div>
               </div>
             </div>
