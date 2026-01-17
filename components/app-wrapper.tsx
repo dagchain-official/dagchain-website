@@ -8,7 +8,7 @@ interface AppWrapperProps {
   children: React.ReactNode
 }
 
-export function AppWrapper({ children }: AppWrapperProps) {
+export function AppWrapper({ children }: { children: React.ReactNode })  {
   // WELCOME SCREEN DISABLED - Uncomment below to re-enable
   // const [showWelcome, setShowWelcome] = useState(true)
   // const [showMainSite, setShowMainSite] = useState(false)
