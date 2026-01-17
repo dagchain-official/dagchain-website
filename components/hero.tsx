@@ -56,10 +56,10 @@ export function Hero() {
           <Image
             src="/assets/hero-dagchain.webp"
             alt="DAGChain Hero Banner"
-            sizes="100vw"
             width={1440}
             height={900}
             priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw, (min-width: 1368px) 100vw"
             className="absolute inset-0 w-full h-full object-cover"
           />
 

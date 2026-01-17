@@ -56,8 +56,7 @@ const nextConfig = {
       'lucide-react', 
       '@web3-onboard', 
       'framer-motion', 
-      '@radix-ui/react-icons',
-      'shadcn-ui'
+      '@radix-ui/react-icons'
     ],
   },
   webpack: (config) => {

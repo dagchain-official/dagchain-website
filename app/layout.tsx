@@ -7,7 +7,7 @@ import '@/styles/effects.css';
 
 import { CookieConsent } from '@/components/cookie-consent';
 import { siteConfig } from './siteconfig';
-
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -78,6 +78,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta charSet="utf-8" />
         {/* Viewport */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <Script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
 
         {/* LCP Hero Image */}
         <link rel="preload" as="image" href="/assets/hero-dagchain.webp" /> 
@@ -86,8 +91,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Google Fonts (legacy CDN-based) */} 
         <link rel="preconnect" href="https://fonts.googleapis.com" /> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" /> 
+
         <link rel="preload" href="/assets/Nasalization_Rg.woff2" as="font" type="font/woff2" crossOrigin="anonymous" /> 
-        <link rel="preload" href="/assets/fonts/sora/sora-latin-ext.woff2" as="font" type="font/woff2" crossOrigin="anonymous" /> 
+        {/* <link rel="preload" href="/assets/fonts/sora/sora-latin-ext.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />  */}
         <link rel="preload" href="/assets/fonts/sora/sora-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
 
         <link
@@ -111,12 +117,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="font/woff2"
           crossOrigin="anonymous"
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        
         {/* Google Analytics - Load After Interactive to boost LCP */}
-        <Script
+        {/* <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-73EW4LY9JQ"
           strategy="afterInteractive"
         />
@@ -127,7 +130,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('js', new Date());
             gtag('config', 'G-73EW4LY9JQ');
           `}
-        </Script>
+        </Script> */}
       </head>
       <body className={`antialiased`}>
         {children}
@@ -148,6 +151,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             fbq('track', 'PageView');
           `}
         </Script> */}
+
+        <GoogleAnalytics gaId="G-73EW4LY9JQ" />
       </body>
     </html>
   );

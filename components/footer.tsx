@@ -259,6 +259,7 @@ export function Footer() {
                     return (
                       <li key={index}>
                         <a
+                          aria-label={link.name}
                           href={link.href}
                           className="flex items-center gap-2 text-white/80 hover:text-white transition-colors group font-inter"
                         >
@@ -283,6 +284,7 @@ export function Footer() {
                     return (
                       <li key={index}>
                         <a
+                          aria-label={link.name}
                           href={link.href}
                           className="flex items-center gap-2 text-white/80 hover:text-white transition-colors group font-inter"
                         >
@@ -316,6 +318,7 @@ export function Footer() {
                               ? "noopener noreferrer"
                               : undefined
                           }
+                          aria-label={link.name}
                           className="flex items-center gap-2 text-white/80 hover:text-white transition-colors group font-inter"
                         >
                           <IconComponent className="w-3 h-3 group-hover:scale-110 transition-transform" />
@@ -338,15 +341,15 @@ export function Footer() {
                   © 2025 DAGChain. All rights reserved.
                 </div>
                 <div className="hidden lg:flex items-center gap-3 text-xs text-white/70">
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="#" aria-label="PRivacy" className="hover:text-white transition-colors">
                     Privacy
                   </a>
                   <span>•</span>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="#" aria-label="Terms" className="hover:text-white transition-colors">
                     Terms
                   </a>
                   <span>•</span>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="#" aria-label="Cookies" className="hover:text-white transition-colors">
                     Cookies
                   </a>
                 </div>
