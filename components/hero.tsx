@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
+import Image from "next/image"
 import React, { useRef, useEffect } from "react"
 
 export function Hero() {
@@ -52,15 +53,13 @@ export function Hero() {
         <div className="absolute inset-0 w-full h-full">
 
           {/* LCP Banner Image (priority) */}
-          <img
+          <Image
             src="/assets/hero-dagchain.webp"
             alt="DAGChain Hero Banner"
             sizes="100vw"
             width={1440}
             height={900}
-            fetchPriority="high"
-            loading="eager"
-            decoding="async"
+            priority
             className="absolute inset-0 w-full h-full object-cover"
           />
 
