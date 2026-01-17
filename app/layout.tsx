@@ -78,7 +78,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${sora.variable}`}>
       <head>
         {/* 2. Structured Data */}
         <script
@@ -89,7 +89,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* 3. Preconnect to prevent handshake delays */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-
+        <link rel="preload" as="image" href="/assets/hero-dagchain.webp" />
+        
         {/* 4. Critical Preloads ONLY (Removed duplicates) */}
         <link rel="preload" as="image" href="/assets/hero-dagchain.webp" />
         <link rel="preload" href="/assets/Nasalization_Rg.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
