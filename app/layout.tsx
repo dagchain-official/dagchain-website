@@ -128,7 +128,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Google Analytics - Load After Interactive to boost LCP */}
         {/* Only loads during browser idle time */}
         <Partytown debug={false} forward={['dataLayer.push']} />
-        <Script
+        {/* <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-73EW4LY9JQ"
           strategy="lazyOnload"
         />
@@ -139,7 +139,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('js', new Date());
             gtag('config', 'G-73EW4LY9JQ');
           `}
-        </Script>
+        </Script> */}
       </head>
       <body className={`${sora.variable} antialiased`}>
         {children}

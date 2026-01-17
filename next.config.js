@@ -59,6 +59,7 @@ const nextConfig = {
       '@radix-ui/react-icons',
       'ethers'
     ],
+    esmExternals: true,
     optimizeCss: true
   },
   webpack: (config) => {
