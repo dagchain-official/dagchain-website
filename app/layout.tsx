@@ -42,7 +42,6 @@ export default function RootLayout({
         <link rel="preload" as="image" href="/assets/hero-dagchain.webp"></link> 
         <link rel="preload" as="image" href="/assets/dagchain-hero.mp4"></link>
         <link rel="preload" href="/styles/globals.css" as="style" onLoad={(e) => { const link = e.currentTarget; link.rel = "stylesheet"; }} />
-        <link rel='stylesheet' href='/styles/globals.css' />
 
         {/* Google Fonts (legacy CDN-based) */} 
         <link rel="preconnect" href="https://fonts.googleapis.com" /> 
@@ -55,7 +54,9 @@ export default function RootLayout({
       </Head>
 
       <body className={`${inter.className} antialiased`}>
-        {children}
+       
+        { children }
+        
         <CookieConsent />
 
         {/* Analytics */}
