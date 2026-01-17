@@ -38,7 +38,7 @@ export function Hero() {
         video.load()          // force load
         video.play().catch(() => { }) // play safely
       }
-    }, 800)
+    }, 500)
 
     return () => clearTimeout(timer)
   }, [])
@@ -55,6 +55,9 @@ export function Hero() {
           <img
             src="/assets/hero-dagchain.webp"
             alt="DAGChain Hero Banner"
+            sizes="100vw"
+            width={1440}
+            height={900}
             fetchPriority="high"
             loading="eager"
             decoding="async"

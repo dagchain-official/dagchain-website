@@ -1,12 +1,23 @@
-import type { Metadata } from 'next';
-import { Inter, Sora } from 'next/font/google';
-import Script from 'next/script';
-import '@/styles/globals.css';
-import { CookieConsent } from '@/components/cookie-consent';
-import { siteConfig } from './siteconfig';
+import "@/styles/globals.css"; // ✅ REQUIRED
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
-const sora = Sora({ subsets: ['latin'], variable: '--font-sora', display: 'swap' });
+import type { Metadata } from "next";
+import { Inter, Sora } from "next/font/google";
+import Script from "next/script";
+import { CookieConsent } from "@/components/cookie-consent";
+import { siteConfig } from "./siteconfig";
+import Head from "next/head";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const sora = Sora({
+  subsets: ["latin"],
+  variable: "--font-sora",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -15,95 +26,44 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: ['blockchain', 'Layer 1', 'AI agents', 'no-code', 'DAGChain', 'web3'],
-  authors: [{ name: 'DAGChain Team' }],
-  creator: 'DAGChain',
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: siteConfig.url,
-    title: siteConfig.name,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
-    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: siteConfig.name,
-    description: siteConfig.description,
-    images: [siteConfig.ogImage],
-    creator: '@DAGChain_ai',
-  },
-  icons: {
-    icon: '/assets/android-chrome-192x192.png',
-    apple: '/assets/android-chrome-192x192.png',
-  },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // Structured Data (JSON-LD)
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": `${siteConfig.url}/#organization`,
-        "name": siteConfig.name,
-        "url": siteConfig.url,
-        "logo": `${siteConfig.url}/assets/android-chrome-192x192.png`,
-        "sameAs": Object.values(siteConfig.links),
-      },
-      {
-        "@type": "WebSite",
-        "@id": `${siteConfig.url}/#website`,
-        "url": siteConfig.url,
-        "name": siteConfig.name,
-        "publisher": { "@id": `${siteConfig.url}/#organization` },
-      },
-    ],
-  };
-
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" className={`${inter.variable} ${sora.variable}`}>
-      <head>
-        <meta charSet="utf-8" />
-        {/* Viewport */}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        {/* Google Fonts (legacy CDN-based) */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="preload"
-          href="/assets/Nasalization_Rg.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/assets/fonts/sora/sora-latin-ext.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/assets/fonts/sora/sora-latin.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        {/* Google Analytics - Load After Interactive to boost LCP */}
+        {/* LCP Hero Image */}
+        <link rel="preload" as="image" href="/assets/hero-dagchain.webp"></link> 
+        <link rel="preload" as="image" href="/assets/dagchain-hero.mp4"></link>
+        <link rel="preload" href="/styles/globals.css" as="style" onLoad={(e) => { const link = e.currentTarget; link.rel = "stylesheet"; }} />
+        <link rel='stylesheet' href='/styles/globals.css' />
+
+        {/* Google Fonts (legacy CDN-based) */} 
+        <link rel="preconnect" href="https://fonts.googleapis.com" /> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" /> 
+        <link rel="preload" href="/assets/Nasalization_Rg.woff2" as="font" type="font/woff2" crossOrigin="anonymous" /> 
+        <link rel="preload" href="/assets/fonts/sora/sora-latin-ext.woff2" as="font" type="font/woff2" crossOrigin="anonymous" /> 
+        <link rel="preload" href="/assets/fonts/sora/sora-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+
+        <link rel='stylesheet' href='/styles/globals.css' />
+      </Head>
+
+      <body className={`${inter.className} antialiased`}>
+        {children}
+        <CookieConsent />
+
+        {/* Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-73EW4LY9JQ"
           strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="ga" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -111,11 +71,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('config', 'G-73EW4LY9JQ');
           `}
         </Script>
-      </head>
-      <body className={`${inter.className} antialiased`}>
-        {children}
-        <CookieConsent />
-
         {/* Facebook Pixel - Optional: Move to a dedicated component later */}
         {/* <Script id="fb-pixel" strategy="lazyOnload">
           {`
