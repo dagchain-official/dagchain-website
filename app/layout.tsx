@@ -1,14 +1,21 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import { Sora } from 'next/font/google';
+import { Partytown } from '@qwik.dev/partytown/react';
+
 import '@/styles/fonts.css';
 import '@/styles/globals.css';
 import '@/styles/effects.css';
-import { Partytown } from '@qwik.dev/partytown/react';
 
 import { CookieConsent } from '@/components/cookie-consent';
 import { siteConfig } from './siteconfig';
-import { GoogleAnalytics } from '@next/third-parties/google';
+
+// 1. Viewport should be exported as a constant in Next.js 14/15
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#000000',
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -40,24 +47,15 @@ export const metadata: Metadata = {
     icon: '/assets/android-chrome-192x192.png',
     apple: '/assets/android-chrome-192x192.png',
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-    },
-  }
 };
 
 const sora = Sora({
   subsets: ['latin'],
-  display: 'swap', // Shows text immediately with fallback font
+  display: 'swap',
   variable: '--font-sora',
 });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // Structured Data (JSON-LD)
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -82,68 +80,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        <meta charSet="utf-8" />
-        {/* Viewport */}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        
-        <Script
+        {/* 2. Structured Data */}
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
 
-        {/* LCP Hero Image */}
-        <link rel="preload" as="image" href="/assets/hero-dagchain.webp" /> 
-        <link rel="preload" as="video" href="/assets/dagchain-hero.mp4" />
+        {/* 3. Preconnect to prevent handshake delays */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
-        {/* Google Fonts (legacy CDN-based) */} 
-        <link rel="preconnect" href="https://fonts.googleapis.com" /> 
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" /> 
-
-        <link rel="preload" href="/assets/Nasalization_Rg.woff2" as="font" type="font/woff2" crossOrigin="anonymous" /> 
-        {/* <link rel="preload" href="/assets/fonts/sora/sora-latin-ext.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />  */}
-        {/* <link rel="preload" href="/assets/fonts/sora/sora-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" /> */}
-
-        <link
-          rel="preload"
-          href="/assets/Nasalization_Rg.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/assets/fonts/sora/sora-latin-ext.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/assets/fonts/sora/sora-latin.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        
-        {/* Google Analytics - Load After Interactive to boost LCP */}
-        {/* Only loads during browser idle time */}
-        <Partytown debug={false} forward={['dataLayer.push']} />
-        {/* <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-73EW4LY9JQ"
-          strategy="lazyOnload"
-        />
-        <Script id="ga-lazy" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-73EW4LY9JQ');
-          `}
-        </Script> */}
-      </head>
-      <body className={`${sora.variable} antialiased`}>
-        {children}
-        <CookieConsent />
+        {/* 4. Critical Preloads ONLY (Removed duplicates) */}
+        <link rel="preload" as="image" href="/assets/hero-dagchain.webp" />
+        <link rel="preload" href="/assets/Nasalization_Rg.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
 
         {/* Facebook Pixel - Optional: Move to a dedicated component later */}
         {/* <Script id="fb-pixel" strategy="lazyOnload">
@@ -160,8 +109,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             fbq('track', 'PageView');
           `}
         </Script> */}
+      </head>
+      <body className={`${sora.variable} antialiased`}>
+        {children}
+        <CookieConsent />
 
-        <GoogleAnalytics gaId="G-73EW4LY9JQ" />
+        {/* 5. Analytics offloaded to Web Worker via Partytown */}
+        <Partytown debug={false} forward={['dataLayer.push']} />
+        {/* Load GTM via Worker Strategy */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-73EW4LY9JQ"
+          strategy="worker"
+        />
+        <Script id="ga-worker-init" strategy="worker">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-73EW4LY9JQ');
+          `}
+        </Script>
       </body>
     </html>
   );
