@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { m, AnimatePresence } from "framer-motion"
 import { X } from "lucide-react"
 // import { supabase } from "@/lib/supabase" // SUPABASE - Uncomment to re-enable
 import { countryCodes, getCountryByCode } from "@/lib/countryCodes"
@@ -118,7 +118,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
       {isOpen && (
         <>
           {/* Backdrop */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -127,7 +127,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
           />
 
           {/* Modal */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -195,7 +195,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
 
                 {/* Form */}
                 {submitSuccess ? (
-                  <motion.div
+                  <m.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     className="text-center py-12"
@@ -221,7 +221,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                     <p className="text-gray-600">
                       Thank you for joining the waitlist. We'll be in touch soon!
                     </p>
-                  </motion.div>
+                  </m.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-3">
                     {/* First Name & Last Name */}
@@ -357,7 +357,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                 )}
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </>
       )}
     </AnimatePresence>

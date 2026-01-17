@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useRef } from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Calendar, Clock, Users, Video } from "lucide-react"
 
 export function BookMeeting() {
@@ -60,7 +60,7 @@ export function BookMeeting() {
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -68,7 +68,7 @@ export function BookMeeting() {
           className="text-center mb-12"
         >
           {/* Icon */}
-          <motion.div
+          <m.div
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -78,10 +78,10 @@ export function BookMeeting() {
             <div className="w-16 h-16 rounded-2xl bg-gray-50 shadow-[12px_12px_24px_rgba(163,177,198,0.3),-12px_-12px_24px_rgba(255,255,255,0.9)] flex items-center justify-center border border-gray-200">
               <Calendar className="w-8 h-8 text-gray-800" />
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Title */}
-          <motion.h2
+          <m.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -92,10 +92,10 @@ export function BookMeeting() {
             }}
           >
             BOOK A MEETING WITH DAGChain
-          </motion.h2>
+          </m.h2>
 
           {/* Subtitle */}
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -103,10 +103,10 @@ export function BookMeeting() {
             className="text-base md:text-lg text-gray-700 font-semibold mb-3"
           >
             Let's Talk About Building Tomorrow.
-          </motion.p>
+          </m.p>
 
           {/* Description */}
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -114,11 +114,11 @@ export function BookMeeting() {
             className="text-sm text-gray-600 max-w-3xl mx-auto"
           >
             Connect with our core team - explore collaborations, investments, and partnerships.
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
 
         {/* Features Bar */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -128,7 +128,7 @@ export function BookMeeting() {
           {features.map((feature, index) => {
             const Icon = feature.icon
             return (
-              <motion.div
+              <m.div
                 key={feature.text}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -138,13 +138,13 @@ export function BookMeeting() {
               >
                 <Icon className="w-4 h-4 text-gray-700" />
                 <span className="text-xs text-gray-700 font-medium">{feature.text}</span>
-              </motion.div>
+              </m.div>
             )
           })}
-        </motion.div>
+        </m.div>
 
         {/* Main Meeting Frame - Neumorphic Style */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.8 }}
@@ -165,7 +165,7 @@ export function BookMeeting() {
             </div>
 
             {/* Bottom Info Bar */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 1.2 }}
@@ -186,12 +186,12 @@ export function BookMeeting() {
                 <Video className="w-3 h-3" />
                 <span>Virtual or In-Person</span>
               </div>
-            </motion.div>
+            </m.div>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Bottom Note */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.4 }}
@@ -201,7 +201,7 @@ export function BookMeeting() {
           <p className="text-xs text-gray-500">
             All meetings are confidential and NDA-protected. We respect your time and privacy.
           </p>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useMemo } from "react"
 import dynamic from "next/dynamic"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { 
   Home as HomeIcon, Trophy, Users, Wallet, User, Scale, LogOut, ChevronRight, Shield, Zap, Lock, Gift, Star, TrendingUp, AlertCircle, Clock, CheckCircle 
 } from "lucide-react"
@@ -169,7 +169,7 @@ function PresaleContent() {
                 {levelData.nextLevel && <p className="text-xs text-gray-500">Next: {levelData.nextLevel.name}</p>}
               </div>
               <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
-                <motion.div className={`h-full bg-gradient-to-r ${levelData.currentLevel.color}`} initial={{ width: 0 }} animate={{ width: `${levelData.progress}%` }} />
+                <m.div className={`h-full bg-gradient-to-r ${levelData.currentLevel.color}`} initial={{ width: 0 }} animate={{ width: `${levelData.progress}%` }} />
               </div>
             </div>
 

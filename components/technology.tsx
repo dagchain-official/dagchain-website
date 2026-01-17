@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Code, Shield, Zap, Database, Network, Server } from "lucide-react"
 
 export function Technology() {
@@ -98,7 +98,7 @@ export function Technology() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -106,30 +106,30 @@ export function Technology() {
           className="text-center mb-16"
         >
           {/* Section Header */}
-          <motion.div
+          <m.div
             variants={itemVariants}
             className="bg-white p-3 shadow-[8px_8px_16px_rgba(163,177,198,0.3),-8px_-8px_16px_rgba(255,255,255,0.9)] border border-gray-200 rounded-2xl inline-block mb-8"
           >
             <span className="text-sm font-semibold text-gray-700 tracking-wider uppercase">TECHNOLOGY STACK</span>
-          </motion.div>
+          </m.div>
 
-          <motion.h2
+          <m.h2
             variants={itemVariants}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 font-nasalization leading-tight"
           >
             AI-Native Infrastructure
-          </motion.h2>
+          </m.h2>
 
-          <motion.p
+          <m.p
             variants={itemVariants}
             className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-inter"
           >
             Built on cutting-edge infrastructure designed for the AI economy, delivering unprecedented performance and developer experience.
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
 
         {/* Main Technology Layout - Compact Design (Fixed) */}
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -141,7 +141,7 @@ export function Technology() {
             <div className="lg:col-span-2">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                 {technologies.slice(0, 4).map((tech, index) => (
-                  <motion.div
+                  <m.div
                     key={tech.id}
                     onClick={() => setActiveIndex(index)}
                     className={`p-4 cursor-pointer transition-all duration-300 rounded-2xl ${
@@ -161,14 +161,14 @@ export function Technology() {
                     </div>
                     <h3 className="text-lg font-bold font-nasalization mb-2 text-gray-900">{tech.title}</h3>
                     <p className="text-sm text-gray-600 leading-relaxed">{tech.description.substring(0, 80)}...</p>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
 
               {/* Bottom row - 2 more technologies */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {technologies.slice(4, 6).map((tech, index) => (
-                  <motion.div
+                  <m.div
                     key={tech.id}
                     onClick={() => setActiveIndex(index + 4)}
                     className={`p-4 cursor-pointer transition-all duration-300 rounded-2xl ${
@@ -188,14 +188,14 @@ export function Technology() {
                     </div>
                     <h3 className="text-lg font-bold font-nasalization mb-2 text-gray-900">{tech.title}</h3>
                     <p className="text-sm text-gray-600 leading-relaxed">{tech.description.substring(0, 80)}...</p>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
             </div>
 
             {/* Right: Active Technology Details */}
             <div className="bg-gray-50 p-6 shadow-[inset_12px_12px_24px_rgba(163,177,198,0.2),inset_-12px_-12px_24px_rgba(255,255,255,0.8)] border border-gray-200 rounded-2xl">
-              <motion.div
+              <m.div
                 key={activeIndex}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -246,13 +246,13 @@ export function Technology() {
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Compact Performance Stats */}
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -265,16 +265,16 @@ export function Technology() {
             { metric: "<12ms", label: "Latency" },
             { metric: "50k", label: "validator Nodes" },
           ].map((stat, index) => (
-            <motion.div
+            <m.div
               key={index}
               variants={itemVariants}
               className="text-center bg-white p-3 sm:p-4 shadow-[12px_12px_24px_rgba(163,177,198,0.3),-12px_-12px_24px_rgba(255,255,255,0.9)] border border-gray-200 rounded-2xl"
             >
               <div className="text-lg sm:text-2xl font-bold text-gray-900 mb-1 font-nasalization break-words">{stat.metric}</div>
               <div className="text-xs sm:text-sm font-semibold text-gray-600">{stat.label}</div>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

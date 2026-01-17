@@ -1,8 +1,8 @@
 "use client"
 
 import React, { useState } from "react"
-import { motion } from "framer-motion"
-import { Code, Palette, Bot, Building, Shield, Users, ArrowRight, Zap, Globe, Lock } from "lucide-react"
+import { m } from "framer-motion"
+import { Code, Palette, Bot, Building, Shield, ArrowRight } from "lucide-react"
 
 export function Ecosystem() {
   const [activeEcosystem, setActiveEcosystem] = useState(0)
@@ -159,7 +159,7 @@ export function Ecosystem() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -167,30 +167,30 @@ export function Ecosystem() {
           className="text-center mb-16"
         >
           {/* Section Header */}
-          <motion.div
+          <m.div
             variants={itemVariants}
             className="bg-white p-3 shadow-[8px_8px_16px_rgba(163,177,198,0.3),-8px_-8px_16px_rgba(255,255,255,0.9)] border border-gray-200 rounded-2xl inline-block mb-8"
           >
             <span className="text-sm font-semibold text-gray-700 tracking-wider uppercase">ECOSYSTEM</span>
-          </motion.div>
+          </m.div>
 
-          <motion.h2
+          <m.h2
             variants={itemVariants}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 font-nasalization leading-tight"
           >
             DAGChain Ecosystem
-          </motion.h2>
+          </m.h2>
 
-          <motion.p
+          <m.p
             variants={itemVariants}
             className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-inter"
           >
             A thriving ecosystem connecting developers, creators, AI agents, enterprises, and validators in the new AI economy.
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
 
         {/* Ecosystem Pillars Overview */}
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -198,7 +198,7 @@ export function Ecosystem() {
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
         >
           {pillars.map((pillar, index) => (
-            <motion.div
+            <m.div
               key={index}
               variants={itemVariants}
               onClick={() => setActiveEcosystem(index)}
@@ -219,12 +219,12 @@ export function Ecosystem() {
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2 font-nasalization">{pillar.name}</h3>
               <p className="text-sm text-gray-600">{pillar.description}</p>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
 
         {/* Active Ecosystem Details */}
-        <motion.div
+        <m.div
           key={activeEcosystem}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -290,27 +290,27 @@ export function Ecosystem() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Ecosystem Flow */}
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           className="bg-white p-8 shadow-[24px_24px_48px_rgba(163,177,198,0.4),-24px_-24px_48px_rgba(255,255,255,0.9)] border border-gray-200 rounded-3xl"
         >
-          <motion.h3
+          <m.h3
             variants={itemVariants}
             className="text-3xl font-bold text-gray-900 mb-8 text-center font-nasalization"
           >
             Ecosystem Interaction Flow
-          </motion.h3>
+          </m.h3>
 
           <div className="flex items-center justify-center gap-2 overflow-x-auto">
             {ecosystemData.map((ecosystem, index) => (
               <React.Fragment key={index}>
-                <motion.div
+                <m.div
                   variants={itemVariants}
                   className="text-center flex-shrink-0"
                 >
@@ -319,29 +319,29 @@ export function Ecosystem() {
                   </div>
                   <h4 className="text-xs font-bold text-gray-900 mb-1 font-nasalization">{ecosystem.title.split(' & ')[0]}</h4>
                   <p className="text-xs text-gray-600">{ecosystem.title.split(' & ')[1] || ecosystem.title.split(' ')[1]}</p>
-                </motion.div>
+                </m.div>
                 
                 {index < ecosystemData.length - 1 && (
-                  <motion.div
+                  <m.div
                     variants={itemVariants}
                     className="flex justify-center px-2"
                   >
                     <ArrowRight className="w-4 h-4 text-gray-400" />
-                  </motion.div>
+                  </m.div>
                 )}
               </React.Fragment>
             ))}
           </div>
 
-          <motion.div
+          <m.div
             variants={itemVariants}
             className="text-center mt-8"
           >
             <p className="text-gray-600 font-inter max-w-3xl mx-auto">
               Each participant in the DAGChain ecosystem contributes unique value while benefiting from the network effects of AI-native infrastructure, creating a self-sustaining economy.
             </p>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </div>
     </section>
   )

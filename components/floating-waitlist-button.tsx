@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Mail } from "lucide-react"
 
 interface FloatingWaitlistButtonProps {
@@ -12,7 +12,7 @@ export function FloatingWaitlistButton({ onClick }: FloatingWaitlistButtonProps)
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <motion.button
+    <m.button
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -25,7 +25,7 @@ export function FloatingWaitlistButton({ onClick }: FloatingWaitlistButtonProps)
     >
       <div className="relative">
         {/* Pulse effect */}
-        <motion.div
+        <m.div
           className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 opacity-75"
           animate={{
             scale: [1, 1.2, 1],
@@ -44,7 +44,7 @@ export function FloatingWaitlistButton({ onClick }: FloatingWaitlistButtonProps)
         </div>
 
         {/* Tooltip */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, x: 10 }}
           animate={{ 
             opacity: isHovered ? 1 : 0,
@@ -54,8 +54,8 @@ export function FloatingWaitlistButton({ onClick }: FloatingWaitlistButtonProps)
         >
           Join Waitlist
           <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full w-0 h-0 border-l-8 border-l-gray-900 border-t-4 border-t-transparent border-b-4 border-b-transparent" />
-        </motion.div>
+        </m.div>
       </div>
-    </motion.button>
+    </m.button>
   )
 }

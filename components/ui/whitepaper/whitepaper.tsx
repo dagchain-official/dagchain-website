@@ -1,12 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import {
-  ArrowLeft,
   Download,
   ChevronDown,
-  ChevronRight,
   Menu,
   X,
   ExternalLink,
@@ -21,8 +19,7 @@ import {
   Pie,
   Cell,
   ResponsiveContainer,
-  Tooltip,
-  Legend,
+  Tooltip
 } from "recharts";
 import { generateWhitepaperPDF, generateSimplePDF } from "@/utils/pdfGenerator";
 import { Footer } from "@/components/footer";
@@ -165,7 +162,7 @@ export default function WhitepaperPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       {/* Header */}
-      <motion.header
+      <m.header
         className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200/50 shadow-[8px_8px_16px_rgba(163,177,198,0.3),-8px_-8px_16px_rgba(255,255,255,0.9)]"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -184,13 +181,13 @@ export default function WhitepaperPage() {
             <div className="flex items-center space-x-2 sm:space-x-3"></div>
           </div>
         </div>
-      </motion.header>
+      </m.header>
 
       <div className="flex">
         {/* Table of Contents - Sticky Sidebar */}
         <AnimatePresence>
           {isTocOpen && (
-            <motion.div
+            <m.div
               className="fixed top-16 sm:top-20 left-0 z-40 w-72 sm:w-80 lg:w-80 h-[calc(100vh-4rem)] sm:h-[calc(100vh-5rem)] bg-white/95 backdrop-blur-md border-r border-gray-200/50 overflow-y-auto shadow-[16px_16px_32px_rgba(163,177,198,0.4),-16px_-16px_32px_rgba(255,255,255,0.9)] lg:block"
               initial={{ x: -320, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
@@ -206,7 +203,7 @@ export default function WhitepaperPage() {
                     {sections.map((section, index) => {
                       const isActive = activeSection === section.id;
                       return (
-                        <motion.button
+                        <m.button
                           key={section.id}
                           onClick={() => {
                             scrollToSection(section.id);
@@ -230,19 +227,19 @@ export default function WhitepaperPage() {
                             {section.title}
                           </span>
                           {isActive && (
-                            <motion.div
+                            <m.div
                               className="ml-auto w-2 h-2 bg-gray-700 rounded-full"
                               initial={{ scale: 0 }}
                               animate={{ scale: 1 }}
                               transition={{ duration: 0.3 }}
                             />
                           )}
-                        </motion.button>
+                        </m.button>
                       );
                     })}
 
                     {/* Go to Home Button */}
-                    <motion.button
+                    <m.button
                       onClick={() => (window.location.href = "/")}
                       className="w-full flex items-center space-x-2 sm:space-x-3 p-3 sm:p-4 rounded-xl text-left transition-all duration-300 group text-gray-600 hover:text-gray-900 hover:bg-white/50 neuro-button mt-3 sm:mt-4 border-t border-gray-200/50 pt-4 sm:pt-6"
                       initial={{ opacity: 0, x: -20 }}
@@ -258,11 +255,11 @@ export default function WhitepaperPage() {
                       <span className="text-xs sm:text-sm font-medium">
                         Go to Home
                       </span>
-                    </motion.button>
+                    </m.button>
                   </nav>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
 
@@ -277,7 +274,7 @@ export default function WhitepaperPage() {
                 {sections.map((section, index) => {
                   const isActive = activeSection === section.id;
                   return (
-                    <motion.button
+                    <m.button
                       key={section.id}
                       onClick={() => scrollToSection(section.id)}
                       className={`w-full flex items-center space-x-3 p-4 rounded-xl text-left transition-all duration-300 group ${
@@ -295,19 +292,19 @@ export default function WhitepaperPage() {
                         {section.title}
                       </span>
                       {isActive && (
-                        <motion.div
+                        <m.div
                           className="ml-auto w-2 h-2 bg-gray-700 rounded-full"
                           initial={{ scale: 0 }}
                           animate={{ scale: 1 }}
                           transition={{ duration: 0.3 }}
                         />
                       )}
-                    </motion.button>
+                    </m.button>
                   );
                 })}
 
                 {/* Go to Home Button */}
-                <motion.button
+                <m.button
                   onClick={() => (window.location.href = "/")}
                   className="w-full flex items-center space-x-3 p-4 rounded-xl text-left transition-all duration-300 group text-gray-600 hover:text-gray-900 hover:bg-white/50 neuro-button mt-4 border-t border-gray-200/50 pt-6"
                   initial={{ opacity: 0, x: -20 }}
@@ -321,7 +318,7 @@ export default function WhitepaperPage() {
                 >
                   <Home size={14} />
                   <span className="text-sm font-medium">Go to Home</span>
-                </motion.button>
+                </m.button>
               </nav>
             </div>
           </div>
@@ -334,13 +331,13 @@ export default function WhitepaperPage() {
             className="w-full px-4 sm:px-6 py-8 sm:py-12 lg:ml-80 lg:pr-8 xl:pr-12 max-w-none lg:max-w-[70%] mx-auto"
           >
             {/* Hero Section */}
-            <motion.div
+            <m.div
               className="text-center py-12 sm:py-16 lg:py-20 mb-8 sm:mb-12 lg:mb-16"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <motion.h1
+              <m.h1
                 className="text-3xl sm:text-4xl md:text-5xl font-black mb-3 sm:mb-4 leading-tight font-nasalization"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -349,18 +346,18 @@ export default function WhitepaperPage() {
                 <span className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 bg-clip-text text-transparent">
                   DAGChain
                 </span>
-              </motion.h1>
+              </m.h1>
 
-              <motion.h2
+              <m.h2
                 className="text-xl sm:text-2xl md:text-3xl text-gray-800 font-semibold mb-6 sm:mb-8 font-nasalization"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.7 }}
               >
                 A Comprehensive Whitepaper
-              </motion.h2>
+              </m.h2>
 
-              <motion.div
+              <m.div
                 className="text-base sm:text-lg text-gray-600 space-y-1 sm:space-y-2"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -372,10 +369,10 @@ export default function WhitepaperPage() {
                 <p>
                   <strong>Last Updated:</strong> 27th June 2025
                 </p>
-              </motion.div>
+              </m.div>
 
               {/* Download PDF Button */}
-              <motion.div
+              <m.div
                 className="mt-6 sm:mt-8 flex justify-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -394,13 +391,13 @@ export default function WhitepaperPage() {
                     {isGeneratingPDF ? "Generating..." : "Download PDF"}
                   </span>
                 </button>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
 
             {/* Content Sections */}
             <div className="space-y-8 sm:space-y-12 lg:space-y-16">
               {/* Executive Summary */}
-              <motion.section
+              <m.section
                 id="executive-summary"
                 className="neuro-base p-4 sm:p-6 lg:p-8 xl:p-12 rounded-2xl sm:rounded-3xl"
                 initial={{ opacity: 0, y: 30 }}
@@ -611,10 +608,10 @@ export default function WhitepaperPage() {
                     </button>
                   </div>
                 </div>
-              </motion.section>
+              </m.section>
 
               {/* Introduction */}
-              <motion.section
+              <m.section
                 id="introduction"
                 className="neuro-base p-4 sm:p-6 lg:p-8 xl:p-12 rounded-2xl sm:rounded-3xl"
                 initial={{ opacity: 0, y: 30 }}
@@ -865,7 +862,7 @@ export default function WhitepaperPage() {
 
                       <AnimatePresence>
                         {expandedAccordions.includes("layer1-technical") && (
-                          <motion.div
+                          <m.div
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
@@ -901,7 +898,7 @@ export default function WhitepaperPage() {
                               <div className="ml-4">&#125;</div>
                               <div>&#125;</div>
                             </div>
-                          </motion.div>
+                          </m.div>
                         )}
                       </AnimatePresence>
                     </div>
@@ -929,10 +926,10 @@ export default function WhitepaperPage() {
                     </button>
                   </div>
                 </div>
-              </motion.section>
+              </m.section>
 
               {/* Market Landscape */}
-              <motion.section
+              <m.section
                 id="market-landscape"
                 className="neuro-base p-8 lg:p-12 rounded-3xl"
                 initial={{ opacity: 0, y: 30 }}
@@ -1182,7 +1179,7 @@ export default function WhitepaperPage() {
 
                     <AnimatePresence>
                       {expandedAccordions.includes("market-technical") && (
-                        <motion.div
+                        <m.div
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
@@ -1228,7 +1225,7 @@ export default function WhitepaperPage() {
                             <div className="ml-4">&#125;</div>
                             <div>&#125;</div>
                           </div>
-                        </motion.div>
+                        </m.div>
                       )}
                     </AnimatePresence>
                   </div>
@@ -1255,10 +1252,10 @@ export default function WhitepaperPage() {
                     </button>
                   </div>
                 </div>
-              </motion.section>
+              </m.section>
 
               {/* Core Principles */}
-              <motion.section
+              <m.section
                 id="core-principles"
                 className="neuro-base p-8 lg:p-12 rounded-3xl"
                 initial={{ opacity: 0, y: 30 }}
@@ -1635,10 +1632,10 @@ export default function WhitepaperPage() {
                     </button>
                   </div>
                 </div>
-              </motion.section>
+              </m.section>
 
               {/* Architecture */}
-              <motion.section
+              <m.section
                 id="architecture"
                 className="neuro-base p-6 lg:p-8 rounded-3xl"
                 initial={{ opacity: 0, y: 30 }}
@@ -2215,10 +2212,10 @@ export default function WhitepaperPage() {
                     </button>
                   </div>
                 </div>
-              </motion.section>
+              </m.section>
 
               {/* Nodes Section */}
-              <motion.section
+              <m.section
                 id="nodes"
                 className="neuro-base p-6 lg:p-8 rounded-3xl"
                 initial={{ opacity: 0, y: 30 }}
@@ -2602,10 +2599,10 @@ export default function WhitepaperPage() {
                     </button>
                   </div>
                 </div>
-              </motion.section>
+              </m.section>
 
               {/* Tokenomics Section */}
-              <motion.section
+              <m.section
                 id="tokenomics"
                 className="neuro-base p-6 lg:p-8 rounded-3xl"
                 initial={{ opacity: 0, y: 30 }}
@@ -3659,7 +3656,7 @@ export default function WhitepaperPage() {
                     </div>
                   </div>
                 </div>
-              </motion.section>
+              </m.section>
 
               {/* Placeholder sections for remaining content */}
               {sections
@@ -3870,7 +3867,7 @@ export default function WhitepaperPage() {
                     };
 
                     return (
-                      <motion.section
+                      <m.section
                         key={section.id}
                         id={section.id}
                         className="neuro-base p-6 lg:p-8 rounded-3xl"
@@ -3880,7 +3877,7 @@ export default function WhitepaperPage() {
                         viewport={{ once: true }}
                       >
                         {/* Section Header */}
-                        <motion.div
+                        <m.div
                           initial={{ opacity: 0, y: 20 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.6 }}
@@ -3902,10 +3899,10 @@ export default function WhitepaperPage() {
                             economy infrastructure, with clear milestones and
                             deliverables.
                           </p>
-                        </motion.div>
+                        </m.div>
 
                         {/* Phase Navigation */}
-                        <motion.div
+                        <m.div
                           initial={{ opacity: 0, y: 20 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.6, delay: 0.2 }}
@@ -3913,7 +3910,7 @@ export default function WhitepaperPage() {
                           className="flex flex-wrap justify-center gap-4 mb-12"
                         >
                           {roadmapData.map((phase, index) => (
-                            <motion.button
+                            <m.button
                               key={index}
                               onClick={() => setActivePhase(index)}
                               className={`px-6 py-3 font-medium transition-all duration-300 rounded-2xl ${
@@ -3930,12 +3927,12 @@ export default function WhitepaperPage() {
                               <div className="text-sm opacity-80">
                                 {phase.period}
                               </div>
-                            </motion.button>
+                            </m.button>
                           ))}
-                        </motion.div>
+                        </m.div>
 
                         {/* Active Phase Content */}
-                        <motion.div
+                        <m.div
                           key={activePhase}
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -3955,7 +3952,7 @@ export default function WhitepaperPage() {
                           <div className="grid md:grid-cols-2 gap-6">
                             {roadmapData[activePhase].milestones.map(
                               (milestone, index) => (
-                                <motion.div
+                                <m.div
                                   key={index}
                                   initial={{ opacity: 0, scale: 0.9 }}
                                   animate={{ opacity: 1, scale: 1 }}
@@ -4003,14 +4000,14 @@ export default function WhitepaperPage() {
                                       {milestone.status}
                                     </span>
                                   </div>
-                                </motion.div>
+                                </m.div>
                               )
                             )}
                           </div>
-                        </motion.div>
+                        </m.div>
 
                         {/* Timeline Overview */}
-                        <motion.div
+                        <m.div
                           initial={{ opacity: 0, y: 20 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.6, delay: 0.3 }}
@@ -4023,7 +4020,7 @@ export default function WhitepaperPage() {
 
                           <div className="grid md:grid-cols-4 gap-4">
                             {roadmapData.map((phase, index) => (
-                              <motion.div
+                              <m.div
                                 key={index}
                                 onClick={() => setActivePhase(index)}
                                 className={`p-4 cursor-pointer transition-all duration-300 rounded-2xl text-center ${
@@ -4043,18 +4040,18 @@ export default function WhitepaperPage() {
                                 <div className="text-xs text-gray-500">
                                   {phase.milestones.length} milestones
                                 </div>
-                              </motion.div>
+                              </m.div>
                             ))}
                           </div>
-                        </motion.div>
-                      </motion.section>
+                        </m.div>
+                      </m.section>
                     );
                   }
 
                   // Handle Appendix section with comprehensive technical content
                   if (section.id === "appendix") {
                     return (
-                      <motion.section
+                      <m.section
                         key={section.id}
                         id={section.id}
                         className="neuro-base p-6 lg:p-8 rounded-3xl"
@@ -4070,7 +4067,7 @@ export default function WhitepaperPage() {
                           </h2>
                         </div>
 
-                        <motion.p
+                        <m.p
                           className="text-lg text-gray-600 mb-12 leading-relaxed"
                           initial={{ opacity: 0, y: 20 }}
                           whileInView={{ opacity: 1, y: 0 }}
@@ -4084,10 +4081,10 @@ export default function WhitepaperPage() {
                           for developers, auditors, and researchers aiming to
                           understand or contribute to the technical integrity
                           and extensibility of the DAGChain ecosystem.
-                        </motion.p>
+                        </m.p>
 
                         {/* Section A: State Transition Proofs */}
-                        <motion.div
+                        <m.div
                           className="mb-16"
                           initial={{ opacity: 0, y: 30 }}
                           whileInView={{ opacity: 1, y: 0 }}
@@ -4198,10 +4195,10 @@ export default function WhitepaperPage() {
                               </div>
                             </div>
                           </div>
-                        </motion.div>
+                        </m.div>
 
                         {/* Section B: ERC-3643 Implementation */}
-                        <motion.div
+                        <m.div
                           className="mb-16"
                           initial={{ opacity: 0, y: 30 }}
                           whileInView={{ opacity: 1, y: 0 }}
@@ -4279,10 +4276,10 @@ contract DAGChainERC3643 is ERC20 {
                               </p>
                             </div>
                           </div>
-                        </motion.div>
+                        </m.div>
 
                         {/* Section C: Fraud Proof Logic */}
-                        <motion.div
+                        <m.div
                           className="mb-16"
                           initial={{ opacity: 0, y: 30 }}
                           whileInView={{ opacity: 1, y: 0 }}
@@ -4379,10 +4376,10 @@ contract DAGChainERC3643 is ERC20 {
                               </div>
                             </div>
                           </div>
-                        </motion.div>
+                        </m.div>
 
                         {/* Section D: Security Audit Checklist */}
-                        <motion.div
+                        <m.div
                           className="mb-8"
                           initial={{ opacity: 0, y: 30 }}
                           whileInView={{ opacity: 1, y: 0 }}
@@ -4400,7 +4397,7 @@ contract DAGChainERC3643 is ERC20 {
                             </p>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                              <motion.div
+                              <m.div
                                 className="neuro-inset p-6 rounded-xl"
                                 whileHover={{ scale: 1.02 }}
                                 transition={{ type: "spring", stiffness: 300 }}
@@ -4415,9 +4412,9 @@ contract DAGChainERC3643 is ERC20 {
                                   No unused variables, strict visibility
                                   modifiers.
                                 </p>
-                              </motion.div>
+                              </m.div>
 
-                              <motion.div
+                              <m.div
                                 className="neuro-inset p-6 rounded-xl"
                                 whileHover={{ scale: 1.02 }}
                                 transition={{ type: "spring", stiffness: 300 }}
@@ -4432,9 +4429,9 @@ contract DAGChainERC3643 is ERC20 {
                                   Bounds checking for arrays, overflow-safe
                                   math.
                                 </p>
-                              </motion.div>
+                              </m.div>
 
-                              <motion.div
+                              <m.div
                                 className="neuro-inset p-6 rounded-xl"
                                 whileHover={{ scale: 1.02 }}
                                 transition={{ type: "spring", stiffness: 300 }}
@@ -4449,9 +4446,9 @@ contract DAGChainERC3643 is ERC20 {
                                   Role-based permissions, multi-signature
                                   governance.
                                 </p>
-                              </motion.div>
+                              </m.div>
 
-                              <motion.div
+                              <m.div
                                 className="neuro-inset p-6 rounded-xl"
                                 whileHover={{ scale: 1.02 }}
                                 transition={{ type: "spring", stiffness: 300 }}
@@ -4466,9 +4463,9 @@ contract DAGChainERC3643 is ERC20 {
                                   Critical components mathematically proven
                                   (STF, Fraud Proof handlers).
                                 </p>
-                              </motion.div>
+                              </m.div>
 
-                              <motion.div
+                              <m.div
                                 className="neuro-inset p-6 rounded-xl"
                                 whileHover={{ scale: 1.02 }}
                                 transition={{ type: "spring", stiffness: 300 }}
@@ -4482,9 +4479,9 @@ contract DAGChainERC3643 is ERC20 {
                                 <p className="text-sm text-gray-700">
                                   Nonce enforcement per account.
                                 </p>
-                              </motion.div>
+                              </m.div>
 
-                              <motion.div
+                              <m.div
                                 className="neuro-inset p-6 rounded-xl"
                                 whileHover={{ scale: 1.02 }}
                                 transition={{ type: "spring", stiffness: 300 }}
@@ -4498,9 +4495,9 @@ contract DAGChainERC3643 is ERC20 {
                                 <p className="text-sm text-gray-700">
                                   Slashing mechanisms for malicious nodes.
                                 </p>
-                              </motion.div>
+                              </m.div>
 
-                              <motion.div
+                              <m.div
                                 className="neuro-inset p-6 rounded-xl"
                                 whileHover={{ scale: 1.02 }}
                                 transition={{ type: "spring", stiffness: 300 }}
@@ -4514,18 +4511,18 @@ contract DAGChainERC3643 is ERC20 {
                                 <p className="text-sm text-gray-700">
                                   Use majority consensus across data providers.
                                 </p>
-                              </motion.div>
+                              </m.div>
                             </div>
                           </div>
-                        </motion.div>
-                      </motion.section>
+                        </m.div>
+                      </m.section>
                     );
                   }
 
                   // Handle Governance section with comprehensive content
                   if (section.id === "governance") {
                     return (
-                      <motion.section
+                      <m.section
                         key={section.id}
                         id={section.id}
                         className="neuro-base p-6 lg:p-8 rounded-3xl"
@@ -4718,13 +4715,13 @@ contract DAGChainERC3643 is ERC20 {
                             </p>
                           </div>
                         </div>
-                      </motion.section>
+                      </m.section>
                     );
                   }
 
                   // Handle other placeholder sections
                   return (
-                    <motion.section
+                    <m.section
                       key={section.id}
                       id={section.id}
                       className="neuro-base p-6 lg:p-8 rounded-3xl"
@@ -4751,13 +4748,13 @@ contract DAGChainERC3643 is ERC20 {
                           and real-world use cases.
                         </p>
                       </div>
-                    </motion.section>
+                    </m.section>
                   );
                 })}
             </div>
 
             {/* Closing Section */}
-            <motion.section
+            <m.section
               className="mt-24 mb-12"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -4769,7 +4766,7 @@ contract DAGChainERC3643 is ERC20 {
                 <div className="absolute inset-0 bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 rounded-3xl" />
 
                 <div className="relative p-12 lg:p-16 text-center text-white">
-                  <motion.h2
+                  <m.h2
                     className="text-2xl lg:text-3xl font-black mb-8 leading-tight"
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -4781,9 +4778,9 @@ contract DAGChainERC3643 is ERC20 {
                     <span className="text-xl lg:text-2xl font-normal opacity-90">
                       Secure. Composable. Intelligent.
                     </span>
-                  </motion.h2>
+                  </m.h2>
 
-                  <motion.div
+                  <m.div
                     className="flex flex-col sm:flex-row gap-6 justify-center"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -4796,10 +4793,10 @@ contract DAGChainERC3643 is ERC20 {
                     <button className="px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-bold rounded-2xl border border-white/30 hover:bg-white/30 transition-all duration-300 hover:scale-105 flex items-center space-x-2">
                       <span>Join Community</span>
                     </button>
-                  </motion.div>
+                  </m.div>
                 </div>
               </div>
-            </motion.section>
+            </m.section>
           </div>
         </div>
       </div>

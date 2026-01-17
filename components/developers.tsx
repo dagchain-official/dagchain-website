@@ -1,8 +1,8 @@
 "use client"
 
 import React, { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Terminal, Code, Cpu, Database, Zap, GitBranch, Package, Rocket, ChevronRight, Play, Copy, Check, FileText, Settings, Monitor, Box, Github, Server, Hash } from "lucide-react"
+import { m, AnimatePresence } from "framer-motion"
+import { Code, Cpu, Zap, Package, Rocket, Copy, Check, Monitor, Server, Hash } from "lucide-react"
 
 export function Developers() {
   const [activeTab, setActiveTab] = useState(0)
@@ -324,14 +324,14 @@ if __name__ == "__main__":
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Technical Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           className="text-center mb-16"
         >
           {/* API Status Bar */}
-          <motion.div
+          <m.div
             className="bg-white rounded-2xl p-4 mb-8 max-w-4xl mx-auto shadow-[12px_12px_24px_rgba(163,177,198,0.3),-12px_-12px_24px_rgba(255,255,255,0.9)] border border-gray-200"
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
@@ -357,9 +357,9 @@ if __name__ == "__main__":
                 </div>
               </div>
             </div>
-          </motion.div>
+          </m.div>
 
-          <motion.span
+          <m.span
             className="inline-block px-6 py-2 bg-gray-100 rounded-full text-gray-700 text-sm font-mono tracking-wider mb-6 shadow-[4px_4px_8px_rgba(163,177,198,0.2),-4px_-4px_8px_rgba(255,255,255,0.8)]"
             animate={{ 
               boxShadow: [
@@ -371,7 +371,7 @@ if __name__ == "__main__":
             transition={{ duration: 3, repeat: Infinity }}
           >
             DEVELOPER DOCUMENTATION
-          </motion.span>
+          </m.span>
           
           <h2 className="text-5xl lg:text-7xl font-bold mb-6 font-mono bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 bg-clip-text text-transparent">
             API Reference
@@ -381,10 +381,10 @@ if __name__ == "__main__":
             Developer-first Layer 1 • EVM Compatible • AI-Native Primitives<br/>
             Complete SDK documentation and technical specifications
           </p>
-        </motion.div>
+        </m.div>
 
         {/* API Endpoints Quick Reference */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -400,7 +400,7 @@ if __name__ == "__main__":
             <div className="p-6">
               <div className="grid gap-4">
                 {apiEndpoints.map((endpoint, index) => (
-                  <motion.div
+                  <m.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -428,15 +428,15 @@ if __name__ == "__main__":
                       <span className="text-gray-500">Params: <code className="text-gray-700">{endpoint.params}</code></span>
                       <span className="text-gray-500">Returns: <code className="text-gray-800">{endpoint.response}</code></span>
                     </div>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
             </div>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Technical Specifications */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -447,7 +447,7 @@ if __name__ == "__main__":
             {technicalSpecs.map((spec, index) => {
               const IconComponent = spec.icon
               return (
-                <motion.button
+                <m.button
                   key={spec.id}
                   onClick={() => setActiveTab(index)}
                   className={`flex items-center gap-2 px-4 py-3 rounded-xl font-mono text-sm transition-all duration-300 ${
@@ -465,14 +465,14 @@ if __name__ == "__main__":
                   }`}>
                     {spec.badge}
                   </span>
-                </motion.button>
+                </m.button>
               )
             })}
           </div>
 
           {/* Active Specification */}
           <AnimatePresence mode="wait">
-            <motion.div
+            <m.div
               key={activeTab}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -501,7 +501,7 @@ if __name__ == "__main__":
                   {/* Technical Specs Grid */}
                   <div className="space-y-4">
                     {technicalSpecs[activeTab].specs.map((spec, index) => (
-                      <motion.div
+                      <m.div
                         key={index}
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -520,7 +520,7 @@ if __name__ == "__main__":
                             {spec.value}
                           </code>
                         </div>
-                      </motion.div>
+                      </m.div>
                     ))}
                   </div>
                 </div>
@@ -563,12 +563,12 @@ if __name__ == "__main__":
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </AnimatePresence>
-        </motion.div>
+        </m.div>
 
         {/* Developer Resources */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -600,7 +600,7 @@ if __name__ == "__main__":
               <p className="text-sm text-gray-600 font-mono">SDK abstractions and integrations</p>
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

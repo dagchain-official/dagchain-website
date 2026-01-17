@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 
 const TEAM = [
   {
@@ -58,7 +58,7 @@ export function Team() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -75,14 +75,14 @@ export function Team() {
             Our people are our greatest asset and biggest differentiator. <br className="hidden sm:block" />
             They also believe in having a lot of fun along the way.
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Team Grid - 4 + 3 Layout */}
         <div className="space-y-8">
           {/* First Row - 4 members */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
             {TEAM.slice(0, 4).map((member, idx) => (
-              <motion.div
+              <m.div
                 key={member.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -115,7 +115,7 @@ export function Team() {
                     {member.role}
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
 
@@ -123,7 +123,7 @@ export function Team() {
           <div className="flex justify-center">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center max-w-4xl">
               {TEAM.slice(4, 7).map((member, idx) => (
-                <motion.div
+                <m.div
                   key={member.name}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -156,7 +156,7 @@ export function Team() {
                       {member.role}
                     </p>
                   </div>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>

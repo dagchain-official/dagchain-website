@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { m, AnimatePresence } from "framer-motion"
 import { 
   Building2, 
   Globe2, 
@@ -119,7 +119,7 @@ export function Funding() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -149,14 +149,14 @@ export function Funding() {
                 <div className="text-gray-600">MainNet Launch</div>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* Investment Rounds */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -168,17 +168,17 @@ export function Funding() {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Three distinct opportunities to participate in DAGChain's growth
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Tab Navigation */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex justify-center gap-4 mb-16"
           >
             {fundingRounds.map((round, index) => (
-              <motion.button
+              <m.button
                 key={round.id}
                 onClick={() => setActiveTab(index)}
                 className={`px-8 py-4 font-semibold transition-all duration-300 rounded-2xl ${
@@ -191,13 +191,13 @@ export function Funding() {
               >
                 <div className="text-lg font-nasalization">{round.title}</div>
                 <div className="text-sm opacity-80">{round.subtitle}</div>
-              </motion.button>
+              </m.button>
             ))}
-          </motion.div>
+          </m.div>
 
           {/* Active Tab Content */}
           <AnimatePresence mode="wait">
-            <motion.div
+            <m.div
               key={activeTab}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -225,7 +225,7 @@ export function Funding() {
                     </div>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                       {fundingRounds[activeTab].phases.map((phase, index) => (
-                        <motion.div
+                        <m.div
                           key={index}
                           initial={{ opacity: 0, scale: 0.9 }}
                           animate={{ opacity: 1, scale: 1 }}
@@ -235,7 +235,7 @@ export function Funding() {
                           <div className="text-sm font-medium text-gray-600 mb-1">{phase.phase}</div>
                           <div className="text-2xl font-bold text-gray-900 mb-1">{phase.price}</div>
                           <div className="text-xs text-gray-500">{phase.status}</div>
-                        </motion.div>
+                        </m.div>
                       ))}
                     </div>
                   </div>
@@ -286,7 +286,7 @@ export function Funding() {
                     <h4 className="text-xl font-bold text-gray-900 mb-4">Fund Allocation</h4>
                     <div className="space-y-3">
                       {fundingRounds[activeTab].purposes.map((purpose, i) => (
-                        <motion.div
+                        <m.div
                           key={i}
                           initial={{ opacity: 0, x: 20 }}
                           animate={{ opacity: 1, x: 0 }}
@@ -295,7 +295,7 @@ export function Funding() {
                         >
                           <CheckCircle className="w-5 h-5 text-gray-700 mt-0.5" />
                           <span className="text-gray-700">{purpose}</span>
-                        </motion.div>
+                        </m.div>
                       ))}
                     </div>
                   </div>
@@ -313,7 +313,7 @@ export function Funding() {
                   </button>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </AnimatePresence>
         </div>
       </section>
@@ -321,7 +321,7 @@ export function Funding() {
       {/* Technical Requirements */}
       <section className="py-20 bg-gray-100">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -333,11 +333,11 @@ export function Funding() {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Technical specifications for network participants
             </p>
-          </motion.div>
+          </m.div>
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Minimum Requirements */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -383,10 +383,10 @@ export function Funding() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Recommended Requirements */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -432,7 +432,7 @@ export function Funding() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -440,7 +440,7 @@ export function Funding() {
       {/* Investment Benefits */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -449,10 +449,10 @@ export function Funding() {
             <h2 className="text-4xl font-bold mb-6 font-nasalization text-gray-900">
               Investment Value Proposition
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -467,9 +467,9 @@ export function Funding() {
               <p className="text-gray-600 leading-relaxed">
                 Secure tokens at significant discount before public markets
               </p>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
@@ -484,9 +484,9 @@ export function Funding() {
               <p className="text-gray-600 leading-relaxed">
                 Participate in securing the first AI-native blockchain infrastructure
               </p>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -501,9 +501,9 @@ export function Funding() {
               <p className="text-gray-600 leading-relaxed">
                 Shape the future of AI-blockchain coordination layer
               </p>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -518,7 +518,7 @@ export function Funding() {
               <p className="text-gray-600 leading-relaxed">
                 Earn ongoing rewards through network validation
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -526,7 +526,7 @@ export function Funding() {
       {/* Final CTA */}
       <section className="py-20 bg-gray-100">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -548,7 +548,7 @@ export function Funding() {
                 Schedule Due Diligence Call
               </button>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
       

@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { m, AnimatePresence } from "framer-motion"
 import { Users, Shield, Palette, Vote, Gift, Globe, Heart, MessageCircle, Share2, Trophy, Star, Zap, ArrowRight, UserPlus, Award, Target } from "lucide-react"
 
 // Official Social Media Logo Components
@@ -219,18 +219,18 @@ export function Community() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           className="text-center mb-16"
         >
           {/* Section Header */}
-          <motion.div
+          <m.div
             className="bg-white p-3 shadow-[8px_8px_16px_rgba(163,177,198,0.3),-8px_-8px_16px_rgba(255,255,255,0.9)] border border-gray-200 rounded-2xl inline-block mb-8"
           >
             <span className="text-sm font-semibold text-gray-700 tracking-wider uppercase">COMMUNITY</span>
-          </motion.div>
+          </m.div>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 font-nasalization leading-tight">
             Our Community
@@ -240,10 +240,10 @@ export function Community() {
             More than an audience — the foundation of decentralization, adoption, and governance. 
             From 50,000 validators to AI creators, our community powers every layer of growth.
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Community Stats */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -252,7 +252,7 @@ export function Community() {
           {communityStats.map((stat, index) => {
             const IconComponent = stat.icon
             return (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -270,13 +270,13 @@ export function Community() {
                 </div>
                 <div className="text-3xl font-bold text-gray-900 mb-2 font-nasalization">{stat.number}</div>
                 <div className="text-gray-600 font-inter">{stat.label}</div>
-              </motion.div>
+              </m.div>
             )
           })}
-        </motion.div>
+        </m.div>
 
         {/* Community Pillars Navigation */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -286,7 +286,7 @@ export function Community() {
             {communityPillars.map((pillar, index) => {
               const IconComponent = pillar.icon
               return (
-                <motion.button
+                <m.button
                   key={pillar.id}
                   onClick={() => setActiveCard(index)}
                   className={`flex items-center gap-2 px-4 py-3 rounded-2xl font-medium transition-all duration-300 ${
@@ -302,14 +302,14 @@ export function Community() {
                   <span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full shadow-[inset_4px_4px_8px_rgba(163,177,198,0.2),inset_-4px_-4px_8px_rgba(255,255,255,0.8)] border border-gray-200">
                     {pillar.members}
                   </span>
-                </motion.button>
+                </m.button>
               )
             })}
           </div>
 
           {/* Active Community Card */}
           <AnimatePresence mode="wait">
-            <motion.div
+            <m.div
               key={activeCard}
               initial={{ opacity: 0, y: 50, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -343,7 +343,7 @@ export function Community() {
                     </h3>
                     <div className="space-y-3">
                       {communityPillars[activeCard].features.map((feature, index) => (
-                        <motion.div
+                        <m.div
                           key={index}
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
@@ -352,7 +352,7 @@ export function Community() {
                         >
                           <div className="w-2 h-2 rounded-full bg-gray-400" />
                           <span className="text-gray-700 font-inter">{feature}</span>
-                        </motion.div>
+                        </m.div>
                       ))}
                     </div>
                   </div>
@@ -369,12 +369,12 @@ export function Community() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </AnimatePresence>
-        </motion.div>
+        </m.div>
 
         {/* Social Channels */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -391,7 +391,7 @@ export function Community() {
             {socialChannels.map((channel, index) => {
               const IconComponent = channel.icon
               return (
-                <motion.a
+                <m.a
                   key={channel.name}
                   href={channel.href}
                   target="_blank"
@@ -413,11 +413,11 @@ export function Community() {
                   <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
                     <ArrowRight className="w-4 h-4 mx-auto text-gray-600" />
                   </div>
-                </motion.a>
+                </m.a>
               )
             })}
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

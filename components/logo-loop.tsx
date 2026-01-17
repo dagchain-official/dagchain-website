@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import LogoLoop from "./LogoLoop"
 import {
   SiEthereum,
@@ -36,7 +36,7 @@ export function LogoLoopSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -47,7 +47,7 @@ export function LogoLoopSection() {
             Powered by Industry Leaders
           </h3>
           <div className="h-px bg-gradient-to-r from-transparent via-purple-300 to-transparent max-w-xs mx-auto" />
-        </motion.div>
+        </m.div>
 
         {/* Logo Loop */}
         <div style={{ height: "80px", position: "relative", overflow: "hidden" }}>
@@ -66,7 +66,7 @@ export function LogoLoopSection() {
         </div>
 
         {/* Footer text */}
-        <motion.p
+        <m.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -74,7 +74,7 @@ export function LogoLoopSection() {
           className="text-center text-sm text-gray-500 mt-8 font-light"
         >
           Integrating with the most trusted names in blockchain and AI
-        </motion.p>
+        </m.p>
 
       </div>
     </section>

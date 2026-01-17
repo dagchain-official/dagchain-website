@@ -1,7 +1,7 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import React from "react"
+import { LazyMotion, domMax, m } from "framer-motion";
 // import { WelcomeScreen } from "./welcome-screen"
 
 interface AppWrapperProps {
@@ -45,8 +45,10 @@ export function AppWrapper({ children }: AppWrapperProps) {
       </AnimatePresence> */}
 
       {/* Main Website - Now shows directly without welcome screen */}
-      {children}
-
+      <LazyMotion features={domMax}>
+        {children}
+      </LazyMotion>
+      
       {/* ORIGINAL CODE WITH ANIMATION - Uncomment to restore fade-in effect */}
       {/* <AnimatePresence>
         {showMainSite && (

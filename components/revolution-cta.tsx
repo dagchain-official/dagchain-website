@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Users, Shield, Gift, Vote } from "lucide-react"
 
 export function RevolutionCTA() {
@@ -9,7 +9,7 @@ export function RevolutionCTA() {
     <section className="relative py-12 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
         {/* Community CTA */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -24,7 +24,7 @@ export function RevolutionCTA() {
             Whether you're a validator, creator, or builder - there's a place for you in DAGChain.
           </p>
           
-          <motion.div
+          <m.div
             className="flex flex-wrap justify-center gap-6 text-sm"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -42,8 +42,8 @@ export function RevolutionCTA() {
               <Vote className="w-4 h-4 text-gray-700" />
               <span>Community Governed</span>
             </div>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </div>
     </section>
   )

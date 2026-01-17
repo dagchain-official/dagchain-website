@@ -57,7 +57,8 @@ const nextConfig = {
       '@web3-onboard', 
       'framer-motion', 
       '@radix-ui/react-icons',
-      'ethers'
+      'ethers',
+      'lucide-react/dist/esm/icons'
     ],
     esmExternals: true,
     optimizeCss: true
@@ -70,5 +71,7 @@ const nextConfig = {
     return config;
   },
 }
-
-module.exports = nextConfig;
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
+module.exports = withBundleAnalyzer(nextConfig);

@@ -1,13 +1,12 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   ArrowRight,
   Mail,
   MapPin,
   Phone,
-  ExternalLink,
   Github,
   FileText,
   Shield,
@@ -17,8 +16,6 @@ import {
   Heart,
   Code,
   BookOpen,
-  MessageCircle,
-  Send,
   Package,
 } from "lucide-react";
 
@@ -196,7 +193,7 @@ export function Footer() {
 
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
         {/* Single Container Footer */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -360,7 +357,7 @@ export function Footer() {
                 {socialLinks.map((social, index) => {
                   const IconComponent = social.icon;
                   return (
-                    <motion.a
+                    <m.a
                       key={social.name}
                       href={social.href}
                       className="w-8 h-8 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20 hover:bg-white/20 transition-all duration-300 text-white"
@@ -371,7 +368,7 @@ export function Footer() {
                       transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
                     >
                       <IconComponent className="w-4 h-4" />
-                    </motion.a>
+                    </m.a>
                   );
                 })}
               </div>
@@ -388,7 +385,7 @@ export function Footer() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </footer>
   );

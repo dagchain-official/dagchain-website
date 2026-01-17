@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Server, CheckCircle, Cpu, HardDrive, Wifi, Shield, Zap, Lock, Star, HelpCircle, Calculator, TrendingUp } from "lucide-react"
 import { useState } from "react"
 
@@ -181,40 +181,40 @@ export function DagNode() {
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gray-100">
         <div className="max-w-7xl mx-auto px-8">
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
             className="text-center mb-16"
           >
-            <motion.div
+            <m.div
               variants={itemVariants}
               className="inline-block mb-8"
             >
               <div className="w-24 h-24 mx-auto rounded-3xl bg-gray-100 shadow-[20px_20px_40px_rgba(163,177,198,0.5),-20px_-20px_40px_rgba(255,255,255,0.9)] flex items-center justify-center">
                 <Server className="w-12 h-12 text-gray-900" />
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.h1 
+            <m.h1 
               variants={itemVariants}
               className="text-6xl lg:text-7xl font-bold mb-8 font-nasalization text-gray-900 leading-tight"
             >
               DAG Node
               <br />
               Validator Keys
-            </motion.h1>
+            </m.h1>
             
-            <motion.p 
+            <m.p 
               variants={itemVariants}
               className="text-xl text-gray-600 max-w-3xl mx-auto mb-12"
             >
               Secure your position as a validator in the DAGChain TestNet. Purchase your node key and participate in network consensus from day one.
-            </motion.p>
+            </m.p>
 
             {/* Network Stats */}
-            <motion.div
+            <m.div
               variants={itemVariants}
               className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto mb-10"
             >
@@ -237,9 +237,9 @@ export function DagNode() {
                 <div className="text-5xl font-black text-gray-900 mb-3">{REWARDS_PER_BLOCK}</div>
                 <div className="text-sm font-bold text-gray-600">DAG/Block</div>
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               variants={itemVariants}
               className="flex flex-wrap justify-center gap-6 text-sm text-gray-700"
             >
@@ -261,38 +261,38 @@ export function DagNode() {
                 </div>
                 <span className="font-bold text-gray-900">1:1 MainNet Swap</span>
               </div>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         </div>
       </section>
 
       {/* Node Key Sale Phases */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-8">
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
             className="text-center mb-16"
           >
-            <motion.h2 
+            <m.h2 
               variants={itemVariants}
               className="text-4xl font-bold mb-6 font-nasalization text-gray-900"
             >
               🔑 Node Key Sale Phases
-            </motion.h2>
-            <motion.p 
+            </m.h2>
+            <m.p 
               variants={itemVariants}
               className="text-xl text-gray-600 max-w-3xl mx-auto"
             >
               Four phases with increasing prices. Secure your validator position early for the best value.
-            </motion.p>
-          </motion.div>
+            </m.p>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {nodePhases.map((phase, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -317,12 +317,12 @@ export function DagNode() {
                 }`}>
                   {!phase.active ? 'Locked' : 'Available'}
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
 
           {/* What You Get */}
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -332,7 +332,7 @@ export function DagNode() {
             <h3 className="text-3xl font-black text-gray-900 mb-8 text-center font-nasalization">What You Get</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {benefits.map((benefit, idx) => (
-                <motion.div 
+                <m.div 
                   key={idx}
                   variants={itemVariants}
                   whileHover={{ scale: 1.02 }}
@@ -342,39 +342,39 @@ export function DagNode() {
                     <CheckCircle className="w-5 h-5 text-gray-900" />
                   </div>
                   <span className="text-sm text-gray-800 font-bold leading-relaxed">{benefit}</span>
-                </motion.div>
+                </m.div>
               ))}
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* Network Explanation & Rewards Calculator */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-8">
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
             className="text-center mb-16"
           >
-            <motion.h2 
+            <m.h2 
               variants={itemVariants}
               className="text-4xl font-bold mb-6 font-nasalization text-gray-900"
             >
               ⚡ Validator Rewards Calculator
-            </motion.h2>
-            <motion.p 
+            </m.h2>
+            <m.p 
               variants={itemVariants}
               className="text-xl text-gray-600 max-w-3xl mx-auto"
             >
               Calculate your potential validator rewards based on network participation
-            </motion.p>
-          </motion.div>
+            </m.p>
+          </m.div>
 
           {/* How It Works Explanation */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -406,10 +406,10 @@ export function DagNode() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Rewards Calculator */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -522,39 +522,39 @@ export function DagNode() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* Why Run a Validator Node */}
       <section className="py-20 bg-gray-100">
         <div className="max-w-7xl mx-auto px-8">
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
             className="text-center mb-16"
           >
-            <motion.h2 
+            <m.h2 
               variants={itemVariants}
               className="text-4xl font-bold mb-6 font-nasalization text-gray-900"
             >
               🚀 Why Run a Validator Node?
-            </motion.h2>
-            <motion.p 
+            </m.h2>
+            <m.p 
               variants={itemVariants}
               className="text-xl text-gray-600 max-w-3xl mx-auto"
             >
               Become a core part of the DAGChain network and enjoy exclusive benefits
-            </motion.p>
-          </motion.div>
+            </m.p>
+          </m.div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {whyRunNode.map((item, idx) => {
               const Icon = item.icon
               return (
-                <motion.div
+                <m.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -572,7 +572,7 @@ export function DagNode() {
                       <p className="text-gray-600 font-semibold leading-relaxed">{item.description}</p>
                     </div>
                   </div>
-                </motion.div>
+                </m.div>
               )
             })}
           </div>
@@ -582,30 +582,30 @@ export function DagNode() {
       {/* Setup Process */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-8">
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
             className="text-center mb-16"
           >
-            <motion.h2 
+            <m.h2 
               variants={itemVariants}
               className="text-4xl font-bold mb-6 font-nasalization text-gray-900"
             >
               ⚙️ How to Get Started
-            </motion.h2>
-            <motion.p 
+            </m.h2>
+            <m.p 
               variants={itemVariants}
               className="text-xl text-gray-600 max-w-3xl mx-auto"
             >
               Simple 4-step process to become a DAGChain validator
-            </motion.p>
-          </motion.div>
+            </m.p>
+          </m.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {setupSteps.map((item, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -621,7 +621,7 @@ export function DagNode() {
                 <div className="pt-4 border-t border-gray-300">
                   <p className="text-xs text-gray-500 font-semibold">{item.details}</p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -630,30 +630,30 @@ export function DagNode() {
       {/* System Requirements */}
       <section className="py-20 bg-gray-100">
         <div className="max-w-7xl mx-auto px-8">
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
             className="text-center mb-16"
           >
-            <motion.h2 
+            <m.h2 
               variants={itemVariants}
               className="text-4xl font-bold mb-6 font-nasalization text-gray-900"
             >
               💻 System Requirements
-            </motion.h2>
-            <motion.p 
+            </m.h2>
+            <m.p 
               variants={itemVariants}
               className="text-xl text-gray-600 max-w-3xl mx-auto"
             >
               Ensure your hardware meets the requirements to run a DAGChain validator node
-            </motion.p>
-          </motion.div>
+            </m.p>
+          </m.div>
 
           <div className="grid md:grid-cols-2 gap-10">
             {/* Minimum Requirements */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -698,10 +698,10 @@ export function DagNode() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Recommended Requirements */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -746,7 +746,7 @@ export function DagNode() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -754,7 +754,7 @@ export function DagNode() {
       {/* Timeline */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-8">
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -763,7 +763,7 @@ export function DagNode() {
           >
             <h3 className="text-3xl font-black text-gray-900 mb-10 text-center font-nasalization">⏱️ Timeline</h3>
             <div className="space-y-6">
-              <motion.div 
+              <m.div 
                 variants={itemVariants}
                 className="flex items-start gap-6 p-6 bg-white rounded-2xl shadow-[12px_12px_24px_rgba(163,177,198,0.3),-12px_-12px_24px_rgba(255,255,255,0.9)]"
               >
@@ -772,8 +772,8 @@ export function DagNode() {
                   <div className="font-black text-gray-900 mb-2 text-lg">Purchase Node Key</div>
                   <div className="text-sm text-gray-600 font-semibold leading-relaxed">Secure your validator position by purchasing a node key in any available phase</div>
                 </div>
-              </motion.div>
-              <motion.div 
+              </m.div>
+              <m.div 
                 variants={itemVariants}
                 className="flex items-start gap-6 p-6 bg-white rounded-2xl shadow-[12px_12px_24px_rgba(163,177,198,0.3),-12px_-12px_24px_rgba(255,255,255,0.9)]"
               >
@@ -782,8 +782,8 @@ export function DagNode() {
                   <div className="font-black text-gray-900 mb-2 text-lg">TestNet Launch (February 2026)</div>
                   <div className="text-sm text-gray-600 font-semibold leading-relaxed">Immediate validator access at TestNet launch. Start earning test tokens through validation</div>
                 </div>
-              </motion.div>
-              <motion.div 
+              </m.div>
+              <m.div 
                 variants={itemVariants}
                 className="flex items-start gap-6 p-6 bg-white rounded-2xl shadow-[12px_12px_24px_rgba(163,177,198,0.3),-12px_-12px_24px_rgba(255,255,255,0.9)]"
               >
@@ -792,39 +792,39 @@ export function DagNode() {
                   <div className="font-black text-gray-900 mb-2 text-lg">MainNet Launch</div>
                   <div className="text-sm text-gray-600 font-semibold leading-relaxed">Test tokens swapped 1:1 at MainNet. Continue as a validator on the main network</div>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* FAQ Section */}
       <section className="py-20 bg-gray-100">
         <div className="max-w-7xl mx-auto px-8">
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
             className="text-center mb-16"
           >
-            <motion.h2 
+            <m.h2 
               variants={itemVariants}
               className="text-4xl font-bold mb-6 font-nasalization text-gray-900"
             >
               ❓ Frequently Asked Questions
-            </motion.h2>
-            <motion.p 
+            </m.h2>
+            <m.p 
               variants={itemVariants}
               className="text-xl text-gray-600 max-w-3xl mx-auto"
             >
               Everything you need to know about running a DAGChain validator node
-            </motion.p>
-          </motion.div>
+            </m.p>
+          </m.div>
 
           <div className="grid md:grid-cols-2 gap-6">
             {faq.map((item, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -839,7 +839,7 @@ export function DagNode() {
                   <h3 className="text-lg font-black text-gray-900 leading-tight pt-1">{item.q}</h3>
                 </div>
                 <p className="text-sm text-gray-600 font-semibold leading-relaxed pl-14">{item.a}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -848,7 +848,7 @@ export function DagNode() {
       {/* CTA Section */}
       <section className="py-20 bg-gray-100">
         <div className="max-w-5xl mx-auto px-8 text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -860,7 +860,7 @@ export function DagNode() {
             <p className="text-xl text-gray-600 font-semibold mb-10">
               Connect your wallet and purchase your node key in the user dashboard
             </p>
-            <motion.a 
+            <m.a 
               href="https://dashboard.DAGChain.network/"
               target="_blank"
               rel="noopener noreferrer"
@@ -869,11 +869,11 @@ export function DagNode() {
               className="inline-block bg-gray-900 text-white px-12 py-5 rounded-2xl font-black text-xl shadow-[16px_16px_32px_rgba(0,0,0,0.5),-16px_-16px_32px_rgba(255,255,255,0.1)] hover:shadow-[inset_12px_12px_24px_rgba(0,0,0,0.4)] transition-all duration-300"
             >
               Go to Dashboard
-            </motion.a>
+            </m.a>
             <p className="mt-8 text-sm text-gray-500 font-semibold">
               * Validator access begins at TestNet Launch (February 2026). Test tokens will be swapped 1:1 at MainNet.
             </p>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </div>

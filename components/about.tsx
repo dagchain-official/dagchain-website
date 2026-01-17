@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Code, Zap, Shield, Globe, Users, Cpu, Network } from "lucide-react"
 
 export function About() {
@@ -91,7 +91,7 @@ export function About() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -99,39 +99,39 @@ export function About() {
           className="text-center mb-16"
         >
           {/* Section Header */}
-          <motion.div
+          <m.div
             variants={itemVariants}
             className="bg-white p-3 shadow-[8px_8px_16px_rgba(163,177,198,0.3),-8px_-8px_16px_rgba(255,255,255,0.9)] border border-gray-200 rounded-2xl inline-block mb-8"
           >
             <span className="text-sm font-semibold text-gray-700 tracking-wider uppercase">ABOUT DAGChain</span>
-          </motion.div>
+          </m.div>
 
-          <motion.h2
+          <m.h2
             variants={itemVariants}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 font-nasalization leading-tight"
           >
             Welcome to DAGChain
-          </motion.h2>
+          </m.h2>
 
-          <motion.p
+          <m.p
             variants={itemVariants}
             className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-inter"
           >
             The first Layer 1 blockchain purpose-built for autonomous AI agents, no-code creators, and the next generation of decentralized applications.
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
 
         {/* Main Content Grid */}
         <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
           {/* Left Content */}
-          <motion.div
+          <m.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <motion.div
+            <m.div
               variants={itemVariants}
               className="bg-white p-8 shadow-[20px_20px_40px_rgba(163,177,198,0.3),-20px_-20px_40px_rgba(255,255,255,0.9)] border border-gray-200 rounded-3xl"
             >
@@ -142,9 +142,9 @@ export function About() {
               <p className="text-gray-700 leading-relaxed font-inter">
                 While existing blockchains chase DeFi and gaming, DAGChain delivers micro-payment rails, provenance verification, and agent registries tailored to AI-first use cases.
               </p>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               variants={itemVariants}
               className="bg-white p-8 shadow-[20px_20px_40px_rgba(163,177,198,0.3),-20px_-20px_40px_rgba(255,255,255,0.9)] border border-gray-200 rounded-3xl"
             >
@@ -152,11 +152,11 @@ export function About() {
               <p className="text-gray-700 leading-relaxed font-inter">
                 By combining Ethereum compatibility with an AI-centric design, DAGChain establishes itself as the coordination layer where agents transact, creators secure ownership, and builders integrate blockchain invisibly into their workflows.
               </p>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
 
           {/* Right Interactive Feature */}
-          <motion.div
+          <m.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -166,7 +166,7 @@ export function About() {
             {/* Feature Navigation */}
             <div className="grid grid-cols-2 gap-3">
               {features.map((feature, index) => (
-                <motion.button
+                <m.button
                   key={index}
                   variants={itemVariants}
                   onClick={() => setActiveFeature(index)}
@@ -186,12 +186,12 @@ export function About() {
                     {React.createElement(feature.icon, { className: "w-6 h-6 text-gray-700" })}
                   </div>
                   <h4 className="font-semibold text-gray-900 text-sm font-nasalization">{feature.title}</h4>
-                </motion.button>
+                </m.button>
               ))}
             </div>
 
             {/* Active Feature Details */}
-            <motion.div
+            <m.div
               key={activeFeature}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -224,12 +224,12 @@ export function About() {
                   </div>
                 ))}
               </div>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         </div>
 
         {/* Bottom Stats Section */}
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -241,7 +241,7 @@ export function About() {
             { number: "20k+", label: "Transactions", sublabel: "Per second capacity" },
             { number: "100.0%", label: "Uptime", sublabel: "Network reliability" }
           ].map((stat, index) => (
-            <motion.div
+            <m.div
               key={index}
               variants={itemVariants}
               className="bg-white p-8 text-center shadow-[20px_20px_40px_rgba(163,177,198,0.3),-20px_-20px_40px_rgba(255,255,255,0.9)] border border-gray-200 rounded-3xl"
@@ -249,9 +249,9 @@ export function About() {
               <div className="text-4xl font-bold text-gray-900 mb-2 font-nasalization">{stat.number}</div>
               <div className="text-lg font-semibold text-gray-800 mb-1">{stat.label}</div>
               <div className="text-sm text-gray-600">{stat.sublabel}</div>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

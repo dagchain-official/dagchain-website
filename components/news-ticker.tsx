@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 
 export function NewsTicker() {
   const newsText = "🚨 IMPORTANT - Node Key Sale Coming Up! Join the DAGChain ecosystem as a Validator to strengthen the Network and earn rewards in DAGChain Testnet. Keep watching for more upcoming announcements! 🚀"
@@ -10,7 +10,7 @@ export function NewsTicker() {
     <div className="relative bg-black/10 backdrop-blur-md text-gray-900 overflow-hidden border-b border-white/20 shadow-lg z-30 mt-16 lg:mt-20">
       {/* Animated Background Pattern */}
       <div className="absolute inset-0 opacity-20">
-        <motion.div
+        <m.div
           className="absolute inset-0"
           style={{
             backgroundImage: `linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%)`,
@@ -35,7 +35,7 @@ export function NewsTicker() {
         <div className="flex items-center">
           
           {/* Breaking News Label */}
-          <motion.div 
+          <m.div 
             className="flex-shrink-0 flex items-center gap-2 mr-6"
             animate={{
               scale: [1, 1.05, 1],
@@ -46,7 +46,7 @@ export function NewsTicker() {
               ease: "easeInOut"
             }}
           >
-            <motion.div
+            <m.div
               className="w-2 h-2 bg-red-500 rounded-full"
               animate={{
                 opacity: [0.5, 1, 0.5],
@@ -61,11 +61,11 @@ export function NewsTicker() {
             <span className="text-sm font-bold tracking-wider font-mono bg-red-500/90 backdrop-blur-sm px-2 py-1 rounded text-white shadow-lg">
               BREAKING
             </span>
-          </motion.div>
+          </m.div>
 
           {/* Scrolling Text Container */}
           <div className="flex-1 overflow-hidden relative">
-            <motion.div
+            <m.div
               className="flex whitespace-nowrap"
               animate={{
                 x: ["100%", "-100%"],
@@ -83,7 +83,7 @@ export function NewsTicker() {
               <span className="text-sm font-medium tracking-wide font-inter pr-20">
                 {newsText}
               </span>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </div>
@@ -93,7 +93,7 @@ export function NewsTicker() {
       
       {/* Floating Particles */}
       {[...Array(5)].map((_, i) => (
-        <motion.div
+        <m.div
           key={i}
           className="absolute w-1 h-1 bg-purple-500 rounded-full opacity-60"
           style={{

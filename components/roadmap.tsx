@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Calendar, CheckCircle, Clock, Target } from "lucide-react"
 
 export function Roadmap() {
@@ -235,7 +235,7 @@ export function Roadmap() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -243,30 +243,30 @@ export function Roadmap() {
           className="text-center mb-16"
         >
           {/* Section Header */}
-          <motion.div
+          <m.div
             variants={itemVariants}
             className="bg-white p-3 shadow-[8px_8px_16px_rgba(163,177,198,0.3),-8px_-8px_16px_rgba(255,255,255,0.9)] border border-gray-200 rounded-2xl inline-block mb-8"
           >
             <span className="text-sm font-semibold text-gray-700 tracking-wider uppercase">ROADMAP</span>
-          </motion.div>
+          </m.div>
 
-          <motion.h2
+          <m.h2
             variants={itemVariants}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 font-nasalization leading-tight"
           >
             Development Timeline
-          </motion.h2>
+          </m.h2>
 
-          <motion.p
+          <m.p
             variants={itemVariants}
             className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-inter"
           >
             Our strategic roadmap from concept to global AI economy infrastructure, with clear milestones and deliverables.
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
 
         {/* Phase Navigation */}
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -274,7 +274,7 @@ export function Roadmap() {
           className="flex flex-wrap justify-center gap-4 mb-12"
         >
           {roadmapData.map((phase, index) => (
-            <motion.button
+            <m.button
               key={index}
               variants={itemVariants}
               onClick={() => setActivePhase(index)}
@@ -288,12 +288,12 @@ export function Roadmap() {
             >
               <div className="text-lg font-bold font-nasalization">{phase.phase}</div>
               <div className="text-sm opacity-80">{phase.period}</div>
-            </motion.button>
+            </m.button>
           ))}
-        </motion.div>
+        </m.div>
 
         {/* Active Phase Content */}
-        <motion.div
+        <m.div
           key={activePhase}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -312,7 +312,7 @@ export function Roadmap() {
           {/* Milestones Grid */}
           <div className="grid md:grid-cols-2 gap-6">
             {roadmapData[activePhase].milestones.map((milestone, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -361,29 +361,29 @@ export function Roadmap() {
                     {milestone.status}
                   </span>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Timeline Overview */}
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           className="bg-white p-8 shadow-[24px_24px_48px_rgba(163,177,198,0.4),-24px_-24px_48px_rgba(255,255,255,0.9)] border border-gray-200 rounded-3xl"
         >
-          <motion.h3
+          <m.h3
             variants={itemVariants}
             className="text-2xl font-bold text-gray-900 mb-6 text-center font-nasalization"
           >
             Complete Timeline Overview
-          </motion.h3>
+          </m.h3>
 
           <div className="grid md:grid-cols-4 gap-4">
             {roadmapData.map((phase, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 variants={itemVariants}
                 onClick={() => setActivePhase(index)}
@@ -398,10 +398,10 @@ export function Roadmap() {
                 <div className="text-lg font-bold text-gray-900 mb-1 font-nasalization">{phase.phase}</div>
                 <div className="text-sm text-gray-600 mb-2">{phase.period}</div>
                 <div className="text-xs text-gray-500">{phase.milestones.length} milestones</div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 import React, { useRef, useEffect } from "react"
@@ -84,7 +84,7 @@ export function Hero() {
 
         {/* Centered DAGChain Title */}
         <div className="absolute inset-0 flex items-center justify-center z-10 pb-96 sm:pb-80 md:pb-72 lg:pb-64">
-          <motion.h1
+          <m.h1
             variants={itemVariants}
             initial="hidden"
             animate="visible"
@@ -96,27 +96,27 @@ export function Hero() {
             <span className="drop-shadow-2xl dagchain-gradient-text">
               CHAIN
             </span>
-          </motion.h1>
+          </m.h1>
         </div>
 
         {/* Bottom Content - Ultra Minimal */}
         <div className="absolute bottom-0 left-0 right-0 z-10 pb-6 sm:pb-8 pt-16 sm:pt-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-            <motion.div
+            <m.div
               variants={containerVariants}
               initial="hidden"
               animate="visible"
             >
               {/* Subtitle */}
-              <motion.h2
+              <m.h2
                 variants={itemVariants}
                 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold font-sora text-white mb-3 sm:mb-4 leading-relaxed drop-shadow-lg"
               >
                 Powering Agentic AI with Layer 1 Blockchain
-              </motion.h2>
+              </m.h2>
 
               {/* Description */}
-              <motion.div
+              <m.div
                 variants={itemVariants}
                 className="text-sm sm:text-base md:text-lg text-white/90 mb-6 sm:mb-8 font-inter drop-shadow-lg max-w-2xl mx-auto"
               >
@@ -136,10 +136,10 @@ export function Hero() {
                     your ideas without the complexity.
                   </span>
                 </div>
-              </motion.div>
+              </m.div>
 
               {/* CTA Buttons - No Container */}
-              <motion.div
+              <m.div
                 variants={itemVariants}
                 className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-4 sm:mb-6"
               >
@@ -165,16 +165,16 @@ export function Hero() {
                 >
                   Whitepaper
                 </button>
-              </motion.div>
+              </m.div>
 
               {/* News Ticker - No Container */}
-              <motion.div
+              <m.div
                 variants={itemVariants}
                 className="bg-black/20 backdrop-blur-sm p-2 sm:p-3 rounded-lg border border-white/10"
               >
                 <div className="flex items-center">
                   <div className="flex-shrink-0 flex items-center gap-2 mr-3">
-                    <motion.div
+                    <m.div
                       className="w-2 h-2 bg-red-500 rounded-full"
                       animate={{
                         opacity: [0.5, 1, 0.5],
@@ -192,7 +192,7 @@ export function Hero() {
                   </div>
 
                   <div className="flex-1 overflow-hidden">
-                    <motion.div
+                    <m.div
                       className="flex whitespace-nowrap"
                       animate={{
                         x: ["100%", "-100%"],
@@ -209,11 +209,11 @@ export function Hero() {
                       <span className="text-sm font-medium tracking-wide text-white/90 pr-20">
                         🚨 IMPORTANT - Node Key Sale Coming Up! Join the DAGChain ecosystem as a Validator to strengthen the Network and earn rewards in DAGChain Testnet. Keep watching for more upcoming announcements! 🚀
                       </span>
-                    </motion.div>
+                    </m.div>
                   </div>
                 </div>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
           </div>
         </div>
       </section>

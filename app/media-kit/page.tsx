@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Download, Palette, Image as ImageIcon, FileText, ArrowLeft } from "lucide-react"
 import Link from "next/link"
 
@@ -54,7 +54,7 @@ export default function MediaKit() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-12">
         {/* Back Button */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
@@ -67,17 +67,17 @@ export default function MediaKit() {
             <ArrowLeft className="w-4 h-4" />
             <span className="text-sm font-medium">Back to Home</span>
           </Link>
-        </motion.div>
+        </m.div>
 
         {/* Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
           {/* Icon */}
-          <motion.div
+          <m.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -86,10 +86,10 @@ export default function MediaKit() {
             <div className="w-20 h-20 rounded-2xl bg-gray-50 shadow-[16px_16px_32px_rgba(163,177,198,0.3),-16px_-16px_32px_rgba(255,255,255,0.9)] flex items-center justify-center border border-gray-200">
               <FileText className="w-10 h-10 text-gray-800" />
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Title */}
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -99,35 +99,35 @@ export default function MediaKit() {
             }}
           >
             DAGChain MEDIA KIT
-          </motion.h1>
+          </m.h1>
 
           {/* Subtitle */}
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-base md:text-lg text-gray-700 font-semibold mb-3"
           >
             Official Brand Assets & Guidelines
-          </motion.p>
+          </m.p>
 
           {/* Description */}
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-sm text-gray-600 max-w-3xl mx-auto"
           >
             Download our official logos, color palettes, and brand assets. Please use these materials in accordance with our brand guidelines.
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
 
         {/* Assets Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {assets.map((asset, index) => {
             const Icon = asset.icon
             return (
-              <motion.div
+              <m.div
                 key={asset.title}
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -182,13 +182,13 @@ export default function MediaKit() {
                   {/* Filename */}
                   <p className="text-xs text-gray-500 text-center mt-3">{asset.filename}</p>
                 </div>
-              </motion.div>
+              </m.div>
             )
           })}
         </div>
 
         {/* Usage Guidelines */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
@@ -223,7 +223,7 @@ export default function MediaKit() {
               </a>
             </p>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </div>
   )

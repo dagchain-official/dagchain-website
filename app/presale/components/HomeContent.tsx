@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { 
   TrendingUp, 
   Clock, 
@@ -73,14 +73,14 @@ export function HomeContent() {
   return (
     <div className="p-8 space-y-8">
       {/* Sale Track Selector */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
       >
         <h2 className="text-xl font-bold text-gray-900 mb-4 font-nasalization">SELECT SALE TRACK</h2>
         <div className="grid grid-cols-2 gap-4">
-          <motion.button
+          <m.button
             onClick={() => setSaleTrack('private')}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
@@ -103,9 +103,9 @@ export function HomeContent() {
               ${saleData.private.price.toFixed(2)}
             </div>
             <div className="text-xs text-gray-600">per DGC token • Phase 1/1</div>
-          </motion.button>
+          </m.button>
 
-          <motion.button
+          <m.button
             onClick={() => setSaleTrack('pre')}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
@@ -128,7 +128,7 @@ export function HomeContent() {
               ${saleData.pre.price.toFixed(2)}
             </div>
             <div className="text-xs text-gray-600">per DGC token • Phase {currentPhase}/4</div>
-          </motion.button>
+          </m.button>
         </div>
 
         {/* Phase Info for Pre-Sale */}
@@ -178,10 +178,10 @@ export function HomeContent() {
             <span className="text-sm text-gray-900 font-bold">August 31, 2026</span>
           </div>
         </div>
-      </motion.div>
+      </m.div>
 
       {/* Stats Grid */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
@@ -215,10 +215,10 @@ export function HomeContent() {
             </div>
           )
         })}
-      </motion.div>
+      </m.div>
 
       {/* Purchase Form */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
@@ -303,7 +303,7 @@ export function HomeContent() {
         )}
 
         {/* Buy Button */}
-        <motion.button
+        <m.button
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           className="w-full py-4 rounded-xl bg-gray-900 text-white font-bold flex items-center justify-center gap-2 relative overflow-hidden group"
@@ -315,12 +315,12 @@ export function HomeContent() {
           <ChevronRight className="w-5 h-5" />
           
           {/* Animated Shine */}
-          <motion.div
+          <m.div
             className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
             animate={{ x: ['-100%', '200%'] }}
             transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
           />
-        </motion.button>
+        </m.button>
 
         {/* Info Grid */}
         <div className="grid md:grid-cols-2 gap-4 mt-6">
@@ -352,10 +352,10 @@ export function HomeContent() {
             </p>
           </div>
         </div>
-      </motion.div>
+      </m.div>
 
       {/* Features */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
@@ -387,7 +387,7 @@ export function HomeContent() {
             </div>
           )
         })}
-      </motion.div>
+      </m.div>
     </div>
   )
 }

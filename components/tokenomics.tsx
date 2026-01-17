@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { PieChart, BarChart3, TrendingUp, Users, Lock, Coins } from "lucide-react"
 import { PieChart as RechartsPieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from "recharts"
 
@@ -247,7 +247,7 @@ export function Tokenomics() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -255,30 +255,30 @@ export function Tokenomics() {
           className="text-center mb-16"
         >
           {/* Section Header */}
-          <motion.div
+          <m.div
             variants={itemVariants}
             className="bg-white p-3 shadow-[8px_8px_16px_rgba(163,177,198,0.3),-8px_-8px_16px_rgba(255,255,255,0.9)] border border-gray-200 rounded-2xl inline-block mb-8"
           >
             <span className="text-sm font-semibold text-gray-700 tracking-wider uppercase">TOKENOMICS</span>
-          </motion.div>
+          </m.div>
 
-          <motion.h2
+          <m.h2
             variants={itemVariants}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 font-nasalization leading-tight"
           >
             DAGChain Token Economics
-          </motion.h2>
+          </m.h2>
 
-          <motion.p
+          <m.p
             variants={itemVariants}
             className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-inter"
           >
             Sustainable tokenomics designed for long-term ecosystem growth with fair distribution and strong incentive alignment.
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
 
         {/* Total Supply Overview */}
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -286,16 +286,16 @@ export function Tokenomics() {
           className="bg-white p-8 shadow-[30px_30px_60px_rgba(163,177,198,0.4),-30px_-30px_60px_rgba(255,255,255,0.9)] border border-gray-200 rounded-3xl mb-12"
         >
           <div className="text-center mb-8">
-            <motion.h3
+            <m.h3
               variants={itemVariants}
               className="text-3xl font-bold text-gray-900 mb-4 font-nasalization"
             >
               Total Supply: {formatNumber(tokenomicsData.totalSupply)} DGC
-            </motion.h3>
+            </m.h3>
             
             <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
               {/* Preminted Box */}
-              <motion.div
+              <m.div
                 variants={itemVariants}
                 className="bg-gray-50 p-6 shadow-[inset_12px_12px_24px_rgba(163,177,198,0.2),inset_-12px_-12px_24px_rgba(255,255,255,0.8)] border border-gray-200 rounded-2xl text-center"
               >
@@ -307,10 +307,10 @@ export function Tokenomics() {
                 </h4>
                 <p className="text-lg text-gray-600 mb-1">Preminted ({tokenomicsData.preminted.percentage}%)</p>
                 <p className="text-sm text-gray-500">Initial distribution & operations</p>
-              </motion.div>
+              </m.div>
 
               {/* Donut Chart */}
-              <motion.div
+              <m.div
                 variants={itemVariants}
                 className="bg-gray-50 p-6 shadow-[inset_12px_12px_24px_rgba(163,177,198,0.2),inset_-12px_-12px_24px_rgba(255,255,255,0.8)] border border-gray-200 rounded-2xl"
               >
@@ -333,10 +333,10 @@ export function Tokenomics() {
                   </RechartsPieChart>
                 </ResponsiveContainer>
                 <p className="text-xs text-gray-500 text-center mt-2">Hover to see Tokenomics details</p>
-              </motion.div>
+              </m.div>
 
               {/* Mintable Box */}
-              <motion.div
+              <m.div
                 variants={itemVariants}
                 className="bg-gray-50 p-6 shadow-[inset_12px_12px_24px_rgba(163,177,198,0.2),inset_-12px_-12px_24px_rgba(255,255,255,0.8)] border border-gray-200 rounded-2xl text-center"
               >
@@ -348,13 +348,13 @@ export function Tokenomics() {
                 </h4>
                 <p className="text-lg text-gray-600 mb-1">Mintable ({tokenomicsData.mintable.percentage}%)</p>
                 <p className="text-sm text-gray-500">Network rewards & incentives</p>
-              </motion.div>
+              </m.div>
             </div>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* View Toggle */}
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -366,7 +366,7 @@ export function Tokenomics() {
             { key: 'preminted', label: 'Preminted Allocation', icon: Lock },
             { key: 'mintable', label: 'Mintable Rewards', icon: Coins }
           ].map((view) => (
-            <motion.button
+            <m.button
               key={view.key}
               variants={itemVariants}
               onClick={() => setActiveView(view.key as any)}
@@ -380,12 +380,12 @@ export function Tokenomics() {
             >
               {React.createElement(view.icon, { className: "w-5 h-5 inline mr-2" })}
               {view.label}
-            </motion.button>
+            </m.button>
           ))}
-        </motion.div>
+        </m.div>
 
         {/* Active View Content */}
-        <motion.div
+        <m.div
           key={activeView}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -476,7 +476,7 @@ export function Tokenomics() {
               
               <div className="grid md:grid-cols-2 gap-6">
                 {tokenomicsData.preminted.allocations.filter(a => a.percentage > 0).map((allocation, index) => (
-                  <motion.div
+                  <m.div
                     key={index}
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -501,7 +501,7 @@ export function Tokenomics() {
                         </div>
                       ))}
                     </div>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
             </div>
@@ -515,7 +515,7 @@ export function Tokenomics() {
               
               <div className="grid md:grid-cols-2 gap-6">
                 {tokenomicsData.mintable.allocations.map((allocation, index) => (
-                  <motion.div
+                  <m.div
                     key={index}
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -540,12 +540,12 @@ export function Tokenomics() {
                         </div>
                       ))}
                     </div>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
             </div>
           )}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

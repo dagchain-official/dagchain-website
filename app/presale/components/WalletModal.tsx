@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, AnimatePresence } from "framer-motion"
+import { m, AnimatePresence } from "framer-motion"
 import { X } from "lucide-react"
 
 interface WalletModalProps {
@@ -16,7 +16,7 @@ export function WalletModal({ isOpen, onClose, onConnect }: WalletModalProps) {
     <AnimatePresence>
       <div className="fixed inset-0 z-[9999] flex items-center justify-center">
         {/* Backdrop */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -25,7 +25,7 @@ export function WalletModal({ isOpen, onClose, onConnect }: WalletModalProps) {
         />
 
         {/* Modal */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -88,7 +88,7 @@ export function WalletModal({ isOpen, onClose, onConnect }: WalletModalProps) {
           <p className="text-xs text-gray-500 text-center mt-6">
             By connecting, you agree to our Terms of Service
           </p>
-        </motion.div>
+        </m.div>
       </div>
     </AnimatePresence>
   )

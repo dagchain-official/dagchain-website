@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useRef, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { m } from "framer-motion"
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 
 interface WelcomeScreenProps {
@@ -54,7 +54,7 @@ export function WelcomeScreen({ onComplete }: WelcomeScreenProps) {
 
       {/* Lottie Animation */}
       <div className="w-full h-full flex items-center justify-center relative z-10">
-        <motion.div 
+        <m.div 
           className="w-full h-full max-w-[600px] max-h-[600px] flex items-center justify-center"
           animate={{
             scale: shouldZoom ? 3 : 1
@@ -85,7 +85,7 @@ export function WelcomeScreen({ onComplete }: WelcomeScreenProps) {
               setAnimationLoaded(true)
             }}
           />
-        </motion.div>
+        </m.div>
       </div>
 
       {/* Fallback - show a simple animation if Lottie fails */}
@@ -113,7 +113,7 @@ export function WelcomeScreen({ onComplete }: WelcomeScreenProps) {
 
       {/* Welcome Text */}
       <div className="absolute bottom-24 sm:bottom-32 left-1/2 transform -translate-x-1/2 z-20 px-4 w-full">
-        <motion.h1
+        <m.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ 
             opacity: shouldZoom ? 0 : 1, 
@@ -126,12 +126,12 @@ export function WelcomeScreen({ onComplete }: WelcomeScreenProps) {
           className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 text-center font-sora"
         >
           Welcome to <span className="font-nasalization">DAGChain</span>
-        </motion.h1>
+        </m.h1>
       </div>
 
       {/* Loading Indicator */}
       <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20 px-4">
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={{ 
             opacity: shouldZoom ? 0 : 1 
@@ -149,7 +149,7 @@ export function WelcomeScreen({ onComplete }: WelcomeScreenProps) {
             }}
           ></div>
           <span className="text-xs sm:text-sm font-medium">Loading Experience...</span>
-        </motion.div>
+        </m.div>
       </div>
     </div>
   )

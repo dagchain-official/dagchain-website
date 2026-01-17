@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from 'react'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { Trophy, TrendingUp, Award } from 'lucide-react'
 
 export function Leaderboard() {
@@ -57,7 +57,7 @@ export function Leaderboard() {
   return (
     <div className="space-y-6">
       {/* Leaderboard Header */}
-      <motion.div 
+      <m.div 
         className="bg-white shadow-xl p-6 rounded-2xl border border-gray-200"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -99,7 +99,7 @@ export function Leaderboard() {
         {/* Leaderboard Table */}
         <div className="space-y-3">
           {getCurrentLeaderboard().map((user, index) => (
-            <motion.div
+            <m.div
               key={user.rank}
               className="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors border border-gray-200"
               initial={{ opacity: 0, x: -20 }}
@@ -133,14 +133,14 @@ export function Leaderboard() {
                   {user.change}
                 </span>
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
-      </motion.div>
+      </m.div>
 
       {/* Leaderboard Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <motion.div 
+        <m.div 
           className="bg-white shadow-xl p-6 rounded-2xl text-center border border-gray-200"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -152,9 +152,9 @@ export function Leaderboard() {
           <h3 className="text-lg font-semibold text-gray-800 mb-2">Total Participants</h3>
           <p className="text-3xl font-bold text-blue-600">2,847</p>
           <p className="text-sm text-gray-600 mt-1">Active users</p>
-        </motion.div>
+        </m.div>
 
-        <motion.div 
+        <m.div 
           className="bg-white shadow-xl p-6 rounded-2xl text-center border border-gray-200"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -166,9 +166,9 @@ export function Leaderboard() {
           <h3 className="text-lg font-semibold text-gray-800 mb-2">Your Best Rank</h3>
           <p className="text-3xl font-bold text-green-600">#23</p>
           <p className="text-sm text-gray-600 mt-1">All time high</p>
-        </motion.div>
+        </m.div>
 
-        <motion.div 
+        <m.div 
           className="bg-white shadow-xl p-6 rounded-2xl text-center border border-gray-200"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -180,7 +180,7 @@ export function Leaderboard() {
           <h3 className="text-lg font-semibold text-gray-800 mb-2">Achievements</h3>
           <p className="text-3xl font-bold text-yellow-600">7</p>
           <p className="text-sm text-gray-600 mt-1">Badges earned</p>
-        </motion.div>
+        </m.div>
       </div>
     </div>
   )

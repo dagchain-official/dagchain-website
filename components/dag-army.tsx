@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Shield, Award, TrendingUp, Users, CheckCircle, Zap, Trophy, Target, Gift, Star } from "lucide-react"
 
 export function DagArmy() {
@@ -117,21 +117,21 @@ export function DagArmy() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
           className="text-center mb-20"
         >
-          <motion.div variants={itemVariants} className="inline-block mb-6">
+          <m.div variants={itemVariants} className="inline-block mb-6">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-gray-400 to-gray-600 blur-2xl opacity-20"></div>
               <Shield className="w-20 h-20 text-gray-800 relative z-10 mx-auto drop-shadow-2xl" />
             </div>
-          </motion.div>
+          </m.div>
 
-          <motion.h2 
+          <m.h2 
             variants={itemVariants}
             className="text-3xl md:text-4xl font-bold mb-4 font-nasalization text-gray-900 tracking-tight"
             style={{
@@ -139,16 +139,16 @@ export function DagArmy() {
             }}
           >
             DAG ARMY
-          </motion.h2>
+          </m.h2>
           
-          <motion.p 
+          <m.p 
             variants={itemVariants}
             className="text-base md:text-lg text-gray-700 font-semibold mb-6"
           >
             The Chain is Only as Strong as Its ARMY
-          </motion.p>
+          </m.p>
 
-          <motion.div 
+          <m.div 
             variants={itemVariants}
             className="max-w-4xl mx-auto space-y-3"
           >
@@ -161,27 +161,27 @@ export function DagArmy() {
             <p className="text-sm text-gray-700 leading-relaxed font-semibold">
               Become a Super Representative (S.R) and secure your position in the DAGChain ecosystem - for rewards, purpose, and prestige.
             </p>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
 
         {/* Two Paths Section */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
           className="mb-20"
         >
-          <motion.div variants={itemVariants} className="text-center mb-10">
+          <m.div variants={itemVariants} className="text-center mb-10">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 font-nasalization">
               🏅 Three Tiers. One Mission.
             </h3>
             <p className="text-sm md:text-base text-gray-700 font-semibold">Choose your role. Earn points. Shape the network.</p>
-          </motion.div>
+          </m.div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {medals.map((medal, index) => (
-              <motion.div
+              <m.div
                 key={medal.subtitle}
                 variants={itemVariants}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
@@ -281,11 +281,11 @@ export function DagArmy() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
 
-          <motion.div 
+          <m.div 
             variants={itemVariants}
             className="mt-6 text-center p-5 rounded-2xl bg-white shadow-[12px_12px_24px_rgba(163,177,198,0.3),-12px_-12px_24px_rgba(255,255,255,0.9)] border border-gray-200 max-w-4xl mx-auto"
           >
@@ -297,29 +297,29 @@ export function DagArmy() {
             <p className="text-gray-800 font-bold text-sm">
               🏆 Accumulate 50,000+ DAG Points or $1,000+ in Sales to become exclusive DAG Commander!
             </p>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
 
         {/* Benefits Section */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
           className="mb-20"
         >
-          <motion.h3 
+          <m.h3 
             variants={itemVariants}
             className="text-2xl md:text-3xl font-bold text-gray-900 mb-10 text-center font-nasalization"
           >
             💼 Your Benefits as a DAG ARMY Member
-          </motion.h3>
+          </m.h3>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon
               return (
-                <motion.div
+                <m.div
                   key={benefit.title}
                   variants={itemVariants}
                   whileHover={{ y: -5, transition: { duration: 0.3 } }}
@@ -330,30 +330,30 @@ export function DagArmy() {
                   </div>
                   <h4 className="text-base font-bold text-gray-900 mb-2">{benefit.title}</h4>
                   <p className="text-gray-700 text-xs leading-relaxed">{benefit.desc}</p>
-                </motion.div>
+                </m.div>
               )
             })}
           </div>
-        </motion.div>
+        </m.div>
 
         {/* How It Works */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
           className="mb-20"
         >
-          <motion.h3 
+          <m.h3 
             variants={itemVariants}
             className="text-2xl md:text-3xl font-bold text-gray-900 mb-10 text-center font-nasalization"
           >
             ⚙️ How It Works
-          </motion.h3>
+          </m.h3>
 
           <div className="max-w-4xl mx-auto space-y-6">
             {steps.map((step, index) => (
-              <motion.div
+              <m.div
                 key={step.number}
                 variants={itemVariants}
                 whileHover={{ x: 10, transition: { duration: 0.3 } }}
@@ -366,27 +366,27 @@ export function DagArmy() {
                   <h4 className="text-base font-bold text-gray-900 mb-1 group-hover:text-white">{step.title}</h4>
                   <p className="text-gray-700 text-sm group-hover:text-white/90">{step.desc}</p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Profit Distribution */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
           className="mb-20"
         >
-          <motion.h3 
+          <m.h3 
             variants={itemVariants}
             className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center font-nasalization"
           >
             🪙 Reward Distribution
-          </motion.h3>
+          </m.h3>
 
-          <motion.div 
+          <m.div 
             variants={itemVariants}
             className="max-w-4xl mx-auto p-8 rounded-3xl bg-gray-50 shadow-[20px_20px_40px_rgba(163,177,198,0.4),-20px_-20px_40px_rgba(255,255,255,0.9)] border border-gray-200"
           >
@@ -416,18 +416,18 @@ export function DagArmy() {
             <p className="text-gray-800 text-center font-semibold text-sm">
               The more medals you hold, the larger your share of the reward pool.
             </p>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
 
         {/* CTA Button */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
           className="text-center"
         >
-          <motion.button
+          <m.button
             variants={itemVariants}
             whileHover={{ scale: 1.05, y: -5 }}
             whileTap={{ scale: 0.98 }}
@@ -440,7 +440,7 @@ export function DagArmy() {
             </span>
             
             {/* Animated glow effect */}
-            <motion.div
+            <m.div
               className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
               animate={{
                 x: ['-200%', '200%'],
@@ -452,12 +452,12 @@ export function DagArmy() {
                 ease: "linear"
               }}
             />
-          </motion.button>
+          </m.button>
 
           <p className="mt-6 text-gray-600 text-sm">
             Limited positions available. Secure your medal today.
           </p>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )
