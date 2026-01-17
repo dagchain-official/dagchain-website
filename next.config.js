@@ -56,6 +56,7 @@ const nextConfig = {
       'framer-motion', 
       '@radix-ui/react-icons'
     ],
+    optimizeCss: true
   },
   webpack: (config) => {
     config.module.rules.push({

@@ -123,9 +123,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="font/woff2"
           crossOrigin="anonymous"
         />
-
-        {/* Resource hint for the main CSS file */}
-        <link rel="preload" href="/_next/static/css/250d7435bd29f9b1.css" as="style" />
         
         {/* Google Analytics - Load After Interactive to boost LCP */}
         {/* <Script
