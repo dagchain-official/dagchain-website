@@ -117,6 +117,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* 5. Analytics offloaded to Web Worker via Partytown */}
         <Partytown debug={false} forward={['dataLayer.push']} />
+        
         {/* Load GTM via Worker Strategy */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-73EW4LY9JQ"

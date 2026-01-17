@@ -110,7 +110,7 @@ export function Hero() {
               {/* Subtitle */}
               <m.h2
                 variants={itemVariants}
-                className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold font-sora text-white mb-3 sm:mb-4 leading-relaxed drop-shadow-lg"
+                className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold font-sans text-white mb-3 sm:mb-4 leading-relaxed drop-shadow-lg"
               >
                 Powering Agentic AI with Layer 1 Blockchain
               </m.h2>
