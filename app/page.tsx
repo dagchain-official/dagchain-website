@@ -1,13 +1,14 @@
+"use client";
+
 import dynamic from "next/dynamic";
 import { AppWrapper } from "@/components/app-wrapper";
 import { useVisitorTracking } from "@/lib/useVisitorTracking";
-import { WaitlistManager } from "@/components/WaitlistManager";
-import { Navbar } from "@/components/navbar"; // STATIC IMPORT
-import { Hero } from "@/components/hero"; // STATIC IMPORT
 
 const SectionSkeleton = () => <div className="h-[400px] w-full bg-slate-900/20 animate-pulse" />;
 
 // Below-the-fold components are loaded dynamically
+const Navbar = dynamic(() => import('@/components/navbar').then(mod => ({ ssr: true, loading: () => <SectionSkeleton />, default: mod.Navbar })));
+const Hero = dynamic(() => import('@/components/hero').then(mod => ({ ssr: true, loading: () => <SectionSkeleton />, default: mod.Hero })));
 const About = dynamic(() => import('@/components/about').then(mod => ({ ssr: false, loading: () => <SectionSkeleton />, default: mod.About })));
 const Technology = dynamic(() => import('@/components/technology').then(mod => ({ ssr: false, loading: () => <SectionSkeleton />, default: mod.Technology })));
 const LogoLoopSection = dynamic(() => import("@/components/logo-loop").then(mod => ({ ssr: false, loading: () => <SectionSkeleton />, default: mod.LogoLoopSection })));
@@ -19,6 +20,7 @@ const Ecosystem = dynamic(() => import("@/components/ecosystem").then(mod => ({ 
 const DagArmy = dynamic(() => import("@/components/dag-army").then(mod => ({ ssr: false, loading: () => <SectionSkeleton />, default: mod.DagArmy })));
 const RevolutionCTA = dynamic(() => import("@/components/revolution-cta").then(mod => ({ ssr: false, loading: () => <SectionSkeleton />, default: mod.RevolutionCTA })));
 const BookMeeting = dynamic(() => import("@/components/book-meeting").then(mod => ({ ssr: false, loading: () => <SectionSkeleton />, default: mod.BookMeeting })));
+const WaitlistManager = dynamic(() => import("@/components/WaitlistManager").then(mod => ({ ssr: false, loading: () => <SectionSkeleton />, default: mod.WaitlistManager })));
 
 export default function Home() {
 
