@@ -29,6 +29,7 @@ const nextConfig = {
     ];
   },
   compiler: {
+    styledComponents: true,
     removeConsole: process.env.NODE_ENV === "production",
   },
   images: {
@@ -47,14 +48,16 @@ const nextConfig = {
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
   reactStrictMode: true,
-  swcMinify: true, 
+  swcMinify: true,
+  transpilePackages: ['@web3-onboard/core', 'framer-motion'],
   experimental: {
     // Aggressive package tree-shaking for mobile JS reduction
     optimizePackageImports: [
       'lucide-react', 
       '@web3-onboard', 
       'framer-motion', 
-      '@radix-ui/react-icons'
+      '@radix-ui/react-icons',
+      'ethers'
     ],
     optimizeCss: true
   },
